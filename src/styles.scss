@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+// Core variables and mixins
+// @import "variables";
+// @import "mixins";
+// @import "custom";
+
+// Reset and dependencies
+// @import "normalize";
+// @import "print";
+
+@import './app/scss/index';
+
+// Font Awesome
+@import "./assets/font-awesome/font-awesome";

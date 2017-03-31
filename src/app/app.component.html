@@ -1,3 +1,21 @@
 <h1>
   {{title}}
 </h1>
+
+<ngx-datatable class="fixed-height" [rows]="dataset" columnMode="flex" [footerHeight]="50" [scrollbarV]="true">
+  <ngx-datatable-column name="Name" [flexGrow]="3">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Gender" [flexGrow]="1">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Age" [flexGrow]="1">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
