@@ -1,3 +1,6 @@
+// Font Awesome
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Lato');
+
 // Core variables and mixins
 @import "variables";
 @import "mixins";
@@ -8,8 +11,8 @@
 // @import "print";
 
 // Core CSS
-// @import "reboot";
-// @import "type";
+@import "reboot";
+@import "type";
 // @import "images";
 // @import "code";
 // @import "grid";
