@@ -1,0 +1,49 @@
+@import '../scss/_variables';
+@import '../scss/_mixins';
+
+@mixin user-select($value) {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.wui-button,
+.wui-icon-button {
+    box-sizing: border-box;
+    position: relative;
+
+    @include user-select(none);
+    outline: none;
+    border: none;
+
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+
+    .primary {
+        @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    }
+    .secondary {
+        @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+    }
+    .info {
+        @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+    }
+    .success {
+        @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+    }
+    .warning {
+        @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+    }
+    .danger {
+        @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+    }
+}

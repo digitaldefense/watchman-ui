@@ -1,21 +1,29 @@
-<h1>
-  {{title}}
-</h1>
-
-<ngx-datatable class="fixed-height" [rows]="dataset" columnMode="flex" [footerHeight]="50" [scrollbarV]="true">
-  <ngx-datatable-column name="Name" [flexGrow]="3">
-    <ng-template let-value="value" ngx-datatable-cell-template>
-      {{value}}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="Gender" [flexGrow]="1">
-    <ng-template let-value="value" ngx-datatable-cell-template>
-      {{value}}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="Age" [flexGrow]="1">
-    <ng-template let-value="value" ngx-datatable-cell-template>
-      {{value}}
-    </ng-template>
-  </ngx-datatable-column>
-</ngx-datatable>
+<div fxLayout="row">
+  <div fxFlex="20">
+    <h1>Watchman UI</h1>
+    <ul class="list-unstyled">
+      <li><a routerLink="/type" routerLinkActive="active">Typography</a></li>
+      <li><a routerLink="/forms" routerLinkActive="active">Forms</a></li>
+    </ul>
+  </div>
+  <div fxFlexFill>
+    <!--<ngx-datatable class="fixed-height" [rows]="dataset" columnMode="flex" [footerHeight]="50" [scrollbarV]="true">
+      <ngx-datatable-column name="Name" [flexGrow]="3">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Gender" [flexGrow]="1">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Age" [flexGrow]="1">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>-->
+    <router-outlet></router-outlet>
+  </div>
+</div>

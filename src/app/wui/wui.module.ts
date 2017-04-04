@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { WuiButtonModule } from './button/index';
 
 const modules = [
-  CommonModule,
   FlexLayoutModule,
-  FormsModule
+  WuiButtonModule
 ];
 
 @NgModule({
-  imports: [...modules],
-  providers: [],
+  imports: [
+    FlexLayoutModule,
+    WuiButtonModule,
+  ],
+  exports: modules,
 })
 export class WuiModule { }

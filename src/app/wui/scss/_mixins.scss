@@ -35,7 +35,7 @@
 
 // // Components
 // @import "mixins/alert";
-// @import "mixins/buttons";
+@import "mixins/buttons";
 // @import "mixins/cards";
 // @import "mixins/pagination";
 @import "mixins/lists";
@@ -46,7 +46,7 @@
 
 // // Skins
 // @import "mixins/background-variant";
-// @import "mixins/border-radius";
+@import "mixins/border-radius";
 // @import "mixins/gradients";
 
 // // Layout
