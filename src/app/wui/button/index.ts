@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import {
     WuiButton,
     WuiButtonStyler,
+    WuiRaisedButtonStyler,
 } from './button.component';
 
 export * from './button.component';
@@ -14,11 +15,13 @@ export * from './button.component';
     ],
     exports: [
         WuiButton,
-        WuiButtonStyler
+        WuiButtonStyler,
+        WuiRaisedButtonStyler
     ],
     declarations: [
         WuiButton,
-        WuiButtonStyler
+        WuiButtonStyler,
+        WuiRaisedButtonStyler
     ]
 })
 

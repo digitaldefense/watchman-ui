@@ -22,28 +22,54 @@
     text-decoration: none;
     vertical-align: baseline;
 
+    font-size: $btn-font-size;
     text-align: center;
     font-weight: 500;
     text-transform: uppercase;
 
-    @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+    margin: 0;
+    min-width: 88px;
+    line-height: 36px;
+    padding: $btn-padding-y, $btn-padding-x;
+    border-radius: $btn-border-radius;
 
-    .primary {
+    // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+}
+
+.wui-raised-button {
+    @extend .wui-button;
+
+    transform: translate3d(0, 0, 0);
+
+    &[disabled] {
+        box-shadow: none;
+    }
+}
+
+.wui-button,
+.wui-raised-button,
+.wui-icon-button {
+    // color: currentColor;
+    .wui-button-wrapper > * {
+        vertical-align: middle;
+    }
+
+    &.primary {
         @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
     }
-    .secondary {
+    &.accent {
         @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
     }
-    .info {
+    &.info {
         @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
     }
-    .success {
+    &.success {
         @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
     }
-    .warning {
+    &.warning {
         @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
     }
-    .danger {
+    &.danger {
         @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
     }
 }
