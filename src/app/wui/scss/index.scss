@@ -24,3 +24,11 @@
 @import "tables";
 // @import "forms";
 // @import "buttons";
+
+.section-head {
+    border-bottom: 1px solid $color-accent;
+    margin-bottom: $spacer-y;
+    .title {
+        margin: 0;
+    }
+}

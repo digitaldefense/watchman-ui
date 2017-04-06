@@ -1,3 +1,12 @@
+$headline-font-size: 1.2rem !default;
+$headline-font-weight: 500 !default;
+
+$title-font-size: 1.4rem !default;
+$title-font-weight: 100 !default;
+
+$subtitle-font-size: 0.9rem !default;
+$subtitle-font-weight: 500 !default;
+
 //
 // Headings
 //
@@ -25,24 +34,59 @@ h6, .h6 { font-size: $font-size-h6; }
 
 // Type display classes
 .display-1 {
+  font-family: $headings-font-family;
   font-size: $display1-size;
   font-weight: $display1-weight;
   line-height: $display-line-height;
 }
 .display-2 {
+  font-family: $headings-font-family;
   font-size: $display2-size;
   font-weight: $display2-weight;
   line-height: $display-line-height;
 }
 .display-3 {
+  font-family: $headings-font-family;
   font-size: $display3-size;
   font-weight: $display3-weight;
   line-height: $display-line-height;
 }
 .display-4 {
+  font-family: $headings-font-family;
   font-size: $display4-size;
   font-weight: $display4-weight;
   line-height: $display-line-height;
+}
+
+.headline {
+  font-size: $headline-font-size;
+  font-weight: $headline-font-weight;
+}
+
+.title {
+  font-size: $title-font-size;
+  font-weight: $title-font-weight;
+  border-bottom: 2px solid $color-accent;
+  padding-bottom: .1em;
+
+  // border-width: 2px;
+  // border-style: solid;
+  // -webkit-border-image: 
+  //   -webkit-gradient(linear, 0 0, 0 100%, from(white), to(rgba(0, 0, 0, 0))) 1 100%;
+  // -webkit-border-image: 
+  //   -webkit-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  // -moz-border-image:
+  //   -moz-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;    
+  // -o-border-image:
+  //   -o-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+    linear-gradient(to right, $color-accent, $color-accent 50px, rgba(0, 0, 0, 0) 50px);
+  border-image-slice: 1;
+}
+
+.subtitle {
+  font-size: $subtitle-font-size;
+  font-weight: $subtitle-font-weight;
 }
 
 
@@ -64,7 +108,8 @@ hr {
 
 small,
 .small {
-  font-size: $small-font-size;
+  // font-size: $small-font-size;
+  font-size: 80%;
   font-weight: $font-weight-normal;
 }
 
