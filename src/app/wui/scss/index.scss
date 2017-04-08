@@ -2,8 +2,8 @@
 @import "./assets/font-awesome/font-awesome";
 
 // Google Fonts
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Lato');
-// @import "./assets/font-awesome/font-awesome";
+// @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Lato');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle|Yantramanav:300,700');
 // @import "./assets/font-awesome/font-awesome";
 
 // Core variables and mixins
@@ -57,5 +57,5 @@
 
 // structure
 .wui-padding {
-    padding: $spacer;
+    padding: 0 $spacer-x;
 }

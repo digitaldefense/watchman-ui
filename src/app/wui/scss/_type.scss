@@ -1,11 +1,11 @@
 $headline-font-size: 1.2rem !default;
-$headline-font-weight: 500 !default;
+$headline-font-weight: $headings-font-weight !default;
 
 $title-font-size: 1.4rem !default;
-$title-font-weight: 100 !default;
+$title-font-weight: 300 !default;
 
-$subtitle-font-size: 0.9rem !default;
-$subtitle-font-weight: 500 !default;
+$subtitle-font-size: 0.8rem !default;
+$subtitle-font-weight: $headings-font-weight !default;
 
 //
 // Headings
