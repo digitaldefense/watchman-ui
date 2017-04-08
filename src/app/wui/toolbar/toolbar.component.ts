@@ -9,13 +9,13 @@ import {
 } from '@angular/core';
 
 
-// @Directive({
-//   selector: 'wui-toolbar-row',
-//   host: {
-//     '[class.wui-toolbar-row]': 'true',
-//   },
-// })
-// export class ToolbarRowDirective {}
+@Directive({
+  selector: 'wui-toolbar-row',
+  host: {
+    '[class.wui-toolbar-row]': 'true',
+  },
+})
+export class WuiToolbarRowDirective {}
 
 @Component({
   moduleId: module.id,
@@ -29,7 +29,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class ToolbarComponent {
+export class WuiToolbarComponent {
 
   private _color: string;
 
@@ -53,7 +53,7 @@ export class ToolbarComponent {
 
   private _setElementColor(color: string, isAdd: boolean) {
     if (color != null && color != '') {
-      this.renderer.setElementClass(this.elementRef.nativeElement, `mat-${color}`, isAdd);
+      this.renderer.setElementClass(this.elementRef.nativeElement, `wui-${color}`, isAdd);
     }
   }
 
