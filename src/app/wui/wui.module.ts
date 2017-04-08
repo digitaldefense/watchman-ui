@@ -1,22 +1,33 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+
+import {
+  WuiColorModule,
+  WuiPaddingModule
+} from './core'
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { WuiToolbarModule } from './toolbar/index';
 import { WuiButtonModule } from './button/index';
 import { WuiInputModule } from './input/index';
 
-const modules = [
+const WUI_MODULES = [
   FlexLayoutModule,
   WuiButtonModule,
-  WuiInputModule
+  WuiColorModule,
+  WuiPaddingModule,
+  WuiInputModule,
+  WuiToolbarModule
 ];
 
 @NgModule({
-  imports: [
-    FlexLayoutModule,
-    WuiButtonModule,
-    WuiInputModule
-  ],
-  exports: modules,
+  imports: WUI_MODULES,
+  exports: WUI_MODULES,
 })
-export class WuiModule { }
+export class WuiModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: WuiModule,
+      providers: []
+    }
+  }
+}
