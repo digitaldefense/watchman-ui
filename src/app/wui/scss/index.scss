@@ -25,10 +25,37 @@
 // @import "forms";
 // @import "buttons";
 
+.section {
+    margin-bottom: $spacer-y;
+}
+
 .section-head {
     border-bottom: 1px solid $color-accent;
+    position: relative;
     margin-bottom: $spacer-y;
     .title {
         margin: 0;
     }
+}
+
+// colors
+.wui-primary {
+    background-color: $brand-primary;
+}
+.wui-accent {
+    background-color: $color-accent;
+}
+.wui-warning {
+    background-color: $brand-warning;
+}
+.wui-danger {
+    background-color: $brand-danger;
+}
+.wui-default {
+    background-color: $bg-medium;
+}
+
+// structure
+.wui-padding {
+    padding: $spacer;
 }
