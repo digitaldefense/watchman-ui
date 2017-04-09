@@ -1,0 +1,46 @@
+@import '../scss/_mixins';
+@import '../scss/_variables';
+
+$wui-toolbar-height-desktop: 64px !default;
+$wui-toolbar-height-mobile-portrait: 56px !default;
+$wui-toolbar-height-mobile-landscape: 48px !default;
+
+@mixin wui-toolbar-height($height) {
+  .wui-toolbar {
+    min-height: $height;
+  }
+  .wui-toolbar-row {
+    height: $height;
+  }
+}
+
+.wui-toolbar {
+  display: flex;
+//   background-color: $bg-dark;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 $spacer-x;
+  flex-direction: column;
+
+  .wui-toolbar-row {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+
+    // Flexbox Vertical Alignment
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+  }
+}
+
+// Set the default height for the toolbar.
+@include wui-toolbar-height($wui-toolbar-height-desktop);
+
+// As per specs, mobile devices will use a different height for toolbars than for desktop.
+// The height for mobile landscape devices has been ignored since relying on `@media orientation`
+// is causing issues on devices with a soft-keyboard.
+// See: https://material.io/guidelines/layout/structure.html#structure-app-bar
+// @media ($mat-xsmall) {
+//   @include wui-toolbar-height($wui-toolbar-height-mobile-portrait);
+// }

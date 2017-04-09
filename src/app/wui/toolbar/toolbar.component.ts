@@ -5,7 +5,7 @@ import {
   ViewEncapsulation,
   Directive,
   ElementRef,
-  Renderer
+  Renderer2
 } from '@angular/core';
 
 
@@ -22,10 +22,10 @@ export class WuiToolbarRowDirective {}
   selector: 'wui-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
-  // host: {
-  //   '[class.mat-toolbar]': 'true',
-  //   'role': 'toolbar'
-  // },
+  host: {
+    '[class.wui-toolbar]': 'true',
+    'role': 'toolbar'
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
@@ -33,7 +33,7 @@ export class WuiToolbarComponent {
 
   private _color: string;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   /** The color of the toolbar. Can be primary, accent, or warn. */
   @Input()
@@ -46,14 +46,17 @@ export class WuiToolbarComponent {
   }
 
   private _updateColor(newColor: string) {
-    this._setElementColor(this._color, false);
-    this._setElementColor(newColor, true);
+    // this._setElementColor(this._color, false);
+    this._setElementColor(newColor);
     this._color = newColor;
   }
 
-  private _setElementColor(color: string, isAdd: boolean) {
-    if (color != null && color != '') {
-      this.renderer.setElementClass(this.elementRef.nativeElement, `wui-${color}`, isAdd);
+  private _setElementColor(color: string) {
+    if (color != null && color !== '') {
+      this.renderer.addClass(this.elementRef.nativeElement, `wui-${color}`);
+    }
+    else {
+      this.renderer.addClass(this.elementRef.nativeElement, `wui-default`);
     }
   }
 

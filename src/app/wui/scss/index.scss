@@ -40,19 +40,19 @@
 
 // colors
 .wui-primary {
-    background-color: $brand-primary;
+    background-color: $brand-primary !important;
 }
 .wui-accent {
-    background-color: $color-accent;
+    background-color: $color-accent !important;
 }
 .wui-warning {
-    background-color: $brand-warning;
+    background-color: $brand-warning !important;
 }
 .wui-danger {
-    background-color: $brand-danger;
+    background-color: $brand-danger !important;
 }
 .wui-default {
-    background-color: $bg-medium;
+    background-color: $bg-dark;
 }
 
 // structure
