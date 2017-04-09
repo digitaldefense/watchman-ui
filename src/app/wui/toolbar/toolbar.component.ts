@@ -53,10 +53,10 @@ export class WuiToolbarComponent {
 
   private _setElementColor(color: string) {
     if (color != null && color !== '') {
-      this.renderer.addClass(this.elementRef.nativeElement, `wui-${color}`);
+      this.renderer.addClass(this.elementRef.nativeElement, `wui-${color}-bg`);
     }
     else {
-      this.renderer.addClass(this.elementRef.nativeElement, `wui-default`);
+      this.renderer.addClass(this.elementRef.nativeElement, `wui-default-bg`);
     }
   }
 

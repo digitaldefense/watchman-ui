@@ -39,20 +39,35 @@
 }
 
 // colors
-.wui-primary {
+.wui-primary-bg {
     background-color: $brand-primary !important;
 }
-.wui-accent {
+.wui-accent-bg {
     background-color: $color-accent !important;
 }
-.wui-warning {
+.wui-warning-bg {
     background-color: $brand-warning !important;
 }
-.wui-danger {
+.wui-danger-bg {
     background-color: $brand-danger !important;
 }
-.wui-default {
+.wui-default-bg {
     background-color: $bg-dark;
+}
+.wui-primary-text {
+    color: $brand-primary !important;
+}
+.wui-accent-text {
+    color: $color-accent !important;
+}
+.wui-warning-text {
+    color: $brand-warning !important;
+}
+.wui-danger-text {
+    color: $brand-danger !important;
+}
+.wui-default-text {
+    color: $bg-dark;
 }
 
 // structure

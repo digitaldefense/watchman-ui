@@ -5,6 +5,7 @@ import { Directive, ElementRef, Input, ModuleWithProviders, NgModule, Renderer2 
 })
 export class WuiColorDirective {
     private _color: string;
+    private _class: string;
 
     @Input()
     get wuiColor(): string {
@@ -24,11 +25,20 @@ export class WuiColorDirective {
 
     private _setElementColor(color: string) {
         if (color != null && color !== '') {
-            this._renderer.addClass(this._el.nativeElement, `wui-${color}`);
+            this._setElement(color);
+        }
+    }
+
+    private _setElement(color: string) {
+        const textElements = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'SPAN'];
+
+        if (textElements.indexOf(this._el.nativeElement.tagName) !== -1) {
+            this._class = `wui-${color}-text`;
         }
         else {
-            this._renderer.addClass(this._el.nativeElement, `wui-default`);
+            this._class = `wui-${color}-bg`;
         }
+        this._renderer.addClass(this._el.nativeElement, this._class);
     }
 }
 
