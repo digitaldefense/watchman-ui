@@ -5,13 +5,13 @@
 // Start with assigning color names to specific hex values.
 $white:  #fff !default;
 $black:  #000 !default;
-$red:    #d9534f !default;
+$red:    #D4152B !default;
 $orange: #f0ad4e !default;
 $yellow: #ffd500 !default;
 $green:  #5cb85c !default;
 $blue:   #0275d8 !default;
 $teal:   #5bc0de !default;
-$pink:   #ff5b77 !default;
+$pink:   #ff2080 !default;
 $purple: #613d7c !default;
 
 // Create grayscale
@@ -42,7 +42,12 @@ $brand-warning:             $orange !default;
 $brand-danger:              $red !default;
 $brand-inverse:             $gray-dark !default;
 
-$color-accent:              $pink !default;
+$theme-primary:             $blue !default;
+$theme-accent:              $pink !default;
+$theme-success:             $green !default;
+$theme-info:                $teal !default;
+$theme-warning:             $orange !default;
+$theme-danger:              $red !default;
 
 
 // Options
