@@ -18,6 +18,7 @@
 // Core CSS
 @import "reboot";
 @import "type";
+// @import "icons";
 // @import "images";
 // @import "code";
 // @import "grid";
@@ -30,7 +31,7 @@
 }
 
 .section-head {
-    border-bottom: 1px solid $color-accent;
+    border-bottom: 1px solid $theme-accent;
     position: relative;
     margin-bottom: $spacer-y;
     .title {
@@ -43,7 +44,7 @@
     background-color: $brand-primary !important;
 }
 .wui-accent-bg {
-    background-color: $color-accent !important;
+    background-color: $theme-accent !important;
 }
 .wui-warning-bg {
     background-color: $brand-warning !important;
@@ -58,7 +59,7 @@
     color: $brand-primary !important;
 }
 .wui-accent-text {
-    color: $color-accent !important;
+    color: $theme-accent !important;
 }
 .wui-warning-text {
     color: $brand-warning !important;
@@ -68,6 +69,41 @@
 }
 .wui-default-text {
     color: $bg-dark;
+}
+
+.wui-darker-text {
+    color: $text-darker;
+}
+.wui-dark-text {
+    color: $text-dark;
+}
+.wui-medium-text {
+    color: $text-medium;
+}
+.wui-light-text {
+    color: $text-light;
+}
+.wui-lighter-text {
+    color: $text-lighter;
+}
+
+.wui-darkest-bg {
+    background-color: $bg-darkest;
+}
+.wui-darker-bg {
+    background-color: $bg-darker;
+}
+.wui-dark-bg {
+    background-color: $bg-dark;
+}
+.wui-medium-bg {
+    background-color: $bg-medium;
+}
+.wui-light-bg {
+    background-color: $bg-light;
+}
+.wui-lighter-bg {
+    background-color: $bg-lighter;
 }
 
 // structure

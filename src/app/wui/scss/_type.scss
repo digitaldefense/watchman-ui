@@ -68,7 +68,7 @@ h6, .h6 { font-size: $font-size-h6; }
 .title {
   font-size: $title-font-size;
   font-weight: $title-font-weight;
-  border-bottom: 3px solid $color-accent;
+  border-bottom: 3px solid $theme-accent;
   letter-spacing: .05em;
   // margin-bottom: $headings-margin-bottom;
   padding-bottom: .1em;
@@ -84,12 +84,12 @@ h6, .h6 { font-size: $font-size-h6; }
   // -o-border-image:
   //   -o-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
   border-image:
-    linear-gradient(to right, $color-accent, $color-accent 50px, rgba(0, 0, 0, 0) 50px);
+    linear-gradient(to right, $theme-accent, $theme-accent 50px, rgba(0, 0, 0, 0) 50px);
   border-image-slice: 1;
 }
 
 .subtitle {
-  color: $color-accent;
+  color: $theme-accent;
   font-size: $subtitle-font-size;
   font-weight: $subtitle-font-weight;
   text-transform: uppercase;
