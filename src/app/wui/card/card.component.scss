@@ -1,0 +1,42 @@
+@import '../scss/_mixins';
+@import '../scss/_variables';
+@import '../scss/_type';
+
+.wui-card {
+    display: block;
+    margin-bottom: $spacer-y;
+}
+
+%wui-card-base {
+    display: block;
+    position: relative;
+}
+
+.wui-card-header {
+    @extend %wui-card-base;
+    border-bottom: 1px solid $theme-accent;
+    margin-bottom: $spacer-y;
+    .wui-card-h1 {
+        margin: 0;
+    }
+}
+
+.wui-card-title {
+    @extend .h1;
+    display: block;
+    font-size: $title-font-size;
+    font-weight: $title-font-weight;
+    letter-spacing: .05em;
+    margin: 0;
+    padding-bottom: .1em;
+
+    border-bottom: 3px solid $theme-accent;
+    border-image:
+        linear-gradient(to right, $theme-accent, $theme-accent 50px, rgba(0, 0, 0, 0) 50px);
+    border-image-slice: 1;
+}
+
+.wui-card-body {
+    @extend %wui-card-base;
+    // margin: $spacer;
+}
