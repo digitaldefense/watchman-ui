@@ -1,0 +1,13 @@
+@import '../scss/_variables';
+
+$icon-size: 24px !default;
+
+.wui-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    line-height: $line-height-base;
+    text-align: center;
+    height: $icon-size;
+    width: $icon-size;
+}
