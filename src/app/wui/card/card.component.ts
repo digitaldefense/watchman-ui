@@ -1,4 +1,6 @@
-import { Component, Directive, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, Directive, ChangeDetectionStrategy, ElementRef, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+
+import { WuiColorService } from '../core/color/color.service';
 
 @Directive({
   selector: 'wui-card-title',
@@ -6,7 +8,16 @@ import { Component, Directive, ChangeDetectionStrategy, ViewEncapsulation } from
     '[class.wui-card-title]': 'true'
   }
 })
-export class WuiCardTitle {}
+export class WuiCardTitle implements OnInit {
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _colorSvc: WuiColorService) {}
+
+  ngOnInit() {
+    const elem = this._element.nativeElement;
+    const accent = this._colorSvc.accent;
+    const styleValue = `linear-gradient(to right, ${accent}, ${accent} 50px, rgba(0, 0, 0, 0) 50px)`;
+    this._renderer.setStyle(elem, 'border-image', styleValue);
+  }
+}
 
 @Directive({
   selector: 'wui-card-subtitle',
@@ -67,7 +78,14 @@ export class WuiCardComponent {}
   },
   encapsulation: ViewEncapsulation.None
 })
-export class WuiCardHeaderComponent {}
+export class WuiCardHeaderComponent implements OnInit {
+  constructor(private _colorSvc: WuiColorService, private _element: ElementRef, private _renderer: Renderer2) {}
+
+  ngOnInit() {
+    const elem = this._element.nativeElement;
+    this._renderer.setStyle(elem, 'border-bottom-color', this._colorSvc.accent);
+  }
+}
 
 @Component({
   selector: 'wui-card-title-group',

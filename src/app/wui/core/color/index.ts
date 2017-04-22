@@ -1,4 +1,5 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
+
 import { WuiColorDirective } from './color.directive';
 
 export { WuiColorDirective } from './color.directive';

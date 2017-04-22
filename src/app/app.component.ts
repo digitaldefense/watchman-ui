@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+
+import { WuiThemeService } from './wui/core/color/theme.service';
 
 @Component({
   selector: 'wui-root',
+  providers: [WuiThemeService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'wui works!';
 
-  dataset: any;
-
-  constructor (private _http: Http) { }
+  constructor (private _themeSvc: WuiThemeService) {
+    _themeSvc.theme = 'light';
+  }
 
   ngOnInit() {
-    this._http.get('assets/data/100k.json')
-      .subscribe(res => { this.dataset = res.json(); });
+    // this.themes = this._theme.getThemes();
+    // console.log(this.themes);
   }
 }

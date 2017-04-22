@@ -1,37 +1,26 @@
-import { Directive, ElementRef, HostBinding, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+
+import { WuiColorService } from './color.service';
 
 @Directive({
   selector: '[wuiColor]',
 })
 export class WuiColorDirective {
-  private _color: string;
-
   @Input()
-  get wuiColor(): string {
-    return this._color;
-  }
   set wuiColor(color: string) {
     this._updateColor(color);
   }
 
-  constructor(private _el: ElementRef, private _renderer: Renderer2) { }
-
-  // ngOnInit() {
-  //   this._renderer.addClass(this._el.nativeElement, this.wuiColor);
-  // }
+  constructor(private _el: ElementRef, private _renderer: Renderer2, private _color: WuiColorService) { }
 
   private _updateColor(newColor: string) {
-    // this._setElementColor(this._color, false);
     this._setElementColor(newColor);
-    this._color = newColor;
   }
 
   private _setElementColor(color: string) {
+    const elem = this._el.nativeElement;
     if (color != null && color !== '') {
-      this._renderer.addClass(this._el.nativeElement, `wui-${color}`);
-    }
-    else {
-      this._renderer.addClass(this._el.nativeElement, `wui-default`);
+      this._renderer.setStyle(elem, 'background-color', this._color[color]);
     }
   }
 

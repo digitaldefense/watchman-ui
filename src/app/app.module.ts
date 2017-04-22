@@ -4,8 +4,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 import { WuiModule } from './wui/wui.module';
 
 import { AppComponent } from './app.component';
@@ -31,15 +33,14 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     WuiModule,
     NgxDatatableModule,
     // FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
