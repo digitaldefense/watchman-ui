@@ -1,19 +1,23 @@
 import { Injectable, OnInit } from '@angular/core';
 
-import { WuiThemeService } from './theme.service';
-import { Theme } from './theme';
+import { WuiThemeService } from '../../theme/theme.service';
+import { Theme } from '../../theme/theme.tmpl';
 
 @Injectable()
 export class WuiColorService {
   private _theme: Theme;
 
   constructor(private _themeSvc: WuiThemeService) {
-    this._theme = _themeSvc.getTheme();
+    console.log('colorSvc constructor');
+    
+    // this._theme = _themeSvc.getTheme();
+    // console.log(this._theme);
+    
   }
 
-  get background(): string {
-    return this._theme.background;
-  }
+  // get background(): string {
+  //   return this._theme.background;
+  // }
 
   get primary(): string {
     return this._theme.primary;

@@ -8,7 +8,8 @@ import {
   Renderer2
 } from '@angular/core';
 
-import { WuiColorService } from '../core/color/color.service';
+import { WuiThemeService } from '../theme/theme.service';
+import { Theme } from '../theme/theme.tmpl';
 
 @Directive({
   selector: 'wui-toolbar-row',
@@ -27,18 +28,17 @@ export class WuiToolbarRowDirective {}
     '[class.wui-toolbar]': 'true',
     'role': 'toolbar'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class WuiToolbarComponent {
+  private theme: Theme;
 
-  constructor(private _elementRef: ElementRef, private _renderer: Renderer2, private _color: WuiColorService) {}
+  constructor(private _elementRef: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
+    this.theme = _themeSvc.theme;
+  }
 
-  /** The color of the toolbar. Can be primary, accent, or warn. */
   @Input()
-  // get color(): string {
-  //   return this._color;
-  // }
   set color(value: string) {
     this._updateColor(value);
   }
@@ -54,8 +54,7 @@ export class WuiToolbarComponent {
     if (color != null && color !== '') {
     //   this._renderer.addClass(this._elementRef.nativeElement, `wui-${color}-bg`);
     // } else {
-    //   this._renderer.addClass(this._elementRef.nativeElement, `wui-default-bg`);
-      this._renderer.setStyle(elem, 'background-color', this._color[color]);
+      this._renderer.setStyle(elem, 'background-color', this.theme[color]);
     }
   }
 }

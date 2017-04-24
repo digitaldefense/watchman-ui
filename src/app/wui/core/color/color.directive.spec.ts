@@ -1,8 +1,8 @@
-import { ColorDirective } from './color.directive';
+import { WuiColorDirective } from './color.directive';
 
 describe('ColorDirective', () => {
   it('should create an instance', () => {
-    const directive = new ColorDirective();
+    const directive = new WuiColorDirective();
     expect(directive).toBeTruthy();
   });
 });

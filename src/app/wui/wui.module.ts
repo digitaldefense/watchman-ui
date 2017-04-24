@@ -1,10 +1,10 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { WuiThemeService } from './core/color/theme.service';
-import { THEMES } from './core/color/themes';
+// import { WuiThemeService } from './core/color/theme.service';
+// import { THEMES } from './core/color/themes';
 
-import { WuiColorService } from './core/color/color.service';
+// import { WuiColorService } from './core/color/color.service';
 
 import { WuiToolbarModule } from './toolbar/index';
 import { WuiButtonModule } from './button/index';
@@ -29,9 +29,9 @@ const WUI_MODULES = [
   imports: WUI_MODULES,
   exports: WUI_MODULES,
   providers: [
-    THEMES,
-    WuiThemeService,
-    WuiColorService,
+    // THEMES,
+    // WuiThemeService,
+    // WuiColorService,
   ]
 })
 export class WuiModule {

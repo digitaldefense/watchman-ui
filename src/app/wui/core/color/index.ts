@@ -5,8 +5,12 @@ import { WuiColorDirective } from './color.directive';
 export { WuiColorDirective } from './color.directive';
 
 @NgModule({
-    exports: [WuiColorDirective],
-    declarations: [WuiColorDirective],
+    exports: [
+        WuiColorDirective,
+    ],
+    declarations: [
+        WuiColorDirective,
+    ],
     providers: []
 })
 

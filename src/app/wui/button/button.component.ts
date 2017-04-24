@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, Directive, ElementRef, HostBinding, Input, OnDestroy, Renderer, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Directive, ElementRef, HostBinding, Input, OnDestroy, Renderer2, ViewEncapsulation } from '@angular/core';
 
 import { coerceBooleanProperty, /*FocusOriginMonitor*/ } from '../core';
+import { WuiThemeService } from '../theme/theme.service';
+import { Theme } from '../theme/theme.tmpl';
 
 @Directive({
   selector: 'button[wui-button], a[wui-button]',
@@ -28,11 +30,15 @@ export class WuiButton implements OnDestroy {
   private _color: string;
   private _disabled: boolean = null;
 
+  protected theme;
+
   @Input()
   get disabled() { return this._disabled; }
   set disabled(value: boolean) { this._disabled = coerceBooleanProperty(value) ? true : null; }
 
-  constructor(private _elementRef: ElementRef, private _renderer: Renderer) { }
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
+    this.theme = _themeSvc.theme;
+  }
 
   ngOnDestroy() {
 
@@ -50,12 +56,10 @@ export class WuiButton implements OnDestroy {
   }
 
   _setElementColor(color: string, isAdd: boolean) {
+    const elem = this._element.nativeElement;
     if (color != null && color != '') {
-      this._renderer.setElementClass(this._getHostElement(), `${color}`, isAdd);
+      this._renderer.setStyle(elem, 'background-color', this.theme[color]);
+      this._renderer.setStyle(elem, 'border-color', this.theme[color]);
     }
-  }
-
-  _getHostElement() {
-    return this._elementRef.nativeElement;
   }
 }

@@ -1,24 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Theme } from './theme';
-import { THEMES } from './themes';
+import { Theme } from '../../theme/theme.tmpl';
+import { THEMES } from '../../theme/themes';
+import { WuiColorService } from './color.service';
 
 @Injectable()
 export class WuiThemeService {
-    private _theme: Theme = this._themes.getTheme('dark');
+    private _theme: Theme;
 
-    constructor(private _themes: THEMES) {}
+    constructor(private _themes: THEMES, private _colorSvc: WuiColorService) {}
 
-    set theme(data: string | Theme) {
-        if (typeof data === 'string') {
-            this._theme = this._themes.getTheme(data);
+    initTheme(data?: string | Theme): Theme {
+        if (data == null) {
+            this._theme = this._themes['light'];
+
+        } else if (typeof data === 'string') {
+            this._theme = this._themes[data];
         } else {
             // this._theme = new Theme(data);
         }
-    }
-
-    getTheme(): Theme {
         return this._theme;
     }
+
+    // getTheme(): Theme {
+    //     console.log('getTheme', this._theme);
+        
+    //     return this._theme;
+    // }
 }
