@@ -7,5 +7,5 @@ export interface Theme {
   danger: string;
   background: string;
   foreground: string;
-  anchorlink: string;
+  link: string;
 }

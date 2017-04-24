@@ -49,6 +49,6 @@ export class WuiLinkColorDirective implements OnInit {
     ngOnInit() {
         // this._theme.applyTheme(this._el.nativeElement);
         const elem = this._element.nativeElement;
-        this._renderer.setStyle(elem, 'color', this.theme.anchorlink);
+        this._renderer.setStyle(elem, 'color', this.theme.link);
     }
 }
