@@ -1,11 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { WuiColorModule } from './color/index';
 // import { WuiPaddingModule } from './padding/index';
 // import { WuiRippleModule } from './ripple/index';
-
-// Color
-export * from './color/index';
 
 // Padding
 export * from './padding/index';
@@ -17,12 +13,10 @@ export {coerceNumberProperty} from './coercion/number-property';
 @NgModule({
     imports: [
         // WuiRippleModule
-        WuiColorModule,
         // WuiPaddingModule
     ],
     exports: [
         // WuiRippleModule
-        WuiColorModule,
         // WuiPaddingModule
     ],
 })
