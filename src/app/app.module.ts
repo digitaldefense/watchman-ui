@@ -8,11 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
-import { WuiModule } from './wui/wui.module';
-import { WuiThemeService } from './wui/theme/theme.service';
-import { THEMES } from './wui/theme/themes';
-import { WuiColorDirective } from './wui/theme/color.directive';
-import { WuiLinkColorDirective } from './wui/theme/color.directive';
+import { WuiModule, WuiThemeService, THEMES } from './wui/wui.module';
 
 import { AppComponent } from './app.component';
 import { TypePageComponent } from './type-page/type-page.component';
@@ -30,8 +26,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    WuiColorDirective,
-    WuiLinkColorDirective,
     TypePageComponent,
     FormsPageComponent,
     InputsPageComponent,
