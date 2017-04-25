@@ -37,4 +37,10 @@ export class WuiThemeService {
     const rule = (textElements.indexOf(elem.tagName) !== -1) ? 'color' : 'background-color';
     renderer.setStyle(elem, rule, this.theme[color]);
   }
+
+  /** Apply theme property as provide css rule */
+  applyStyle(element: any, renderer: any, rule: string, color: string) {
+    const elem = element.nativeElement;
+    renderer.setStyle(elem, rule, color);
+  }
 }

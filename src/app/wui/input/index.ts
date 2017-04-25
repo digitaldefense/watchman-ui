@@ -1,20 +1,27 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { WuiInput } from './input.component';
+import {
+    WuiInputDirective,
+    WuiInputGroupComponent
+} from './input.component';
 
 @NgModule({
     declarations: [
-        WuiInput
+        WuiInputDirective,
+        WuiInputGroupComponent
     ],
     imports: [
         CommonModule,
         FormsModule
     ],
     exports: [
-        WuiInput
+        WuiInputDirective,
+        WuiInputGroupComponent
     ]
 })
 
 export class WuiInputModule {}
+
+export * from './input.component';
