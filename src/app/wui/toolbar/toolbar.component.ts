@@ -34,7 +34,7 @@ export class WuiToolbarRowDirective {}
 export class WuiToolbarComponent {
   private theme: Theme;
 
-  constructor(private _elementRef: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
     this.theme = _themeSvc.theme;
   }
 
@@ -44,17 +44,12 @@ export class WuiToolbarComponent {
   }
 
   private _updateColor(newColor: string) {
-    // this._setElementColor(this._color, false);
     this._setElementColor(newColor);
-    // this._color = newColor;
   }
 
   private _setElementColor(color: string) {
-    const elem = this._elementRef.nativeElement;
     if (color != null && color !== '') {
-    //   this._renderer.addClass(this._elementRef.nativeElement, `wui-${color}-bg`);
-    // } else {
-      this._renderer.setStyle(elem, 'background-color', this.theme[color]);
+      this._themeSvc.applyBackground(this._element, this._renderer, color);
     }
   }
 }

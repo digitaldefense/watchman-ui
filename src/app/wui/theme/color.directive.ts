@@ -14,7 +14,7 @@ export class WuiColorDirective {
         this._updateColor(color);
     }
 
-    constructor(private _el: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
+    constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
         this.theme = _themeSvc.theme;
     }
 
@@ -24,15 +24,8 @@ export class WuiColorDirective {
 
     private _setElementColor(color: string) {
         if (color != null && color !== '') {
-            this._setElement(color);
+            this._themeSvc.applyTheme(this._element, this._renderer, color);
         }
-    }
-
-    private _setElement(color: string) {
-        const textElements = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'SPAN', 'SMALL'];
-        const elem = this._el.nativeElement;
-        const rule = (textElements.indexOf(elem.tagName) !== -1) ? 'color' : 'background-color';
-        this._renderer.setStyle(elem, rule, this.theme[color]);
     }
 }
 
@@ -47,8 +40,6 @@ export class WuiLinkColorDirective implements OnInit {
     }
 
     ngOnInit() {
-        // this._theme.applyTheme(this._el.nativeElement);
-        const elem = this._element.nativeElement;
-        this._renderer.setStyle(elem, 'color', this.theme.link);
+        this._themeSvc.applyForeground(this._element, this._renderer, 'link');
     }
 }

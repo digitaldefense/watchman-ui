@@ -5,7 +5,7 @@ import { WuiThemeService } from './wui/theme/theme.service';
 
 /**
  * Hank (think, "Finding Dory") is an interim method to apply styles to the body
- *  of the app while having minimum impact on the main AppComponent. The body
+ * of the app while having minimum impact on the main AppComponent. The body
  * element is inaccessible and the app-root is incapable of using directives so,
  * for now, this is the best solution
  */
@@ -16,7 +16,6 @@ export class Hank {
     private _element: ElementRef,
     private _renderer: Renderer2
   ) {
-    console.log('Hank', _themeSvc.name, _themeSvc.theme);
     this._setColors(_themeSvc.theme);
   }
 

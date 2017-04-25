@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, Directive, ElementRef, HostBinding, Input, OnDestroy, Renderer2, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Directive,
+  ElementRef,
+  HostBinding,
+  Input,
+  Renderer2,
+  ViewEncapsulation
+} from '@angular/core';
 
 import { coerceBooleanProperty, /*FocusOriginMonitor*/ } from '../core';
 import { WuiThemeService } from '../theme/theme.service';
@@ -26,7 +35,7 @@ export class WuiRaisedButtonStyler {}
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class WuiButton implements OnDestroy {
+export class WuiButton {
   private _color: string;
   private _disabled: boolean = null;
 
@@ -36,12 +45,12 @@ export class WuiButton implements OnDestroy {
   get disabled() { return this._disabled; }
   set disabled(value: boolean) { this._disabled = coerceBooleanProperty(value) ? true : null; }
 
-  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _themeSvc: WuiThemeService
+  ) {
     this.theme = _themeSvc.theme;
-  }
-
-  ngOnDestroy() {
-
   }
 
   /** The color of the button. Can be `primary`, `accent`, or `warn`. */
