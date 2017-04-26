@@ -97,7 +97,7 @@
     }
 }
 
-// 
+// bit of a hack. the @ContentChild is returning invalid
 .wui-input-group:not(.wui-focused) {
     .wui-input-label {
         color: $text-medium !important;
