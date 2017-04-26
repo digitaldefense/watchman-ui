@@ -96,3 +96,10 @@
         transform: scaleY(1);
     }
 }
+
+// 
+.wui-input-group:not(.wui-focused) {
+    .wui-input-label {
+        color: $text-medium !important;
+    }
+}

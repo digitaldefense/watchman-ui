@@ -60,6 +60,32 @@ export class WuiInputBorderDirective implements OnInit {
 }
 
 @Directive({
+  selector: 'label[wuiLabel]',
+  host: {
+    '[class.wui-input-label]': 'true'
+  }
+})
+export class WuiInputLabelDirective {
+  // private _color: string;
+
+  // @Input()
+  // get color() { return this._color; }
+  // set color(value: string) { this._color = value; }
+
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _themeSvc: WuiThemeService
+  ) {
+    this._themeSvc.applyForeground(this._element, this._renderer, 'primary');
+  }
+
+  focus() {
+    this._themeSvc.applyForeground(this._element, this._renderer, 'primary');
+  }
+}
+
+@Directive({
   selector: `input[wuiInput]`,
   host: {
     '[class.wui-input]': 'true',
@@ -136,7 +162,7 @@ export class WuiInputDirective implements OnInit {
   get value() { return this._element.nativeElement.value; }
   set value(value: string) { this._element.nativeElement.value = value; }
 
-  @Output() _placeholderChange = new EventEmitter<string>();
+  // @Output() _placeholderChange = new EventEmitter<string>();
   @Output() _labelChange = new EventEmitter<string>();
 
   get empty(): boolean {
@@ -195,7 +221,14 @@ export class WuiInputDirective implements OnInit {
   host: {
     '[attr.align]': 'null',
     '[class.wui-input-group]': 'true',
-    '[class.wui-focused]' : '_wuiInputChild.focused',
+    '[class.wui-focused]': '_wuiInputChild.focused',
+    '[class.ng-untouched]': '_shouldForward("untouched")',
+    '[class.ng-touched]': '_shouldForward("touched")',
+    '[class.ng-pristine]': '_shouldForward("pristine")',
+    '[class.ng-dirty]': '_shouldForward("dirty")',
+    '[class.ng-valid]': '_shouldForward("valid")',
+    '[class.ng-invalid]': '_shouldForward("invalid")',
+    '[class.ng-pending]': '_shouldForward("pending")',
     '(click)': '_focusInput()'
   },
   encapsulation: ViewEncapsulation.None
@@ -207,6 +240,7 @@ export class WuiInputGroupComponent implements AfterContentInit, OnInit {
   @Input() color: 'primary' | 'accent' | 'warning' = 'primary';
 
   @ContentChild(WuiInputDirective) _wuiInputChild: WuiInputDirective;
+  @ContentChild(WuiInputLabelDirective) _labelChild: WuiInputLabelDirective;
 
   constructor(
     private _element: ElementRef,
@@ -228,6 +262,11 @@ export class WuiInputGroupComponent implements AfterContentInit, OnInit {
   ngOnInit() {
   }
 
+  _shouldForward(prop: string): boolean {
+    let control = this._wuiInputChild ? this._wuiInputChild._ngControl : null;
+    return control && (control as any)[prop];
+  }
+
   /** Is there a placeholder/hint */
   hasPlaceholder() {
     return !!(this._wuiInputChild.hint);
@@ -239,7 +278,13 @@ export class WuiInputGroupComponent implements AfterContentInit, OnInit {
   }
 
   /** Focuses the underlying input */
-  protected _focusInput() { this._wuiInputChild.focus(); }
+  protected _focusInput() {
+    this._wuiInputChild.focus();
+    // this isn't working properly. _labelChild is undefined. Using CSS to compensate
+    if (this._labelChild) {
+      this._labelChild.focus();
+    }
+  }
 
   // private _validatePlaceholders() {
   //   if (this._wuiInputChild.placeholder && this._placeholderChild) {

@@ -1,4 +1,4 @@
-<label class="wui-input-label" *ngIf="hasLabel()" [class.empty]="_wuiInputChild.empty">{{_wuiInputChild.label}}</label>
+<label wuiLabel *ngIf="hasLabel()" [class.empty]="_wuiInputChild.empty">{{_wuiInputChild.label}}</label>
 <div class="wui-input-wrapper">
     <ng-content select="input"></ng-content>
 </div>
