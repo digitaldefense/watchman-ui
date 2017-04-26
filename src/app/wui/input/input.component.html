@@ -1,5 +1,13 @@
-<ng-content></ng-content>
+<label class="wui-input-label" *ngIf="hasLabel()" [class.empty]="_wuiInputChild.empty">{{_wuiInputChild.label}}</label>
+<div class="wui-input-wrapper">
+    <ng-content select="input"></ng-content>
+</div>
+<div class="wui-placeholder" *ngIf="hasPlaceholder()" [class.empty]="_wuiInputChild.empty">
+    {{_wuiInputChild.hint}}
+    <span class="wui-input-required" *ngIf="_wuiInputChild.required">*</span>
+</div>
 <div>
     <hr class="wui-input-border">
     <hr class="wui-input-border highlight" wuiInputBorder>
 </div>
+<!--<p class="wui-input-help">tips</p>-->

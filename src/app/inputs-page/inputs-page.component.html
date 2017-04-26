@@ -3,11 +3,23 @@
   <h1>Inputs</h1>
   <section wui-card>
     <wui-card-header>
-      <wui-card-title>Text Field</wui-card-title>
+      <wui-card-title>Simple Text Fields</wui-card-title>
     </wui-card-header>
-    <wui-card-body>
+    <wui-card-body fxLayout="column">
       <wui-input-group>
-        <input type="text" wuiInput placeholder="Placeholder text">
+        <input type="text" wuiInput hint="Placeholder text">
+      </wui-input-group>
+      <wui-input-group>
+        <input type="text" wuiInput hint="Required field" required>
+      </wui-input-group>
+      <wui-input-group>
+        <input type="text" wuiInput label="Label text" value="Default value">
+      </wui-input-group>
+      <wui-input-group>
+        <input type="text" wuiInput label="Floating label">
+      </wui-input-group>
+      <wui-input-group class="wui-block">
+        <input type="text" wuiInput hint="Full width">
       </wui-input-group>
     </wui-card-body>
   </section>

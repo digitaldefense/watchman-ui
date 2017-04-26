@@ -33,6 +33,13 @@ const MD_INPUT_INVALID_TYPES = [
   'submit'
 ];
 
+let nextUniqueId = 0;
+
+@Directive({
+  selector: 'wui-placeholder'
+})
+export class WuiPlaceholderDirective {}
+
 @Directive({
   selector: '[wuiInputBorder]'
 })
@@ -57,7 +64,7 @@ export class WuiInputBorderDirective implements OnInit {
   host: {
     '[class.wui-input]': 'true',
     '[id]': 'id',
-    '[placeholder]': 'placeholder',
+    // '[placeholder]': 'placeholder',
     '[disabled]': 'disabled',
     '[required]': 'required',
     '(blur)': '_onBlur()',
@@ -69,12 +76,16 @@ export class WuiInputDirective implements OnInit {
   private _id: string;
   private _type = 'text';
   private _placeholder = '';
+  private _label: string = null;
+  private _hint: string = null;
   private _disabled = false;
   private _required = false;
   private _cachedUid: string;
 
   focused = false;
+  ariaDescribedBy: string;
 
+  /** Standard "disabled" attribute */
   @Input()
   get disabled() {
     return this._ngControl ? this._ngControl.disabled : this._disabled;
@@ -93,14 +104,31 @@ export class WuiInputDirective implements OnInit {
   }
 
   @Input()
-  get placeholder() { return this._placeholder; }
+  // get placeholder() { return this._placeholder; }
   set placeholder(value: string) {
-    if (this._placeholder !== value) {
-      this._placeholder = value;
-      this._placeholderChange.emit(this._placeholder);
+    // if (this._placeholder !== value) {
+    //   this._placeholder = value;
+    //   this._placeholderChange.emit(this._placeholder);
+    // }
+    throw new Error('The standard "placeholder" attribute is not supported on INPUT. Use "hint" instead.');
+  }
+
+  /** Floating label */
+  @Input()
+  get label() { return this._label; }
+  set label(value: string) {
+    if (this._label !== value) {
+      this._label = value;
+      this._labelChange.emit(this._label);
     }
   }
 
+  /** Used instead of "placeholder" to display prompt text */
+  @Input()
+  get hint() { return this._hint; }
+  set hint(value: string) { this._hint = value; }
+
+  /** Standard "required" attribute */
   @Input()
   get required() { return this._required; }
   set required(value: any) { this._required = coerceBooleanProperty(value); }
@@ -109,6 +137,20 @@ export class WuiInputDirective implements OnInit {
   set value(value: string) { this._element.nativeElement.value = value; }
 
   @Output() _placeholderChange = new EventEmitter<string>();
+  @Output() _labelChange = new EventEmitter<string>();
+
+  get empty(): boolean {
+    return Boolean(this.value == null || this.value === '');
+  }
+
+  // private _neverEmptyInputTypes = [
+  //   'date',
+  //   'datetime',
+  //   'datetime-local',
+  //   'month',
+  //   'time',
+  //   'week'
+  // ].filter(t => getSupportedInputTypes().has(t));
 
   constructor(
     private _element: ElementRef,
@@ -177,11 +219,31 @@ export class WuiInputGroupComponent implements AfterContentInit, OnInit {
     if (!this._wuiInputChild) {
       throw new Error('Missing WuiInput');
     }
+
+    // this._validatePlaceholders();
+
+    // this._wuiInputChild._placeholderChange.subscribe(() => this._validatePlaceholders());
   }
 
   ngOnInit() {
   }
 
+  /** Is there a placeholder/hint */
+  hasPlaceholder() {
+    return !!(this._wuiInputChild.hint);
+  }
+
+  /** Is there a label */
+  hasLabel() {
+    return !!(this._wuiInputChild.label);
+  }
+
   /** Focuses the underlying input */
   protected _focusInput() { this._wuiInputChild.focus(); }
+
+  // private _validatePlaceholders() {
+  //   if (this._wuiInputChild.placeholder && this._placeholderChild) {
+  //     throw new Error('There can be only one placeholder attribute.');
+  //   }
+  // }
 }

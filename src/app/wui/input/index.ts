@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import {
     WuiInputDirective,
+    WuiPlaceholderDirective,
     WuiInputBorderDirective,
     WuiInputGroupComponent
 } from './input.component';
@@ -19,6 +20,7 @@ import {
     ],
     declarations: [
         WuiInputDirective,
+        WuiPlaceholderDirective,
         WuiInputBorderDirective,
         WuiInputGroupComponent
     ],

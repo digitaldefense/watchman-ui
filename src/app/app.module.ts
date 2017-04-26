@@ -53,7 +53,7 @@ const appRoutes: Routes = [
   providers: [
     WuiThemeService,
     THEMES,
-    { provide: 'AppConfig', useValue: { name: 'purple-green' }},
+    { provide: 'AppConfig', useValue: { name: 'light' }},
   ],
   bootstrap: [AppComponent]
 })
