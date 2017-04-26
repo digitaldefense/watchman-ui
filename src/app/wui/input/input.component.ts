@@ -222,6 +222,7 @@ export class WuiInputDirective implements OnInit {
     '[attr.align]': 'null',
     '[class.wui-input-group]': 'true',
     '[class.wui-focused]': '_wuiInputChild.focused',
+    '[class.disabled]': '_wuiInputChild.disabled',
     '[class.ng-untouched]': '_shouldForward("untouched")',
     '[class.ng-touched]': '_shouldForward("touched")',
     '[class.ng-pristine]': '_shouldForward("pristine")',

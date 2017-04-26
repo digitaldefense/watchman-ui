@@ -34,6 +34,11 @@
     cursor: inherit;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-appearance: textfield;
+
+    &:disabled {
+        cursor: not-allowed;
+        color: $text-medium !important;
+    }
 }
 
 .wui-input-border-wrapper {
@@ -43,7 +48,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid $text-medium;
     box-sizing: content-box;
     margin: 0;
     position: absolute;
@@ -54,6 +59,17 @@
         border-width: 2px;
         transform: scaleX(0);
         transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+}
+.wui-input-group.disabled {
+    .wui-input {
+        color: $text-medium;
+    }
+    .wui-placeholder {
+        cursor: not-allowed;
+    }
+    .wui-input-border {
+        border-bottom: 1px dashed $text-medium;
     }
 }
 
