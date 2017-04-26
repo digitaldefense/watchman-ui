@@ -2,11 +2,10 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import {
     WuiColorDirective,
-    WuiBackgroundColorDirective,
-    WuiBorderColorDirective,
+    // WuiBackgroundColorDirective,
+    // WuiBorderColorDirective,
     WuiLinkColorDirective
 } from './color.directive';
-
 export * from './color.directive';
 
 import { THEMES } from './themes';
@@ -22,14 +21,14 @@ export * from './theme.service';
     ],
     exports: [
         WuiColorDirective,
-        WuiBackgroundColorDirective,
-        WuiBorderColorDirective,
+        // WuiBackgroundColorDirective,
+        // WuiBorderColorDirective,
         WuiLinkColorDirective
     ],
     declarations: [
         WuiColorDirective,
-        WuiBackgroundColorDirective,
-        WuiBorderColorDirective,
+        // WuiBackgroundColorDirective,
+        // WuiBorderColorDirective,
         WuiLinkColorDirective
     ],
 })

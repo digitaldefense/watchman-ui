@@ -4,14 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import {
     WuiInputDirective,
+    WuiInputBorderDirective,
     WuiInputGroupComponent
 } from './input.component';
 
 @NgModule({
-    declarations: [
-        WuiInputDirective,
-        WuiInputGroupComponent
-    ],
     imports: [
         CommonModule,
         FormsModule
@@ -19,7 +16,12 @@ import {
     exports: [
         WuiInputDirective,
         WuiInputGroupComponent
-    ]
+    ],
+    declarations: [
+        WuiInputDirective,
+        WuiInputBorderDirective,
+        WuiInputGroupComponent
+    ],
 })
 
 export class WuiInputModule {}

@@ -34,6 +34,25 @@ const MD_INPUT_INVALID_TYPES = [
 ];
 
 @Directive({
+  selector: '[wuiInputBorder]'
+})
+export class WuiInputBorderDirective implements OnInit {
+
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _themeSvc: WuiThemeService
+  ) {
+    // _themeSvc.applyStyle(_element, _renderer, 'border-color', 'primary');
+  }
+
+  ngOnInit() {
+    const elem = this._element.nativeElement;
+    this._renderer.setStyle(elem, 'border-color', this._themeSvc.theme['primary']);
+  }
+}
+
+@Directive({
   selector: `input[wuiInput]`,
   host: {
     '[class.wui-input]': 'true',
