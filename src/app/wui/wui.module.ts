@@ -11,6 +11,7 @@ import { WuiInputModule } from './input/index';
 import { WuiUniversalModule } from './universal';
 import { WuiCardModule } from './card/index';
 import { WuiListModule } from './list';
+import { WuiAvatarModule } from './avatar';
 
 // import 'lodash';
 
@@ -18,6 +19,7 @@ const WUI_MODULES = [
   // FlexLayoutModule,
   WuiButtonModule,
   WuiIconModule,
+  WuiAvatarModule,
   WuiInputModule,
   WuiCardModule,
   WuiListModule,

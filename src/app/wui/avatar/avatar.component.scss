@@ -1,0 +1,12 @@
+@import '../scss/_variables';
+
+.wui-avatar {
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 40px; height: 40px;
+    > img {
+        max-height: 100%;
+        width: auto;
+    }
+}
