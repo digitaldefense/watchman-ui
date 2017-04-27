@@ -23,7 +23,7 @@ export class AvatarComponent {
   hasLetter = false;
 
   @Input()
-  get image() { console.log(this._imagePath); return this._imagePath; }
+  get image() { return this._imagePath; }
   set image(value: string) {
     this._imagePath = value;
     this.hasImage = true;

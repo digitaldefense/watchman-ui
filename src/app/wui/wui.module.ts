@@ -12,12 +12,14 @@ import { WuiUniversalModule } from './universal';
 import { WuiCardModule } from './card/index';
 import { WuiListModule } from './list';
 import { WuiAvatarModule } from './avatar';
+import { WuiDividerModule } from './divider';
 
 // import 'lodash';
 
 const WUI_MODULES = [
   // FlexLayoutModule,
   WuiButtonModule,
+  WuiDividerModule,
   WuiIconModule,
   WuiAvatarModule,
   WuiInputModule,
