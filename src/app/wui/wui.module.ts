@@ -10,6 +10,7 @@ import { WuiIconModule } from './icon/index';
 import { WuiInputModule } from './input/index';
 import { WuiUniversalModule } from './universal';
 import { WuiCardModule } from './card/index';
+import { WuiListModule } from './list';
 
 // import 'lodash';
 
@@ -19,6 +20,7 @@ const WUI_MODULES = [
   WuiIconModule,
   WuiInputModule,
   WuiCardModule,
+  WuiListModule,
   WuiToolbarModule,
   WuiUniversalModule
 ];
@@ -26,7 +28,7 @@ const WUI_MODULES = [
 @NgModule({
   imports: WUI_MODULES,
   exports: [WUI_MODULES],
-  providers: []
+  providers: [],
 })
 export class WuiModule {
   /** Deprecated? */

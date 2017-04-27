@@ -21,12 +21,14 @@ import { TypePageComponent } from './type-page/type-page.component';
 import { FormsPageComponent } from './forms-page/forms-page.component';
 import { InputsPageComponent } from './inputs-page/inputs-page.component';
 import { ColorsPageComponent } from './colors-page/colors-page.component';
+import { ListPageComponent } from './list-page/list-page.component';
 
 const appRoutes: Routes = [
   { path: 'colors', component: ColorsPageComponent },
   { path: 'type', component: TypePageComponent },
   { path: 'forms', component: FormsPageComponent },
   { path: 'inputs', component: InputsPageComponent },
+  { path: 'lists', component: ListPageComponent },
 ];
 
 @NgModule({
@@ -40,6 +42,7 @@ const appRoutes: Routes = [
     FormsPageComponent,
     InputsPageComponent,
     ColorsPageComponent,
+    ListPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ const appRoutes: Routes = [
   providers: [
     WuiThemeService,
     THEMES,
-    { provide: 'AppConfig', useValue: { name: 'light' }},
+    { provide: 'AppConfig', useValue: { name: 'dark' }},
   ],
   bootstrap: [AppComponent]
 })
