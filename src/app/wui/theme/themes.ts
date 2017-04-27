@@ -3,6 +3,21 @@ import { Injectable } from '@angular/core';
 import { Theme } from './theme.tmpl';
 import { PALETTE } from './palette';
 
+const BaseThemes = {
+    light: {
+        base: 'black',
+        background: PALETTE.gray['50'],
+        text: 'rgba(black, 0.87)',
+        divider: 'rgba(black, 0.12)'
+    },
+    dark: {
+        base: 'white',
+        background: PALETTE.gray['900'],
+        text: 'white',
+        divider: 'rgba(white, 0.12)'
+    }
+};
+
 @Injectable()
 export class THEMES {
     light: Theme = {
@@ -14,8 +29,8 @@ export class THEMES {
         success: PALETTE.green['500'],
         warning: PALETTE.amber['500'],
         danger: PALETTE.red['500'],
-        background: '#fefefe',
-        foreground: '#010101',
+        background: BaseThemes.light.background,
+        foreground: BaseThemes['light'].text,
         link: PALETTE.blue['500']
     };
     dark: Theme = {
@@ -27,8 +42,8 @@ export class THEMES {
         success: PALETTE.green['500'],
         warning: PALETTE.amber['500'],
         danger: PALETTE.red['500'],
-        background: '#010101',
-        foreground: '#fefefe',
+        background: BaseThemes.dark.background,
+        foreground: BaseThemes.dark.text,
         link: PALETTE.blue['500']
     };
     'deeppurple-amber': Theme = {
