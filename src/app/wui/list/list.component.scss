@@ -34,6 +34,12 @@
     }
 }
 
+.wui-list.dense .wui-list-item-content {
+    font-size: $font-size-sm;
+    min-height: 40px;
+    padding: ($spacer-y * .25) $spacer-x;
+}
+
 .wui-list-item-body {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;

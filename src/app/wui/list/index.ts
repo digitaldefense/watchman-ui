@@ -4,7 +4,8 @@ import {
     WuiListComponent,
     WuiListItemComponent,
     WuiListItemBodyDirective,
-    WuiListItemRightDirective
+    WuiListItemRightDirective,
+    WuiListDenseDirective
 } from './list';
 
 @NgModule({
@@ -12,13 +13,15 @@ import {
         WuiListComponent,
         WuiListItemComponent,
         WuiListItemBodyDirective,
-        WuiListItemRightDirective
+        WuiListItemRightDirective,
+        WuiListDenseDirective
     ],
     declarations: [
         WuiListComponent,
         WuiListItemComponent,
         WuiListItemBodyDirective,
-        WuiListItemRightDirective
+        WuiListItemRightDirective,
+        WuiListDenseDirective
     ]
 })
 export class WuiListModule {}

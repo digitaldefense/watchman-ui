@@ -24,6 +24,14 @@ export class WuiListItemBodyDirective {}
 })
 export class WuiListItemRightDirective {}
 
+@Directive({
+  selector: 'wui-list[dense]',
+  host: {
+    '[class.dense]': 'true'
+  }
+})
+export class WuiListDenseDirective {}
+
 @Component({
   selector: 'wui-list-item',
   templateUrl: './list-item.component.html',
