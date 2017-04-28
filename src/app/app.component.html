@@ -6,14 +6,14 @@
 </wui-toolbar>
 
 <div fxLayout="row">
-  <div fxFlex="20" wuiColor="default">
-    <ul class="list-unstyled">
-      <li><a routerLink="/colors" routerLinkActive="active">Colors</a></li>
-      <li><a routerLink="/type" routerLinkActive="active">Typography</a></li>
-      <li><a routerLink="/forms" routerLinkActive="active">Forms</a></li>
-      <li><a routerLink="/inputs" routerLinkActive="active">Inputs</a></li>
-      <li><a routerLink="/lists" routerLinkActive="active">List</a></li>
-    </ul>
+  <div fxFlex="20">
+    <wui-list>
+      <wui-li routerLink="/colors" routerLinkActive="active">Colors</wui-li>
+      <wui-li routerLink="/type" routerLinkActive="active">Typography</wui-li>
+      <wui-li routerLink="/forms" routerLinkActive="active">Forms</wui-li>
+      <wui-li routerLink="/inputs" routerLinkActive="active">Inputs</wui-li>
+      <wui-li routerLink="/lists" routerLinkActive="active">List</wui-li>
+    </wui-list>
   </div>
   <div fxFlex="80">
     <!--<ngx-datatable class="fixed-height" [rows]="dataset" columnMode="flex" [footerHeight]="50" [scrollbarV]="true">
