@@ -1,6 +1,6 @@
 @import '../scss/_variables';
 
-.wui-list-item-content {
+.wui-list-item {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -22,6 +22,10 @@
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     padding: ($spacer-y / 2) $spacer-x;
 
+    &:hover {
+        background-color: rgba(white, .12);
+    }
+
     .wui-avatar,
     .wui-icon {
         -webkit-box-flex: 0;
@@ -40,7 +44,7 @@
     padding: ($spacer-y * .25) $spacer-x;
 }
 
-.wui-list-item-body {
+.wui-list-item-text {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -55,9 +59,9 @@
     }
 }
 
-.wui-icon + .wui-list-item-body {
+.wui-icon + .wui-list-item-text {
     margin-left: $spacer-x * 2;
 }
-.wui-avatar + .wui-list-item-body {
+.wui-avatar + .wui-list-item-text {
     margin-left: $spacer-x;
 }

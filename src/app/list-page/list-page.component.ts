@@ -11,4 +11,7 @@ export class ListPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  basicItemFn() {
+    console.log('The item was clicked');
+  }
 }
