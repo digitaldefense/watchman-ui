@@ -1,4 +1,15 @@
-import { Component, Directive, ChangeDetectionStrategy, ElementRef, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+import {
+  ContentChild,
+  Component,
+  Directive,
+  ChangeDetectionStrategy,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewEncapsulation
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { WuiThemeService } from '../theme/theme.service';
 import { Theme } from '../theme/theme.tmpl';
@@ -66,14 +77,16 @@ export class WuiCardActions {}
 
 @Component({
   selector: 'section[wui-card], wui-card',
-  template: '<ng-content></ng-content>',
+  templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   host: {
     '[class.wui-card]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })
-export class WuiCardComponent {}
+export class WuiCardComponent {
+  @Input() title: string;
+}
 
 @Component({
   selector: 'wui-card-header',
