@@ -1,5 +1,6 @@
 @import '../scss/_variables';
 @import '../scss/_mixins';
+@import '../scss/shadows';
 
 @mixin user-select($value) {
     -webkit-user-select: none;
@@ -38,6 +39,7 @@
 
 .wui-raised-button {
     @extend .wui-button;
+    @extend .wui-depth-4;
 
     transform: translate3d(0, 0, 0);
 
