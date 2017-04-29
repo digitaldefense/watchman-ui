@@ -16,7 +16,6 @@ import { WuiIconComponent } from '../icon';
 export class AvatarComponent {
   private _imagePath: string;
   private _icon: string;
-  private _letter: string;
 
   hasImage = false;
   hasIcon = false;
@@ -34,13 +33,6 @@ export class AvatarComponent {
   set icon(value: string) {
     this._icon = value;
     this.hasIcon = true;
-  }
-
-  @Input()
-  get letter() { return this._letter; }
-  set letter(value: string) {
-    this._letter = value;
-    this.hasLetter = true;
   }
 
   constructor() { }

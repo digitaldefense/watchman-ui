@@ -65,7 +65,7 @@ export class WuiCardFooter {}
 export class WuiCardActions {}
 
 @Component({
-  selector: 'section[wui-card]',
+  selector: 'section[wui-card], wui-card',
   template: '<ng-content></ng-content>',
   styleUrls: ['./card.component.scss'],
   host: {

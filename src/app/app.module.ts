@@ -22,8 +22,10 @@ import { FormsPageComponent } from './forms-page/forms-page.component';
 import { InputsPageComponent } from './inputs-page/inputs-page.component';
 import { ColorsPageComponent } from './colors-page/colors-page.component';
 import { ListPageComponent } from './list-page/list-page.component';
+import { AvatarPageComponent } from './avatar-page/avatar-page.component';
 
 const appRoutes: Routes = [
+  { path: 'avatar', component: AvatarPageComponent },
   { path: 'colors', component: ColorsPageComponent },
   { path: 'type', component: TypePageComponent },
   { path: 'forms', component: FormsPageComponent },
@@ -34,15 +36,12 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    // ===
-    // WuiColorDirective,
-    // WuiLinkColorDirective,
-    // ===
     TypePageComponent,
     FormsPageComponent,
     InputsPageComponent,
     ColorsPageComponent,
     ListPageComponent,
+    AvatarPageComponent,
   ],
   imports: [
     BrowserModule,
