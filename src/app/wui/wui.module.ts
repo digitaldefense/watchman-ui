@@ -5,6 +5,7 @@ import { WuiThemeService, THEMES } from './theme/index';
 export { WuiThemeService, THEMES } from './theme/index';
 
 import { WuiColorModule } from './core/color';
+import { WhiteframeModule } from './core/whiteframe';
 
 import { WuiToolbarModule } from './toolbar/index';
 import { WuiButtonModule } from './button/index';
@@ -23,6 +24,7 @@ import { WuiDividerModule } from './divider';
 const WUI_MODULES = [
   // FlexLayoutModule,
   WuiColorModule,
+  WhiteframeModule,
   WuiButtonModule,
   WuiDividerModule,
   WuiIconModule,

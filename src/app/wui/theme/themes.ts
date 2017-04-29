@@ -30,7 +30,7 @@ export class THEMES {
         warning: PALETTE.amber['500'],
         danger: PALETTE.red['500'],
         background: BaseThemes.light.background,
-        foreground: BaseThemes['light'].text,
+        foreground: 'black',
         link: PALETTE.blue['500']
     };
     dark: Theme = {
