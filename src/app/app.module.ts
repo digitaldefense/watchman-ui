@@ -12,8 +12,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { WuiModule } from './wui/wui.module';
 import { WuiThemeService } from './wui/theme/theme.service';
 import { THEMES } from './wui/theme/themes';
-import { WuiColorDirective } from './wui/theme/color.directive';
-import { WuiLinkColorDirective } from './wui/theme/color.directive';
+// import { WuiColorDirective } from './wui/theme/color.directive';
+// import { WuiLinkColorDirective } from './wui/theme/color.directive';
 // ===
 
 import { AppComponent } from './app.component';
@@ -35,8 +35,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     // ===
-    WuiColorDirective,
-    WuiLinkColorDirective,
+    // WuiColorDirective,
+    // WuiLinkColorDirective,
     // ===
     TypePageComponent,
     FormsPageComponent,

@@ -1,8 +1,10 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { WuiColorModule, WuiThemeService, THEMES } from './theme/index';
+import { WuiThemeService, THEMES } from './theme/index';
 export { WuiThemeService, THEMES } from './theme/index';
+
+import { WuiColorModule } from './core/color';
 
 import { WuiToolbarModule } from './toolbar/index';
 import { WuiButtonModule } from './button/index';
@@ -14,10 +16,13 @@ import { WuiListModule } from './list';
 import { WuiAvatarModule } from './avatar';
 import { WuiDividerModule } from './divider';
 
+// export * from './core/color';
+
 // import 'lodash';
 
 const WUI_MODULES = [
   // FlexLayoutModule,
+  WuiColorModule,
   WuiButtonModule,
   WuiDividerModule,
   WuiIconModule,
