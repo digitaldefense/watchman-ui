@@ -16,6 +16,7 @@ import { WuiCardModule } from './card/index';
 import { WuiListModule } from './list';
 import { WuiAvatarModule } from './avatar';
 import { WuiDividerModule } from './divider';
+import { FlCardModule } from './paper/index';
 
 // export * from './core/color';
 
@@ -25,6 +26,7 @@ const WUI_MODULES = [
   // FlexLayoutModule,
   WuiColorModule,
   WhiteframeModule,
+  FlCardModule,
   WuiButtonModule,
   WuiDividerModule,
   WuiIconModule,
