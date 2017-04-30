@@ -216,3 +216,11 @@ mark,
 .text-lowercase  { text-transform: lowercase !important; }
 .text-uppercase  { text-transform: uppercase !important; }
 .text-capitalize { text-transform: capitalize !important; }
+
+kbd {
+  background-color: $text-medium;
+  border-radius: .25rem;
+  font-size: $font-size-base * .9;
+  padding: 0 .25rem;
+  word-break: keep-all;
+}

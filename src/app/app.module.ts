@@ -27,16 +27,18 @@ import { WhiteframesPageComponent } from './whiteframes-page/whiteframes-page.co
 import { CardPageComponent } from './card-page/card-page.component';
 import { PageComponent } from './page/page.component';
 import { ToolbarPageComponent } from './toolbar-page/toolbar-page.component';
+import { SectionPageComponent } from './section-page/section-page.component';
 
 const appRoutes: Routes = [
   { path: 'avatar', component: AvatarPageComponent },
   { path: 'colors', component: ColorsPageComponent },
-  { path: 'type', component: TypePageComponent },
   { path: 'forms', component: FormsPageComponent },
   { path: 'inputs', component: InputsPageComponent },
   { path: 'lists', component: ListPageComponent },
   { path: 'card', component: CardPageComponent },
+  { path: 'section', component: SectionPageComponent },
   { path: 'toolbar', component: ToolbarPageComponent },
+  { path: 'type', component: TypePageComponent },
   { path: 'whiteframe', component: WhiteframesPageComponent },
 ];
 
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
     CardPageComponent,
     PageComponent,
     ToolbarPageComponent,
+    SectionPageComponent,
   ],
   imports: [
     BrowserModule,
