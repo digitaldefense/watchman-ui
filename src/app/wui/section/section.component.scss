@@ -2,29 +2,29 @@
 @import '../scss/_variables';
 @import '../scss/_type';
 
-.wui-card {
+.fl-section {
     display: block;
     margin-bottom: $spacer-y;
     width: 100%;
 }
 
-%wui-card-base {
+%fl-section-base {
     display: block;
     position: relative;
 }
 
-.wui-card-header {
-    @extend %wui-card-base;
+.fl-section-header {
+    @extend %fl-section-base;
     // border-bottom: 1px solid $theme-accent;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     margin-bottom: $spacer-y;
-    .wui-card-h1 {
+    .fl-section-h1 {
         margin: 0;
     }
 }
 
-.wui-card-title {
+.fl-section-title {
     @extend .h1;
     display: block;
     font-size: $title-font-size;
@@ -40,6 +40,6 @@
     border-image-slice: 1 !important;
 }
 
-.wui-card-body {
-    @extend %wui-card-base;
+.fl-section-body {
+    @extend %fl-section-base;
 }

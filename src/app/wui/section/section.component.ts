@@ -17,7 +17,7 @@ import { Theme } from '../theme/theme.tmpl';
 @Directive({
   selector: 'fl-section-title',
   host: {
-    '[class.wui-card-title]': 'true'
+    '[class.fl-section-title]': 'true'
   }
 })
 export class FlSectionTitle implements OnInit {
@@ -38,7 +38,7 @@ export class FlSectionTitle implements OnInit {
 @Directive({
   selector: 'fl-section-subtitle',
   host: {
-    '[class.wui-card-subtitle]': 'true'
+    '[class.fl-section-subtitle]': 'true'
   }
 })
 export class FlSectionSubtitle {}
@@ -46,7 +46,7 @@ export class FlSectionSubtitle {}
 @Directive({
   selector: 'fl-section-controls',
   host: {
-    '[class.wui-card-controls]': 'true'
+    '[class.fl-section-controls]': 'true'
   }
 })
 export class FlSectionControls {}
@@ -54,7 +54,7 @@ export class FlSectionControls {}
 @Directive({
   selector: 'fl-section-body',
   host: {
-    '[class.wui-card-body]': 'true'
+    '[class.fl-section-body]': 'true'
   }
 })
 export class FlSectionBody {}
@@ -62,7 +62,7 @@ export class FlSectionBody {}
 // @Directive({
 //   selector: 'wui-card-footer',
 //   host: {
-//     '[class.wui-card-footer]': 'true'
+//     '[class.fl-section-footer]': 'true'
 //   }
 // })
 // export class WuiCardFooter {}
@@ -70,7 +70,7 @@ export class FlSectionBody {}
 // @Directive({
 //   selector: 'wui-card-actions',
 //   host: {
-//     '[class.wui-card-actions]': 'true'
+//     '[class.fl-section-actions]': 'true'
 //   }
 // })
 // export class WuiCardActions {}
@@ -80,7 +80,7 @@ export class FlSectionBody {}
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.scss'],
   host: {
-    '[class.wui-card]': 'true'
+    '[class.fl-section]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })
@@ -92,7 +92,7 @@ export class FlSectionComponent {
   selector: 'fl-section-header',
   templateUrl: './section-header.component.html',
   host: {
-    '[class.wui-card-header]': 'true'
+    '[class.fl-section-header]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })
@@ -113,7 +113,7 @@ export class FlSectionHeaderComponent implements OnInit {
   selector: 'fl-section-title-group',
   templateUrl: './section-title-group.component.html',
   host: {
-    '[class.wui-card-title-group]': 'true'
+    '[class.fl-section-title-group]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })
