@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WuiCardComponent } from './card.component';
+import { WuiCardComponent } from './section.component';
 
 describe('WuiCardComponent', () => {
   let component: WuiCardComponent;

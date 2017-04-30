@@ -15,12 +15,12 @@ import { WuiThemeService } from '../theme/theme.service';
 import { Theme } from '../theme/theme.tmpl';
 
 @Directive({
-  selector: 'wui-card-title',
+  selector: 'fl-section-title',
   host: {
     '[class.wui-card-title]': 'true'
   }
 })
-export class WuiCardTitle implements OnInit {
+export class FlSectionTitle implements OnInit {
   protected theme: Theme;
 
   constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
@@ -36,67 +36,67 @@ export class WuiCardTitle implements OnInit {
 }
 
 @Directive({
-  selector: 'wui-card-subtitle',
+  selector: 'fl-section-subtitle',
   host: {
     '[class.wui-card-subtitle]': 'true'
   }
 })
-export class WuiCardSubtitle {}
+export class FlSectionSubtitle {}
 
 @Directive({
-  selector: 'wui-card-controls',
+  selector: 'fl-section-controls',
   host: {
     '[class.wui-card-controls]': 'true'
   }
 })
-export class WuiCardControls {}
+export class FlSectionControls {}
 
 @Directive({
-  selector: 'wui-card-body',
+  selector: 'fl-section-body',
   host: {
     '[class.wui-card-body]': 'true'
   }
 })
-export class WuiCardBody {}
+export class FlSectionBody {}
 
-@Directive({
-  selector: 'wui-card-footer',
-  host: {
-    '[class.wui-card-footer]': 'true'
-  }
-})
-export class WuiCardFooter {}
+// @Directive({
+//   selector: 'wui-card-footer',
+//   host: {
+//     '[class.wui-card-footer]': 'true'
+//   }
+// })
+// export class WuiCardFooter {}
 
-@Directive({
-  selector: 'wui-card-actions',
-  host: {
-    '[class.wui-card-actions]': 'true'
-  }
-})
-export class WuiCardActions {}
+// @Directive({
+//   selector: 'wui-card-actions',
+//   host: {
+//     '[class.wui-card-actions]': 'true'
+//   }
+// })
+// export class WuiCardActions {}
 
 @Component({
-  selector: 'section[wui-card], wui-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  selector: 'section[fl-section], fl-section',
+  templateUrl: './section.component.html',
+  styleUrls: ['./section.component.scss'],
   host: {
     '[class.wui-card]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })
-export class WuiCardComponent {
+export class FlSectionComponent {
   @Input() title: string;
 }
 
 @Component({
-  selector: 'wui-card-header',
-  templateUrl: './card-header.component.html',
+  selector: 'fl-section-header',
+  templateUrl: './section-header.component.html',
   host: {
     '[class.wui-card-header]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })
-export class WuiCardHeaderComponent implements OnInit {
+export class FlSectionHeaderComponent implements OnInit {
   protected theme: Theme;
 
   constructor(private _themeSvc: WuiThemeService, private _element: ElementRef, private _renderer: Renderer2) {
@@ -110,11 +110,11 @@ export class WuiCardHeaderComponent implements OnInit {
 }
 
 @Component({
-  selector: 'wui-card-title-group',
-  templateUrl: './card-title-group.component.html',
+  selector: 'fl-section-title-group',
+  templateUrl: './section-title-group.component.html',
   host: {
     '[class.wui-card-title-group]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })
-export class WuiCardTitleGroupComponent {}
+export class FlSectionTitleGroupComponent {}

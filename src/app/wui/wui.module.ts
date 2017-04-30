@@ -7,12 +7,12 @@ export { WuiThemeService, THEMES } from './theme/index';
 import { WuiColorModule } from './core/color';
 import { WhiteframeModule } from './core/whiteframe';
 
+import { FlSectionModule } from './section/index';
 import { WuiToolbarModule } from './toolbar/index';
 import { WuiButtonModule } from './button/index';
 import { WuiIconModule } from './icon/index';
 import { WuiInputModule } from './input/index';
 import { WuiUniversalModule } from './universal';
-import { WuiCardModule } from './card/index';
 import { WuiListModule } from './list';
 import { WuiAvatarModule } from './avatar';
 import { WuiDividerModule } from './divider';
@@ -25,6 +25,7 @@ import { FlCardModule } from './paper/index';
 const WUI_MODULES = [
   // FlexLayoutModule,
   WuiColorModule,
+  FlSectionModule,
   WhiteframeModule,
   FlCardModule,
   WuiButtonModule,
@@ -32,7 +33,6 @@ const WUI_MODULES = [
   WuiIconModule,
   WuiAvatarModule,
   WuiInputModule,
-  WuiCardModule,
   WuiListModule,
   WuiToolbarModule,
   WuiUniversalModule
