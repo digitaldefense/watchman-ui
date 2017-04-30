@@ -28,11 +28,13 @@ import { CardPageComponent } from './card-page/card-page.component';
 import { PageComponent } from './page/page.component';
 import { ToolbarPageComponent } from './toolbar-page/toolbar-page.component';
 import { SectionPageComponent } from './section-page/section-page.component';
+import { IconPageComponent } from './icon-page/icon-page.component';
 
 const appRoutes: Routes = [
   { path: 'avatar', component: AvatarPageComponent },
   { path: 'colors', component: ColorsPageComponent },
   { path: 'forms', component: FormsPageComponent },
+  { path: 'icon', component: IconPageComponent },
   { path: 'inputs', component: InputsPageComponent },
   { path: 'lists', component: ListPageComponent },
   { path: 'card', component: CardPageComponent },
@@ -56,6 +58,7 @@ const appRoutes: Routes = [
     PageComponent,
     ToolbarPageComponent,
     SectionPageComponent,
+    IconPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,7 @@ const appRoutes: Routes = [
   providers: [
     WuiThemeService,
     THEMES,
-    { provide: 'AppConfig', useValue: { name: 'light' }},
+    { provide: 'AppConfig', useValue: { name: 'purple-green' }},
   ],
   bootstrap: [AppComponent]
 })
