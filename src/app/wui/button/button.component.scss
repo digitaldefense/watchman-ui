@@ -39,7 +39,7 @@
 
 .wui-raised-button {
     @extend .wui-button;
-    @extend .wui-depth-4;
+    @extend .fl-shadow-4;
 
     transform: translate3d(0, 0, 0);
 
