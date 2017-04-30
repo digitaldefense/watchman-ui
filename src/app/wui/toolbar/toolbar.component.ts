@@ -12,27 +12,32 @@ import { WuiThemeService } from '../theme/theme.service';
 import { Theme } from '../theme/theme.tmpl';
 
 @Directive({
-  selector: 'wui-toolbar-row',
+  selector: 'fl-toolbar-row',
   host: {
-    '[class.wui-toolbar-row]': 'true',
+    '[class.fl-toolbar-row]': 'true',
   },
 })
-export class WuiToolbarRowDirective {}
+export class FlToolbarRowDirective {}
 
 @Component({
   moduleId: module.id,
-  selector: 'wui-toolbar',
+  selector: 'fl-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
   host: {
-    '[class.wui-toolbar]': 'true',
+    '[class.fl-toolbar]': 'true',
     'role': 'toolbar'
   },
   // changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class WuiToolbarComponent {
+export class FlToolbarComponent {
   private theme: Theme;
+  private _shadow: number = 4;
+
+  @Input()
+  get shadow() { return this._shadow; }
+  set shadow(value: number) { this._shadow = value; }
 
   constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
     this.theme = _themeSvc.theme;

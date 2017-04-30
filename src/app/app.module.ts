@@ -24,8 +24,9 @@ import { ColorsPageComponent } from './colors-page/colors-page.component';
 import { ListPageComponent } from './list-page/list-page.component';
 import { AvatarPageComponent } from './avatar-page/avatar-page.component';
 import { WhiteframesPageComponent } from './whiteframes-page/whiteframes-page.component';
-import { PaperPageComponent } from './paper-page/paper-page.component';
+import { CardPageComponent } from './card-page/card-page.component';
 import { PageComponent } from './page/page.component';
+import { ToolbarPageComponent } from './toolbar-page/toolbar-page.component';
 
 const appRoutes: Routes = [
   { path: 'avatar', component: AvatarPageComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
   { path: 'forms', component: FormsPageComponent },
   { path: 'inputs', component: InputsPageComponent },
   { path: 'lists', component: ListPageComponent },
-  { path: 'paper', component: PaperPageComponent },
+  { path: 'card', component: CardPageComponent },
+  { path: 'toolbar', component: ToolbarPageComponent },
   { path: 'whiteframe', component: WhiteframesPageComponent },
 ];
 
@@ -48,8 +50,9 @@ const appRoutes: Routes = [
     ListPageComponent,
     AvatarPageComponent,
     WhiteframesPageComponent,
-    PaperPageComponent,
+    CardPageComponent,
     PageComponent,
+    ToolbarPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ import { WuiColorModule } from './core/color';
 import { WhiteframeModule } from './core/whiteframe';
 
 import { FlSectionModule } from './section/index';
-import { WuiToolbarModule } from './toolbar/index';
+import { FlToolbarModule } from './toolbar/index';
 import { WuiButtonModule } from './button/index';
 import { WuiIconModule } from './icon/index';
 import { WuiInputModule } from './input/index';
@@ -16,7 +16,7 @@ import { WuiUniversalModule } from './universal';
 import { WuiListModule } from './list';
 import { WuiAvatarModule } from './avatar';
 import { WuiDividerModule } from './divider';
-import { FlCardModule } from './paper/index';
+import { FlCardModule } from './card/index';
 
 // export * from './core/color';
 
@@ -34,7 +34,7 @@ const WUI_MODULES = [
   WuiAvatarModule,
   WuiInputModule,
   WuiListModule,
-  WuiToolbarModule,
+  FlToolbarModule,
   WuiUniversalModule
 ];
 

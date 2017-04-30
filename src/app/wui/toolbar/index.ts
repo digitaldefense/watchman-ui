@@ -1,14 +1,14 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 // import {CompatibilityModule} from '../core';
-import { WuiToolbarComponent, WuiToolbarRowDirective } from './toolbar.component';
+import { FlToolbarComponent, FlToolbarRowDirective } from './toolbar.component';
 
 
 @NgModule({
   // imports: [CompatibilityModule],
-  exports: [WuiToolbarComponent, WuiToolbarRowDirective],
-  declarations: [WuiToolbarComponent, WuiToolbarRowDirective],
+  exports: [FlToolbarComponent, FlToolbarRowDirective],
+  declarations: [FlToolbarComponent, FlToolbarRowDirective],
 })
-export class WuiToolbarModule { }
+export class FlToolbarModule { }
 
 
 export * from './toolbar.component';
