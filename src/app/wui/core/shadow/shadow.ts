@@ -1,12 +1,12 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[wuiDepth]'
+  selector: '[flShadow]'
 })
-export class WhiteframeDirective implements OnInit {
+export class ShadowDirective implements OnInit {
   private _depth: number;
 
-  @Input('wuiDepth')
+  @Input('flShadow')
   get depth() { return this._depth; }
   set depth(value: number) {
     if (value == null || !value) {
@@ -20,6 +20,6 @@ export class WhiteframeDirective implements OnInit {
 
   ngOnInit() {
     const elem = this._element.nativeElement;
-    this._renderer.addClass(elem, `wui-depth-${this.depth}`);
+    this._renderer.addClass(elem, `fl-shadow-${this.depth}`);
   }
 }

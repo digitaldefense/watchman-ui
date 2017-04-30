@@ -23,7 +23,7 @@ import { InputsPageComponent } from './inputs-page/inputs-page.component';
 import { ColorsPageComponent } from './colors-page/colors-page.component';
 import { ListPageComponent } from './list-page/list-page.component';
 import { AvatarPageComponent } from './avatar-page/avatar-page.component';
-import { WhiteframesPageComponent } from './whiteframes-page/whiteframes-page.component';
+import { ShadowPageComponent } from './shadow-page/shadow-page.component';
 import { CardPageComponent } from './card-page/card-page.component';
 import { PageComponent } from './page/page.component';
 import { ToolbarPageComponent } from './toolbar-page/toolbar-page.component';
@@ -37,9 +37,9 @@ const appRoutes: Routes = [
   { path: 'lists', component: ListPageComponent },
   { path: 'card', component: CardPageComponent },
   { path: 'section', component: SectionPageComponent },
+  { path: 'shadow', component: ShadowPageComponent },
   { path: 'toolbar', component: ToolbarPageComponent },
   { path: 'type', component: TypePageComponent },
-  { path: 'whiteframe', component: WhiteframesPageComponent },
 ];
 
 @NgModule({
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
     ColorsPageComponent,
     ListPageComponent,
     AvatarPageComponent,
-    WhiteframesPageComponent,
+    ShadowPageComponent,
     CardPageComponent,
     PageComponent,
     ToolbarPageComponent,

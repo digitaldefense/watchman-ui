@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WhiteframesPageComponent } from './whiteframes-page.component';
+import { ShadowPageComponent } from './shadow-page.component';
 
-describe('WhiteframesPageComponent', () => {
-  let component: WhiteframesPageComponent;
-  let fixture: ComponentFixture<WhiteframesPageComponent>;
+describe('ShadowPageComponent', () => {
+  let component: ShadowPageComponent;
+  let fixture: ComponentFixture<ShadowPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WhiteframesPageComponent ]
+      declarations: [ ShadowPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WhiteframesPageComponent);
+    fixture = TestBed.createComponent(ShadowPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
