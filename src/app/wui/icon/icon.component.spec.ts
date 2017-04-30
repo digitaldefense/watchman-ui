@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WuiIconComponent } from './icon.component';
+import { FlIconComponent } from './icon.component';
 
 describe('IconComponent', () => {
-  let component: WuiIconComponent;
-  let fixture: ComponentFixture<WuiIconComponent>;
+  let component: FlIconComponent;
+  let fixture: ComponentFixture<FlIconComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WuiIconComponent ]
+      declarations: [ FlIconComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WuiIconComponent);
+    fixture = TestBed.createComponent(FlIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

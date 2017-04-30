@@ -1,18 +1,17 @@
 import { AfterViewChecked, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChange, ViewEncapsulation } from '@angular/core';
-// import { each } from 'lodash';
 
 @Component({
-  selector: 'wui-icon',
+  selector: 'fl-icon',
   template: '<ng-content></ng-content>',
   styleUrls: ['./icon.component.scss'],
   host: {
     'role': 'img',
-    '[class.wui-icon]': 'true'
+    '[class.fl-icon]': 'true'
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WuiIconComponent implements AfterViewChecked, OnInit, OnChanges {
+export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
   private _color: string;
   private _previousIcon: string;
   private _previousAriaLabel: string;
@@ -65,7 +64,7 @@ export class WuiIconComponent implements AfterViewChecked, OnInit, OnChanges {
 
   private _setElementColor(color: string) {
     if (color != null && color !== '') {
-      this._renderer.addClass(this._elRef.nativeElement, `wui-${color}-text`);
+      this._renderer.addClass(this._elRef.nativeElement, `fl-${color}-text`);
     }
   }
 

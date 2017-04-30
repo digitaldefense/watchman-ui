@@ -1,16 +1,16 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import { WuiIconComponent } from './icon.component';
+import { FlIconComponent } from './icon.component';
 
 export * from './icon.component';
 
 @NgModule({
     exports: [
-        WuiIconComponent
+        FlIconComponent
     ],
     declarations: [
-        WuiIconComponent
+        FlIconComponent
     ]
 })
 
-export class WuiIconModule {}
+export class FlIconModule {}

@@ -2,7 +2,7 @@ import { Component, ContentChild, Input, ViewEncapsulation } from '@angular/core
 import { Http, Response } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 
-import { WuiIconComponent } from '../icon';
+import { FlIconComponent } from '../icon';
 
 @Component({
   selector: 'wui-avatar',

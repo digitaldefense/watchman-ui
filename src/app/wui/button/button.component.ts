@@ -27,7 +27,7 @@ export class WuiRaisedButtonStyler {}
 
 @Component({
   moduleId: module.id,
-  selector: 'button[wui-button], button[wui-raised-button], button[wui-icon-button]',
+  selector: 'button[wui-button], button[wui-raised-button], button[fl-icon-button]',
   host: { '[disabled]': 'disabled' },
   templateUrl: 'button.component.html',
   styleUrls: ['button.component.scss'],

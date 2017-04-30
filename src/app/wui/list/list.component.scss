@@ -31,7 +31,7 @@
     }
 
     .wui-avatar,
-    .wui-icon {
+    .fl-icon {
         -webkit-box-flex: 0;
         -webkit-flex: none;
         flex: none;
@@ -63,7 +63,7 @@
     }
 }
 
-.wui-icon + .wui-list-item-text {
+.fl-icon + .wui-list-item-text {
     margin-left: $spacer-x * 2;
 }
 .wui-avatar + .wui-list-item-text {
