@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { WuiColorDirective, WuiBackgroundDirective, WuiLinkColorDirective } from './color';
 // export { WuiColorDirective, WuiBackgroundDirective, WuiLinkColorDirective } from './color';
+export * from './color';
 
 @NgModule({
     exports: [

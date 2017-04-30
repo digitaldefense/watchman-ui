@@ -1,12 +1,15 @@
 import { AfterViewChecked, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChange, ViewEncapsulation } from '@angular/core';
 
+import { WuiThemeService  } from '../theme';
+
 @Component({
   selector: 'fl-icon',
-  template: '<ng-content></ng-content>',
+  template: '',
   styleUrls: ['./icon.component.scss'],
   host: {
     'role': 'img',
-    '[class.fl-icon]': 'true'
+    '[class.fl-icon]': 'true',
+    // 'aria-hidden': 'true'
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -41,10 +44,11 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
     return this._color;
   }
 
-  constructor(private _renderer: Renderer2, private _elRef: ElementRef) { }
+  constructor(private _renderer: Renderer2, private _elRef: ElementRef, private _themeSvc: WuiThemeService) { }
 
   ngOnInit() {
     this._updateIconClasses();
+    this._setElementColor(this.color);
   }
 
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
@@ -63,8 +67,13 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
   }
 
   private _setElementColor(color: string) {
+    const elem = this._elRef.nativeElement;
     if (color != null && color !== '') {
-      this._renderer.addClass(this._elRef.nativeElement, `fl-${color}-text`);
+      if (color.charAt(0) === '#') {
+        this._renderer.setStyle(elem, 'color', this.color);
+      } else {
+        this._themeSvc.applyForeground(this._elRef, this._renderer, color);
+      }
     }
   }
 
