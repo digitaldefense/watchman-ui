@@ -1,15 +1,22 @@
 <fl-toolbar color="primary">
-  <fl-icon icon="shield"></fl-icon>
+  <button fl-icon-button>
+    <fl-icon icon="shield" color="#fff"></fl-icon>
+  </button>
   <h1 class="fl-toolbar-title">Frontline <span class="lead">UX</span></h1>
   <span fxFlex></span>
-  <fl-icon icon="rocket"></fl-icon>
-  <fl-icon icon="book"></fl-icon>
+  <button fl-icon-button>
+    <fl-icon icon="inbox" color="#fff"></fl-icon>
+  </button>
+  <button fl-icon-button>
+    <fl-icon icon="user-circle" color="#fff"></fl-icon>
+  </button>
 </fl-toolbar>
 
 <div fxLayout="row">
   <div fxFlex="20" flShadow>
     <wui-list>
       <wui-li routerLink="/avatar" routerLinkActive="active">Avatar</wui-li>
+      <wui-li routerLink="/button" routerLinkActive="active">Button</wui-li>
       <wui-li routerLink="/card" routerLinkActive="active">Card</wui-li>
       <wui-li routerLink="/colors" routerLinkActive="active">Colors</wui-li>
       <wui-li routerLink="/forms" routerLinkActive="active">Forms</wui-li>

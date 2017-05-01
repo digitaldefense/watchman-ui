@@ -1,6 +1,7 @@
 @import '../scss/_variables';
 @import '../scss/_mixins';
 @import '../scss/shadows';
+@import '../scss/_icon';
 
 @mixin user-select($value) {
     -webkit-user-select: none;
@@ -9,8 +10,58 @@
     user-select: none;
 }
 
-.wui-button,
+%btn-base {
+    box-sizing: border-box;
+    position: relative;
+
+    @include user-select(none);
+    cursor: pointer;
+    outline: none;
+    border: none;
+
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+
+    font-size: $btn-font-size;
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    margin: ($spacer-y * .5) 0;
+    min-width: 88px;
+    line-height: 36px;
+    padding: 0 ($btn-padding-x / 2);
+    border-radius: $btn-border-radius;
+
+    &:focus {
+        background-color: rgba(black, 0.12);
+        outline: 0;
+    }
+
+    & + * {
+        margin-left: $spacer-x / 2;
+    }
+}
+
+.fl-button,
 .fl-icon-button {
+    @extend %btn-base;
+}
+
+.fl-icon-button {
+    line-height: inherit;
+    min-width: 0;
+
+    background: none;
+    padding: 12px;
+    height: 48px;
+    width: 48px;
+}
+
+.wui-button {
     box-sizing: border-box;
     position: relative;
 

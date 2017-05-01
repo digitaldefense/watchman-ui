@@ -29,9 +29,11 @@ import { PageComponent } from './page/page.component';
 import { ToolbarPageComponent } from './toolbar-page/toolbar-page.component';
 import { SectionPageComponent } from './section-page/section-page.component';
 import { IconPageComponent } from './icon-page/icon-page.component';
+import { ButtonPageComponent } from './button-page/button-page.component';
 
 const appRoutes: Routes = [
   { path: 'avatar', component: AvatarPageComponent },
+  { path: 'button', component: ButtonPageComponent },
   { path: 'colors', component: ColorsPageComponent },
   { path: 'forms', component: FormsPageComponent },
   { path: 'icon', component: IconPageComponent },
@@ -59,6 +61,7 @@ const appRoutes: Routes = [
     ToolbarPageComponent,
     SectionPageComponent,
     IconPageComponent,
+    ButtonPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+$icon-size: 24px !default;
+
+%icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    font-size: $icon-size;
+    text-align: center;
+    height: $icon-size;
+    width: $icon-size;
+}

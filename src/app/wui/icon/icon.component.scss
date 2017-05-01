@@ -1,13 +1,5 @@
-@import '../scss/_variables';
-
-$icon-size: 24px !default;
+@import '../scss/_icon';
 
 .fl-icon {
-    background-repeat: no-repeat;
-    display: inline-block;
-    fill: currentColor;
-    font-size: $icon-size;
-    text-align: center;
-    height: $icon-size;
-    width: $icon-size;
+    @extend %icon;
 }

@@ -5,6 +5,7 @@ import {
   ElementRef,
   HostBinding,
   Input,
+  OnInit,
   Renderer2,
   ViewEncapsulation
 } from '@angular/core';
@@ -19,15 +20,69 @@ import { Theme } from '../theme/theme.tmpl';
 })
 export class WuiButtonStyler {}
 
+// @Directive({
+//   selector: 'button[wui-raised-button], a[wui-raised-button]',
+//   host: { '[class.wui-raised-button]': 'true' }
+// })
+// export class WuiRaisedButtonStyler {}
+
+// @Directive({
+//   selector: 'button[fl-icon-button]',
+//   host: {
+//     '[class.fl-icon-button]': 'true'
+//   }
+// })
+// export class Fl
+
 @Directive({
-  selector: 'button[wui-raised-button], a[wui-raised-button]',
-  host: { '[class.wui-raised-button]': 'true' }
+  selector: 'button[fl-button]',
+  host: { '[class.fl-button]': 'true' }
 })
-export class WuiRaisedButtonStyler {}
+export class FlFlatButtonStyle {}
+
+@Directive({
+  selector: 'button[fl-icon-button]',
+  host: { '[class.fl-icon-button]': 'true' }
+})
+export class FlIconButtonStyle {}
+
+@Component({
+  selector: 'button[fl-icon-button]',
+  template: '<ng-content></ng-content>',
+  styleUrls: ['button.component.scss'],
+  host: { '[disabled]': 'disabled' },
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class FlButtonComponent implements OnInit {
+  private _color: string;
+  private _disabled: boolean = null;
+
+  @Input()
+  get color() { return this._color; }
+  set color(value: string) { this._color = value; }
+
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _themeSvc: WuiThemeService
+  ) {}
+
+  ngOnInit() {
+    if (this.color == null) { this.color = 'primary'; }
+    const elem = this._element.nativeElement;
+    const attrs = elem.attributes;
+    if (attrs.hasOwnProperty('fl-button') || attrs.hasOwnProperty('fl-icon-button')) {
+      this._themeSvc.applyForeground(this._element, this._renderer, this.color);
+    } else {
+      this._themeSvc.applyBackground(this._element, this._renderer, this.color);
+    }
+  }
+}
 
 @Component({
   moduleId: module.id,
-  selector: 'button[wui-button], button[wui-raised-button], button[fl-icon-button]',
+  selector: 'button[wui-button], button[wui-raised-button]',
   host: { '[disabled]': 'disabled' },
   templateUrl: 'button.component.html',
   styleUrls: ['button.component.scss'],
