@@ -59,6 +59,10 @@ export class FlButtonComponent implements OnInit {
   private _disabled: boolean = null;
 
   @Input()
+  get disabled() { return this._disabled; }
+  set disabled(value: boolean) { this._disabled = coerceBooleanProperty(value) ? true : null; }
+
+  @Input()
   get color() { return this._color; }
   set color(value: string) { this._color = value; }
 
@@ -69,6 +73,8 @@ export class FlButtonComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    if (this._disabled) { return; }
+
     if (this.color == null) { this.color = 'primary'; }
     const elem = this._element.nativeElement;
     const attrs = elem.attributes;
