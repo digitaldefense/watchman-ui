@@ -49,13 +49,13 @@
 .fl-button,
 .fl-icon-button {
     @extend %btn-base;
+    background: none;
 }
 
 .fl-icon-button {
     line-height: inherit;
     min-width: 0;
 
-    background: none;
     padding: 12px;
     height: 48px;
     width: 48px;

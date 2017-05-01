@@ -47,7 +47,7 @@ export class FlFlatButtonStyle {}
 export class FlIconButtonStyle {}
 
 @Component({
-  selector: 'button[fl-icon-button]',
+  selector: 'button[fl-button], button[fl-icon-button]',
   template: '<ng-content></ng-content>',
   styleUrls: ['button.component.scss'],
   host: { '[disabled]': 'disabled' },
