@@ -21,13 +21,15 @@ export class WuiThemeService {
   /** Apply provided theme property as text color */
   applyForeground(element: any, renderer: any, color: string) {
     const elem = element.nativeElement;
-      renderer.setStyle(elem, 'color', this.theme[color]);
+    const newColor = this._isCustomColor(color) ? color : this.theme[color];
+    renderer.setStyle(elem, 'color', newColor);
   }
 
   /** Apply provided theme property as background color */
   applyBackground(element: any, renderer: any, color: string) {
     const elem = element.nativeElement;
-    renderer.setStyle(elem, 'background-color', this.theme[color]);
+    const newColor = this._isCustomColor(color) ? color : this.theme[color];
+    renderer.setStyle(elem, 'background-color', newColor);
   }
 
   /** Intelligently apply provided theme property contigent on element type */
@@ -42,5 +44,9 @@ export class WuiThemeService {
   applyStyle(element: any, renderer: any, rule: string, color: string) {
     const elem = element.nativeElement;
     renderer.setStyle(elem, rule, color);
+  }
+
+  private _isCustomColor(color: string): boolean {
+    return (color.charAt(0) === '#');
   }
 }
