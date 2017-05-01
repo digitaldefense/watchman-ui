@@ -7,7 +7,8 @@ import {
     // WuiRaisedButtonStyler,
     FlButtonComponent,
     FlFlatButtonStyle,
-    FlIconButtonStyle
+    FlIconButtonStyle,
+    FlRaisedButtonStyle
 } from './button.component';
 
 export * from './button.component';
@@ -22,7 +23,8 @@ export * from './button.component';
         // WuiRaisedButtonStyler,
         FlButtonComponent,
         FlFlatButtonStyle,
-        FlIconButtonStyle
+        FlIconButtonStyle,
+        FlRaisedButtonStyle
     ],
     declarations: [
         WuiButton,
@@ -30,7 +32,8 @@ export * from './button.component';
         // WuiRaisedButtonStyler,
         FlButtonComponent,
         FlFlatButtonStyle,
-        FlIconButtonStyle
+        FlIconButtonStyle,
+        FlRaisedButtonStyle
     ]
 })
 

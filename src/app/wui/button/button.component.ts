@@ -41,13 +41,19 @@ export class WuiButtonStyler {}
 export class FlFlatButtonStyle {}
 
 @Directive({
+  selector: 'button[fl-raised-button]',
+  host: { '[class.fl-raised-button]': 'true' }
+})
+export class FlRaisedButtonStyle {}
+
+@Directive({
   selector: 'button[fl-icon-button]',
   host: { '[class.fl-icon-button]': 'true' }
 })
 export class FlIconButtonStyle {}
 
 @Component({
-  selector: 'button[fl-button], button[fl-icon-button]',
+  selector: 'button[fl-button], button[fl-raised-button], button[fl-icon-button]',
   template: '<ng-content></ng-content>',
   styleUrls: ['button.component.scss'],
   host: { '[disabled]': 'disabled' },

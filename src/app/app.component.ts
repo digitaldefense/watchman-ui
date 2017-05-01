@@ -24,9 +24,11 @@ export class Hank {
     const txtColor = theme.foreground;
     const elem = this._element.nativeElement;
     const body = this._renderer.parentNode(elem);
+    // const themeBase = theme.base
 
     this._renderer.setStyle(body, 'background-color', bgColor);
     this._renderer.setStyle(body, 'color', txtColor);
+    this._renderer.addClass(body, 'fl-theme-dark');
   }
 }
 
