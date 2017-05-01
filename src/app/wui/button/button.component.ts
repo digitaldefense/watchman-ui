@@ -35,28 +35,28 @@ export class WuiButtonStyler {}
 // export class Fl
 
 @Directive({
-  selector: 'button[fl-button]',
+  selector: 'button[fl-button], a[fl-button]',
   host: { '[class.fl-button]': 'true' }
 })
 export class FlFlatButtonStyle {}
 
 @Directive({
-  selector: 'button[fl-raised-button]',
+  selector: 'button[fl-raised-button], a[fl-raised-button]',
   host: { '[class.fl-raised-button]': 'true' }
 })
 export class FlRaisedButtonStyle {}
 
 @Directive({
-  selector: 'button[fl-icon-button]',
+  selector: 'button[fl-icon-button], a[fl-icon-button]',
   host: { '[class.fl-icon-button]': 'true' }
 })
 export class FlIconButtonStyle {}
 
 @Component({
-  selector: 'button[fl-button], button[fl-raised-button], button[fl-icon-button]',
+  selector: 'button[fl-button], button[fl-raised-button], button[fl-icon-button], a[fl-button], a[fl-raised-button], a[fl-icon-button]',
   template: '<ng-content></ng-content>',
   styleUrls: ['button.component.scss'],
-  host: { '[disabled]': 'disabled' },
+  // host: { '[disabled]': 'disabled' },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
