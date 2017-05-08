@@ -5,11 +5,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { FlIconComponent } from '../icon';
 
 @Component({
-  selector: 'wui-avatar',
+  selector: 'wui-avatar, fl-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
   host: {
-    '[class.wui-avatar]': 'true'
+    '[class.fl-avatar]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })

@@ -8,13 +8,13 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import { WuiThemeService } from '../theme';
+import { FlThemeService } from '../theme2/theme.service';
 
 /** Deprecated */
 @Directive({
   selector: '[list-body]',
   host: {
-    '[class.wui-list-item-body]': 'true'
+    '[class.fl-list-item-body]': 'true'
   }
 })
 export class WuiListItemBodyDirective {}
@@ -22,13 +22,13 @@ export class WuiListItemBodyDirective {}
 @Directive({
   selector: '[list-right]',
   host: {
-    '[class.wui-list-item-secondary]': 'true'
+    '[class.fl-list-item-secondary]': 'true'
   }
 })
 export class WuiListItemRightDirective {}
 
 @Directive({
-  selector: 'wui-list[dense]',
+  selector: 'fl-list[dense]',
   host: {
     '[class.dense]': 'true'
   }
@@ -36,10 +36,10 @@ export class WuiListItemRightDirective {}
 export class WuiListDenseDirective {}
 
 @Component({
-  selector: 'wui-li',
+  selector: 'fl-li',
   templateUrl: './list-item.component.html',
   host: {
-    '[class.wui-list-item]': 'true',
+    '[class.fl-list-item]': 'true',
     'role': 'listitem'
   }
 })
@@ -52,21 +52,21 @@ export class WuiListItemComponent implements OnInit {
     if (value != null) { this._isLink = true; }
   }
 
-  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {}
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {}
 
   ngOnInit() {
     if (this._isLink) {
-      this._themeSvc.applyForeground(this._element, this._renderer, 'link');
+      this._renderer.setStyle(this._element.nativeElement, 'color', this._themeSvc.theme['link']);
     }
   }
 }
 
 @Component({
-  selector: 'wui-list',
+  selector: 'fl-list',
   template: '<ng-content></ng-content>',
   styleUrls: ['./list.component.scss'],
   host: {
-    '[class.wui-list]': 'true'
+    '[class.fl-list]': 'true'
   },
   encapsulation: ViewEncapsulation.None
 })

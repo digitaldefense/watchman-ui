@@ -1,6 +1,6 @@
 @import '../scss/_variables';
 
-.wui-list-item {
+.fl-list-item {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -30,25 +30,25 @@
         background-color: rgba(black, .12);
     }
 
-    .wui-avatar,
+    .fl-avatar,
     .fl-icon {
         -webkit-box-flex: 0;
         -webkit-flex: none;
         flex: none;
     }
-    .wui-avatar {
+    .fl-avatar {
         width: 40px;
         height: 40px;
     }
 }
 
-.wui-list.dense .wui-list-item {
+.fl-list.dense .fl-list-item {
     font-size: $font-size-sm;
     min-height: 40px;
     padding: ($spacer-y * .25) $spacer-x;
 }
 
-.wui-list-item-text {
+.fl-list-item-text {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -63,9 +63,9 @@
     }
 }
 
-.fl-icon + .wui-list-item-text {
+.fl-icon + .fl-list-item-text {
     margin-left: $spacer-x * 2;
 }
-.wui-avatar + .wui-list-item-text {
+.fl-avatar + .fl-list-item-text {
     margin-left: $spacer-x;
 }
