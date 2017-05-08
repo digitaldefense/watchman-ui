@@ -7,4 +7,4 @@ export { ShadowDirective } from './shadow';
     exports: [ShadowDirective],
     declarations: [ShadowDirective]
 })
-export class ShadowModule {}
+export class FlShadowModule {}

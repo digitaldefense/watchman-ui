@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { WuiColorModule } from './color/index';
-import { ShadowModule } from './shadow/index';
+import { FlShadowModule } from './shadow/index';
 
 // import { WuiPaddingModule } from './padding/index';
 // import { WuiRippleModule } from './ripple/index';
@@ -19,13 +19,13 @@ export * from './shadow/index';
 @NgModule({
     imports: [
         WuiColorModule,
-        ShadowModule
+        FlShadowModule
         // WuiRippleModule
         // WuiPaddingModule
     ],
     exports: [
         WuiColorModule,
-        ShadowModule
+        FlShadowModule
         // WuiRippleModule
         // WuiPaddingModule
     ],
