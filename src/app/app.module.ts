@@ -16,6 +16,13 @@ import { THEMES } from './wui/theme/themes';
 // import { WuiLinkColorDirective } from './wui/theme/color.directive';
 // ===
 
+
+// import { FlThemeService } from './wui/theme2/theme.service';
+// import { ThemePresets } from './wui/theme2/presets';
+import { FlThemeModule } from './wui/theme2/theme.module';
+// import { FluxModule } from './flux/flux.module';
+
+import { AppConfig2 } from './app-config.service';
 import { AppComponent } from './app.component';
 import { TypePageComponent } from './type-page/type-page.component';
 import { FormsPageComponent } from './forms-page/forms-page.component';
@@ -30,6 +37,7 @@ import { ToolbarPageComponent } from './toolbar-page/toolbar-page.component';
 import { SectionPageComponent } from './section-page/section-page.component';
 import { IconPageComponent } from './icon-page/icon-page.component';
 import { ButtonPageComponent } from './button-page/button-page.component';
+// import { FluxComponent } from './flux/flux.component';
 
 const appRoutes: Routes = [
   { path: 'avatar', component: AvatarPageComponent },
@@ -44,6 +52,8 @@ const appRoutes: Routes = [
   { path: 'shadow', component: ShadowPageComponent },
   { path: 'toolbar', component: ToolbarPageComponent },
   { path: 'type', component: TypePageComponent },
+
+  // { path: 'flux', loadChildren: 'flux/flux.module#FluxComponent' }
 ];
 
 @NgModule({
@@ -62,10 +72,13 @@ const appRoutes: Routes = [
     SectionPageComponent,
     IconPageComponent,
     ButtonPageComponent,
+    // FluxComponent,
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
+    FlThemeModule,
+    // FluxModule,
     WuiModule,
     NgxDatatableModule,
     // FormsModule,
@@ -73,9 +86,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
+    // FlThemeService,
+    // ThemePresets,
+    AppConfig2,
     WuiThemeService,
     THEMES,
-    { provide: 'AppConfig', useValue: { name: 'purple-green' }},
+    { provide: 'AppConfig', useValue: { name: 'dark' }},
   ],
   bootstrap: [AppComponent]
 })

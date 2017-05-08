@@ -1,7 +1,17 @@
-import { Component, ElementRef, Injectable, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Injectable, OnInit, Renderer2 } from '@angular/core';
 
 import { Theme } from './wui/theme/theme.tmpl';
 import { WuiThemeService } from './wui/theme/theme.service';
+import { FlThemeService } from './wui/theme2/theme.service';
+
+// import { themeServiceProvider } from './wui/theme2/theme.service.provider';
+
+const myTheme = {
+  name: 'myTheme',
+  base: 'light',
+  primary: '#fff000',
+  accent: '#ff7723'
+};
 
 /**
  * Hank (think, "Finding Dory") is an interim method to apply styles to the body
@@ -14,9 +24,13 @@ export class Hank {
   constructor(
     private _themeSvc: WuiThemeService,
     private _element: ElementRef,
-    private _renderer: Renderer2
+    private _renderer: Renderer2,
+    // private _theme2: FlThemeService
   ) {
-    this._setColors(_themeSvc.theme);
+    // console.log('Hank sets the theme...');
+    
+    // this._setColors(_themeSvc.theme);
+    // this._theme2.set('dark');
   }
 
   private _setColors(theme: Theme) {
@@ -24,7 +38,6 @@ export class Hank {
     const txtColor = theme.foreground;
     const elem = this._element.nativeElement;
     const body = this._renderer.parentNode(elem);
-    // const themeBase = theme.base
 
     this._renderer.setStyle(body, 'background-color', bgColor);
     this._renderer.setStyle(body, 'color', txtColor);
@@ -36,10 +49,16 @@ export class Hank {
   selector: 'wui-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [Hank]
+  providers: [Hank, FlThemeService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private _hank: Hank) { }
+  constructor(private _hank: Hank, private _theme2: FlThemeService) {
+    this._theme2.set('dark');
+  }
+  // constructor(private _theme2: FlThemeService) { }
 
+  ngOnInit() {
+    // this._theme2.set('light');
+  }
 }
