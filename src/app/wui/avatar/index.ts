@@ -19,4 +19,4 @@ export * from './avatar.component';
     ]
 })
 
-export class WuiAvatarModule {}
+export class FlAvatarModule {}
