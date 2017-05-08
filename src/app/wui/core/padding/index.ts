@@ -1,19 +1,9 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { WuiPaddingDirective } from './padding.directive';
-
-export { WuiPaddingDirective } from './padding.directive';
+import { FlPaddingDirective } from './padding.directive';
 
 @NgModule({
-    exports: [WuiPaddingDirective],
-    declarations: [WuiPaddingDirective],
-    providers: []
+  declarations: [FlPaddingDirective],
+  exports: [FlPaddingDirective]
 })
 
-export class WuiPaddingModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: WuiPaddingModule,
-      providers: []
-    };
-  }
-}
+export class FlPaddingModule {}

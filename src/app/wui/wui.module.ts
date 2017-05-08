@@ -6,13 +6,14 @@ export { WuiThemeService, THEMES } from './theme/index';
 
 import { WuiColorModule } from './core/color';
 import { FlShadowModule } from './core/shadow';
+import { FlPaddingModule } from './core/padding';
 
 import { FlSectionModule } from './section/index';
 import { FlToolbarModule } from './toolbar/index';
 import { FlButtonModule } from './button/index';
 import { FlIconModule } from './icon/index';
 import { FlInputModule } from './input/index';
-import { WuiUniversalModule } from './universal';
+// import { WuiUniversalModule } from './universal';
 import { FlListModule } from './list';
 import { FlAvatarModule } from './avatar';
 import { FlDividerModule } from './divider';
@@ -27,6 +28,7 @@ const WUI_MODULES = [
   WuiColorModule,
   FlSectionModule,
   FlShadowModule,
+  FlPaddingModule,
   FlCardModule,
   FlButtonModule,
   FlDividerModule,
@@ -35,7 +37,7 @@ const WUI_MODULES = [
   FlInputModule,
   FlListModule,
   FlToolbarModule,
-  WuiUniversalModule
+  // WuiUniversalModule
 ];
 
 @NgModule({

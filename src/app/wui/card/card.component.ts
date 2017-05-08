@@ -22,7 +22,7 @@ export class CardComponent implements OnInit {
     if (this.padding != null || this.padding !== '') {
       this._renderer.setStyle(elem, 'padding', `0 ${this.padding}`);
     } else {
-      this._renderer.addClass(elem, 'wui-padding');
+      this._renderer.addClass(elem, 'fl-padding');
     }
 
     if (this.shadow != null) {
