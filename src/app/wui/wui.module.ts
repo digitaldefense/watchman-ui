@@ -9,7 +9,7 @@ import { FlShadowModule } from './core/shadow';
 
 import { FlSectionModule } from './section/index';
 import { FlToolbarModule } from './toolbar/index';
-import { WuiButtonModule } from './button/index';
+import { FlButtonModule } from './button/index';
 import { FlIconModule } from './icon/index';
 import { WuiInputModule } from './input/index';
 import { WuiUniversalModule } from './universal';
@@ -28,7 +28,7 @@ const WUI_MODULES = [
   FlSectionModule,
   FlShadowModule,
   FlCardModule,
-  WuiButtonModule,
+  FlButtonModule,
   WuiDividerModule,
   FlIconModule,
   WuiAvatarModule,

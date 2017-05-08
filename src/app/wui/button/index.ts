@@ -28,4 +28,4 @@ export * from './button.component';
     ]
 })
 
-export class WuiButtonModule {}
+export class FlButtonModule {}
