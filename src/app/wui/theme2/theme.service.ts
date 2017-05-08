@@ -5,10 +5,6 @@ import { BehaviorSubject, Observable } from 'rxjs/Rx';
 import { ThemePresets } from './presets';
 // import { AppConfig2 } from '../../app-config.service';
 
-// const themeFactory = (presets: ThemePresets, config: AppConfig2) => {
-//   return new FlThemeService(presets, config.theme);
-// };
-
 @Injectable()
 export class FlThemeService {
   private _theme: any;
@@ -16,18 +12,11 @@ export class FlThemeService {
   set theme(value: any) { this._theme = value; }
   get theme() { return this._theme; }
 
-  // constructor(@Inject('AppConfig') config, private _themes: ThemePresets) {
-  //   const name = config.name || 'light';
-  //   this.set(name);
-  // }
-
   constructor(
     protected _themes: ThemePresets,
     private _element: ElementRef,
     private _renderer: Renderer2
-  ) {
-    console.log('constructor requests injected services');
-  }
+  ) { }
 
   set(value: any | string) {
     console.log('svc.setTheme', value);
@@ -37,8 +26,7 @@ export class FlThemeService {
     } else {
       this.theme = value;
     }
-    console.log(this.theme);
-    
+
     this.applyTheme();
   }
 
@@ -53,10 +41,6 @@ export class FlThemeService {
     const txtColor = this._theme.text;
     const base = this._theme.base;
 
-    
-    console.log(txtColor);
-    
-
     this._renderer.setStyle(body, 'background-color', bgColor);
     this._renderer.setStyle(body, 'color', txtColor);
     this._renderer.addClass(body, `fl-theme-${base}`);
@@ -66,7 +50,14 @@ export class FlThemeService {
 
   }
 
-  applyBgColor() {
+  /** Apply provided theme property as background color */
+  applyBgColor(element: any, renderer: any, color: string) {
+    const elem = element.nativeElement;
+    const newColor = this._isCustomColor(color) ? color : this.theme[color];
+    renderer.setStyle(elem, 'background-color', newColor);
+  }
 
+  private _isCustomColor(color: string): boolean {
+    return (color.charAt(0) === '#');
   }
 }
