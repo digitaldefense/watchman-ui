@@ -1,10 +1,8 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WuiThemeService, THEMES } from '../theme';
-
 @Component({
-  selector: 'hr[wui-divider]',
+  selector: 'hr[fl-divider]',
   template: '',
   styleUrls: ['./divider.component.scss'],
   encapsulation: ViewEncapsulation.None

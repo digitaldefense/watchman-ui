@@ -13,4 +13,4 @@ export * from './divider.component';
     ]
 })
 
-export class WuiDividerModule {}
+export class FlDividerModule {}

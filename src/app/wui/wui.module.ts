@@ -15,7 +15,7 @@ import { FlInputModule } from './input/index';
 import { WuiUniversalModule } from './universal';
 import { FlListModule } from './list';
 import { FlAvatarModule } from './avatar';
-import { WuiDividerModule } from './divider';
+import { FlDividerModule } from './divider';
 import { FlCardModule } from './card/index';
 
 // export * from './core/color';
@@ -29,7 +29,7 @@ const WUI_MODULES = [
   FlShadowModule,
   FlCardModule,
   FlButtonModule,
-  WuiDividerModule,
+  FlDividerModule,
   FlIconModule,
   FlAvatarModule,
   FlInputModule,
