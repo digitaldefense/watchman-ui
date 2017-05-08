@@ -46,28 +46,28 @@ export class ThemePresets {
         base: 'light',
         primary: PALETTE.blue['500'],
         accent: PALETTE.pink['A200'],
-        // accentLight: PALETTE.pink['A100'],
-        // accentDark: PALETTE.pink['A400'],
-        // success: PALETTE.green['500'],
-        // warning: PALETTE.amber['500'],
-        // danger: PALETTE.red['500'],
+        accentLight: PALETTE.pink['A100'],
+        accentDark: PALETTE.pink['A400'],
+        success: PALETTE.green['500'],
+        warning: PALETTE.amber['500'],
+        danger: PALETTE.red['500'],
         // background: BaseThemes.light.background,
         // foreground: 'black',
-        // link: PALETTE.blue['500']
+        link: PALETTE.blue['500']
     };
     dark: THEME = {
         name: 'dark',
         base: 'dark',
         primary: PALETTE.blue['500'],
         accent: PALETTE.pink['A200'],
-        // accentLight: PALETTE.pink['A100'],
-        // accentDark: PALETTE.pink['A400'],
-        // success: PALETTE.green['500'],
-        // warning: PALETTE.amber['500'],
-        // danger: PALETTE.red['500'],
+        accentLight: PALETTE.pink['A100'],
+        accentDark: PALETTE.pink['A400'],
+        success: PALETTE.green['500'],
+        warning: PALETTE.amber['500'],
+        danger: PALETTE.red['500'],
         // background: BaseThemes.dark.background,
         // foreground: BaseThemes.dark.text,
-        // link: PALETTE.blue['500']
+        link: PALETTE.blue['500']
     };
 
     getTheme(name: string) {

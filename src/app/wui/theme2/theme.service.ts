@@ -46,8 +46,11 @@ export class FlThemeService {
     this._renderer.addClass(body, `fl-theme-${base}`);
   }
 
-  applyColor() {
-
+  /** Apply provided theme property as text color */
+  applyColor(element: any, renderer: any, color: string) {
+    const elem = element.nativeElement;
+    const newColor = this._isCustomColor(color) ? color : this.theme[color];
+    renderer.setStyle(elem, 'color', newColor);
   }
 
   /** Apply provided theme property as background color */

@@ -6,10 +6,11 @@ import {
     Renderer2
 } from '@angular/core';
 
-import { WuiThemeService } from '../../theme/theme.service';
+// import { FlThemeService } from '../../theme/theme.service';
+import { FlThemeService } from '../../theme2/theme.service';
 
 @Directive({
-    selector: '[wuiColor]',
+    selector: '[wuiColor], [flColor]',
 })
 export class WuiColorDirective {
     @Input()
@@ -17,7 +18,12 @@ export class WuiColorDirective {
         this._updateColor(color);
     }
 
-    constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {}
+    @Input()
+    set flColor(color: string) {
+        this._updateColor(color);
+    }
+
+    constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {}
 
     private _updateColor(newColor: string) {
         this._setElementColor(newColor);
@@ -25,21 +31,23 @@ export class WuiColorDirective {
 
     private _setElementColor(color: string) {
         if (color != null && color !== '') {
-            this._themeSvc.applyForeground(this._element, this._renderer, color);
+            this._themeSvc.applyColor(this._element, this._renderer, color);
         }
     }
 }
 
 @Directive({
-    selector: '[wuiBackground]',
+    selector: '[wuiBackground], [flBgColor]',
 })
 export class WuiBackgroundDirective {
+    private _theme: any;
+
     @Input()
     set wuiBackground(color: string) {
         this._updateColor(color);
     }
 
-    constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {}
+    constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {}
 
     private _updateColor(newColor: string) {
         this._setElementColor(newColor);
@@ -47,7 +55,7 @@ export class WuiBackgroundDirective {
 
     private _setElementColor(color: string) {
         if (color != null && color !== '') {
-            this._themeSvc.applyBackground(this._element, this._renderer, color);
+            this._themeSvc.applyBgColor(this._element, this._renderer, color);
         }
     }
 }
@@ -56,9 +64,10 @@ export class WuiBackgroundDirective {
     selector: 'a[routerLink]'
 })
 export class WuiLinkColorDirective implements OnInit {
-    constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {}
+    constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {}
 
     ngOnInit() {
-        this._themeSvc.applyForeground(this._element, this._renderer, 'link');
+        const theme = this._themeSvc.theme;
+        this._renderer.setStyle(this._element.nativeElement, 'color', theme['link']);
     }
 }
