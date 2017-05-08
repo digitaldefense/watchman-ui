@@ -9,14 +9,14 @@
     bottom: $spacer-y * 1.35;
 }
 
-.wui-input-group {
+.fl-input-group {
     display: inline-block;
     position: relative;
     padding-top: $spacer * 1.25;
     width: 256px;
 }
 
-.wui-input {
+.fl-input {
     position: relative;
     margin: ($spacer * .5) 0 ($spacer * 2);
     box-sizing: border-box;
@@ -41,10 +41,10 @@
     }
 }
 
-.wui-input-border-wrapper {
+.fl-input-border-wrapper {
     margin-bottom: $spacer-y;
 }
-.wui-input-border {
+.fl-input-border {
     border-top: none;
     border-left: none;
     border-right: none;
@@ -61,19 +61,19 @@
         transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     }
 }
-.wui-input-group.disabled {
-    .wui-input {
+.fl-input-group.disabled {
+    .fl-input {
         color: $text-medium;
     }
-    .wui-placeholder {
+    .fl-placeholder {
         cursor: not-allowed;
     }
-    .wui-input-border {
+    .fl-input-border {
         border-bottom: 1px dashed $text-medium;
     }
 }
 
-.wui-placeholder {
+.fl-placeholder {
     @extend %inputTextBase;
     opacity: 1;
     // transition: all 450ms cubic-bezier(0.23, 1, 0.32) 0ms;
@@ -82,7 +82,7 @@
     }
 }
 
-.wui-input-label {
+.fl-input-label {
     @extend %inputTextBase;
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     z-index: 1;
@@ -94,33 +94,33 @@
     }
 }
 
-.wui-input-help {
+.fl-input-help {
     position: absolute;
     bottom: 0;
     margin: 0;
     font-size: $font-size-xs;
 }
 
-.wui-focused {
-    .wui-placeholder {
+.fl-focused {
+    .fl-placeholder {
         // opacity: 0;
     }
-    .wui-input-label {
+    .fl-input-label {
         transform: scale(.75) translateY(-$spacer-y * 1.75);
     }
-    .wui-input-border.highlight {
+    .fl-input-border.highlight {
         transform: scaleY(1);
     }
 }
 
 // Possible class for allowing input groups without a fixed height
-.wui-input-group.fluid {
+.fl-input-group.fluid {
 
 }
 
 // bit of a hack. the @ContentChild is returning invalid
-.wui-input-group:not(.wui-focused) {
-    .wui-input-label {
+.fl-input-group:not(.fl-focused) {
+    .fl-input-label {
         color: $text-medium !important;
     }
 }

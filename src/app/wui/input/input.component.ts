@@ -18,7 +18,7 @@ import {
 import {FormGroupDirective, NgControl, NgForm} from '@angular/forms';
 
 import { coerceBooleanProperty } from '../core/index';
-import { WuiThemeService } from '../theme/theme.service';
+import { FlThemeService } from '../theme2/theme.service';
 
 const MD_INPUT_INVALID_TYPES = [
   'button',
@@ -33,22 +33,22 @@ const MD_INPUT_INVALID_TYPES = [
   'submit'
 ];
 
-let nextUniqueId = 0;
+// let nextUniqueId = 0;
+
+// @Directive({
+//   selector: 'fl-placeholder'
+// })
+// export class WuiPlaceholderDirective {}
 
 @Directive({
-  selector: 'wui-placeholder'
+  selector: '[flInputBorder]'
 })
-export class WuiPlaceholderDirective {}
-
-@Directive({
-  selector: '[wuiInputBorder]'
-})
-export class WuiInputBorderDirective implements OnInit {
+export class FlInputBorderDirective implements OnInit {
 
   constructor(
     private _element: ElementRef,
     private _renderer: Renderer2,
-    private _themeSvc: WuiThemeService
+    private _themeSvc: FlThemeService
   ) {
     // _themeSvc.applyStyle(_element, _renderer, 'border-color', 'primary');
   }
@@ -60,12 +60,12 @@ export class WuiInputBorderDirective implements OnInit {
 }
 
 @Directive({
-  selector: 'label[wuiLabel]',
+  selector: 'label[flLabel]',
   host: {
-    '[class.wui-input-label]': 'true'
+    '[class.fl-input-label]': 'true'
   }
 })
-export class WuiInputLabelDirective {
+export class FlInputLabelDirective {
   // private _color: string;
 
   // @Input()
@@ -75,20 +75,20 @@ export class WuiInputLabelDirective {
   constructor(
     private _element: ElementRef,
     private _renderer: Renderer2,
-    private _themeSvc: WuiThemeService
+    private _themeSvc: FlThemeService
   ) {
-    this._themeSvc.applyForeground(this._element, this._renderer, 'primary');
+    this._themeSvc.applyColor(this._element, this._renderer, 'primary');
   }
 
   focus() {
-    this._themeSvc.applyForeground(this._element, this._renderer, 'primary');
+    this._themeSvc.applyColor(this._element, this._renderer, 'primary');
   }
 }
 
 @Directive({
-  selector: `input[wuiInput]`,
+  selector: `input[flInput]`,
   host: {
-    '[class.wui-input]': 'true',
+    '[class.fl-input]': 'true',
     '[id]': 'id',
     // '[placeholder]': 'placeholder',
     '[disabled]': 'disabled',
@@ -98,7 +98,7 @@ export class WuiInputLabelDirective {
     '(input)': '_onInput()'
   }
 })
-export class WuiInputDirective implements OnInit {
+export class FlInputDirective implements OnInit {
   private _id: string;
   private _type = 'text';
   private _placeholder = '';
@@ -181,14 +181,14 @@ export class WuiInputDirective implements OnInit {
   constructor(
     private _element: ElementRef,
     private _renderer: Renderer2,
-    private _themeSvc: WuiThemeService,
+    private _themeSvc: FlThemeService,
     @Optional() @Self() public _ngControl: NgControl
   ) {
     this.id = this.id;
   }
 
   ngOnInit() {
-    this._themeSvc.applyForeground(this._element, this._renderer, 'foreground');
+    this._themeSvc.applyColor(this._element, this._renderer, 'text');
   }
 
   focus() { this._element.nativeElement.focus(); }
@@ -215,14 +215,14 @@ export class WuiInputDirective implements OnInit {
 }
 
 @Component({
-  selector: 'wui-input-group',
+  selector: 'fl-input-group',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   host: {
     '[attr.align]': 'null',
-    '[class.wui-input-group]': 'true',
-    '[class.wui-focused]': '_wuiInputChild.focused',
-    '[class.disabled]': '_wuiInputChild.disabled',
+    '[class.fl-input-group]': 'true',
+    '[class.fl-focused]': '_flInputChild.focused',
+    '[class.disabled]': '_flInputChild.disabled',
     '[class.ng-untouched]': '_shouldForward("untouched")',
     '[class.ng-touched]': '_shouldForward("touched")',
     '[class.ng-pristine]': '_shouldForward("pristine")',
@@ -234,14 +234,14 @@ export class WuiInputDirective implements OnInit {
   },
   encapsulation: ViewEncapsulation.None
 })
-export class WuiInputGroupComponent implements AfterContentInit, OnInit {
+export class FlInputGroupComponent implements AfterContentInit, OnInit {
   /** Alignment of the input container's content */
   @Input() align: 'start' | 'end' = 'start';
 
   @Input() color: 'primary' | 'accent' | 'warning' = 'primary';
 
-  @ContentChild(WuiInputDirective) _wuiInputChild: WuiInputDirective;
-  @ContentChild(WuiInputLabelDirective) _labelChild: WuiInputLabelDirective;
+  @ContentChild(FlInputDirective) _flInputChild: FlInputDirective;
+  @ContentChild(FlInputLabelDirective) _labelChild: FlInputLabelDirective;
 
   constructor(
     private _element: ElementRef,
@@ -251,36 +251,36 @@ export class WuiInputGroupComponent implements AfterContentInit, OnInit {
   ) { }
 
   ngAfterContentInit() {
-    if (!this._wuiInputChild) {
-      throw new Error('Missing WuiInput');
+    if (!this._flInputChild) {
+      throw new Error('Missing flInput');
     }
 
     // this._validatePlaceholders();
 
-    // this._wuiInputChild._placeholderChange.subscribe(() => this._validatePlaceholders());
+    // this._flInputChild._placeholderChange.subscribe(() => this._validatePlaceholders());
   }
 
   ngOnInit() {
   }
 
   _shouldForward(prop: string): boolean {
-    let control = this._wuiInputChild ? this._wuiInputChild._ngControl : null;
+    let control = this._flInputChild ? this._flInputChild._ngControl : null;
     return control && (control as any)[prop];
   }
 
   /** Is there a placeholder/hint */
   hasPlaceholder() {
-    return !!(this._wuiInputChild.hint);
+    return !!(this._flInputChild.hint);
   }
 
   /** Is there a label */
   hasLabel() {
-    return !!(this._wuiInputChild.label);
+    return !!(this._flInputChild.label);
   }
 
   /** Focuses the underlying input */
   protected _focusInput() {
-    this._wuiInputChild.focus();
+    this._flInputChild.focus();
     // this isn't working properly. _labelChild is undefined. Using CSS to compensate
     if (this._labelChild) {
       this._labelChild.focus();
@@ -288,7 +288,7 @@ export class WuiInputGroupComponent implements AfterContentInit, OnInit {
   }
 
   // private _validatePlaceholders() {
-  //   if (this._wuiInputChild.placeholder && this._placeholderChild) {
+  //   if (this._flInputChild.placeholder && this._placeholderChild) {
   //     throw new Error('There can be only one placeholder attribute.');
   //   }
   // }

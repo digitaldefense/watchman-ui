@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import {
-    WuiInputDirective,
-    WuiPlaceholderDirective,
-    WuiInputLabelDirective,
-    WuiInputBorderDirective,
-    WuiInputGroupComponent
+    FlInputDirective,
+    // WuiPlaceholderDirective,
+    FlInputLabelDirective,
+    FlInputBorderDirective,
+    FlInputGroupComponent
 } from './input.component';
 
 @NgModule({
@@ -16,18 +16,18 @@ import {
         FormsModule
     ],
     exports: [
-        WuiInputDirective,
-        WuiInputGroupComponent
+        FlInputDirective,
+        FlInputGroupComponent
     ],
     declarations: [
-        WuiInputDirective,
-        WuiPlaceholderDirective,
-        WuiInputLabelDirective,
-        WuiInputBorderDirective,
-        WuiInputGroupComponent
+        FlInputDirective,
+        // WuiPlaceholderDirective,
+        FlInputLabelDirective,
+        FlInputBorderDirective,
+        FlInputGroupComponent
     ],
 })
 
-export class WuiInputModule {}
+export class FlInputModule {}
 
 export * from './input.component';

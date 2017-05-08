@@ -11,7 +11,7 @@ import { FlSectionModule } from './section/index';
 import { FlToolbarModule } from './toolbar/index';
 import { FlButtonModule } from './button/index';
 import { FlIconModule } from './icon/index';
-import { WuiInputModule } from './input/index';
+import { FlInputModule } from './input/index';
 import { WuiUniversalModule } from './universal';
 import { FlListModule } from './list';
 import { WuiAvatarModule } from './avatar';
@@ -32,7 +32,7 @@ const WUI_MODULES = [
   WuiDividerModule,
   FlIconModule,
   WuiAvatarModule,
-  WuiInputModule,
+  FlInputModule,
   FlListModule,
   FlToolbarModule,
   WuiUniversalModule

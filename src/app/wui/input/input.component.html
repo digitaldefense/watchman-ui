@@ -1,13 +1,13 @@
-<label wuiLabel *ngIf="hasLabel()" [class.empty]="_wuiInputChild.empty">{{_wuiInputChild.label}}</label>
-<div class="wui-input-wrapper">
+<label flLabel *ngIf="hasLabel()" [class.empty]="_flInputChild.empty">{{_flInputChild.label}}</label>
+<div class="fl-input-wrapper">
     <ng-content select="input"></ng-content>
 </div>
-<div class="wui-placeholder" *ngIf="hasPlaceholder()" [class.empty]="_wuiInputChild.empty">
-    {{_wuiInputChild.hint}}
-    <span class="wui-input-required" *ngIf="_wuiInputChild.required">*</span>
+<div class="fl-placeholder" *ngIf="hasPlaceholder()" [class.empty]="_flInputChild.empty">
+    {{_flInputChild.hint}}
+    <span class="fl-input-required" *ngIf="_flInputChild.required">*</span>
 </div>
 <div>
-    <hr class="wui-input-border">
-    <hr class="wui-input-border highlight" wuiInputBorder>
+    <hr class="fl-input-border">
+    <hr class="fl-input-border highlight" flInputBorder>
 </div>
-<!--<p class="wui-input-help">tips</p>-->
+<!--<p class="fl-input-help">tips</p>-->
