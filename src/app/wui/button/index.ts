@@ -2,9 +2,6 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-    WuiButton,
-    WuiButtonStyler,
-    // WuiRaisedButtonStyler,
     FlButtonComponent,
     FlFlatButtonStyle,
     FlIconButtonStyle,
@@ -18,18 +15,12 @@ export * from './button.component';
         CommonModule
     ],
     exports: [
-        WuiButton,
-        WuiButtonStyler,
-        // WuiRaisedButtonStyler,
         FlButtonComponent,
         FlFlatButtonStyle,
         FlIconButtonStyle,
         FlRaisedButtonStyle
     ],
     declarations: [
-        WuiButton,
-        WuiButtonStyler,
-        // WuiRaisedButtonStyler,
         FlButtonComponent,
         FlFlatButtonStyle,
         FlIconButtonStyle,
