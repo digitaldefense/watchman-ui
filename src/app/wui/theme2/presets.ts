@@ -14,8 +14,8 @@ export const BaseThemes = {
     light: {
         background: PALETTE.gray['50'],
         text: `rgba(${black}, 0.87)`,
-        icon: `rgba(${black}, 0.38)`,
-        icons: `rgba(${black}, 0.38)`,
+        icon: `rgba(${black}, 0.64)`,
+        icons: `rgba(${black}, 0.64)`,
         toolbar: PALETTE.gray['100'],
         hover: `rgba(${black}, 0.04)`,
         card: 'white',

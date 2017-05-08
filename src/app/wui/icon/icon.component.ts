@@ -1,6 +1,6 @@
 import { AfterViewChecked, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChange, ViewEncapsulation } from '@angular/core';
 
-import { WuiThemeService  } from '../theme';
+import { FlThemeService } from '../theme2/theme.service';
 
 @Component({
   selector: 'fl-icon',
@@ -15,6 +15,7 @@ import { WuiThemeService  } from '../theme';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
+  private _theme: any;
   private _color: string;
   private _previousIcon: string;
   private _previousAriaLabel: string;
@@ -44,9 +45,10 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
     return this._color;
   }
 
-  constructor(private _renderer: Renderer2, private _elRef: ElementRef, private _themeSvc: WuiThemeService) { }
+  constructor(private _renderer: Renderer2, private _element: ElementRef, private _themeSvc: FlThemeService) { }
 
   ngOnInit() {
+    this._theme = this._themeSvc.theme;
     this._updateIconClasses();
     this._setElementColor(this.color);
   }
@@ -67,13 +69,10 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
   }
 
   private _setElementColor(color: string) {
-    const elem = this._elRef.nativeElement;
     if (color != null && color !== '') {
-      if (color.charAt(0) === '#') {
-        this._renderer.setStyle(elem, 'color', this.color);
-      } else {
-        this._themeSvc.applyForeground(this._elRef, this._renderer, color);
-      }
+      this._themeSvc.applyColor(this._element, this._renderer, color);
+    } else {
+      this._renderer.setStyle(this._element.nativeElement, 'color', this._theme['icon']);
     }
   }
 
@@ -81,7 +80,7 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
     const ariaLabel = this._geteAriaLabel();
     if (ariaLabel && ariaLabel !== this._previousAriaLabel) {
       this._previousAriaLabel = ariaLabel;
-      this._renderer.setAttribute(this._elRef.nativeElement, 'aria-label', ariaLabel);
+      this._renderer.setAttribute(this._element.nativeElement, 'aria-label', ariaLabel);
     }
   }
 
@@ -94,7 +93,7 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
       return label;
     }
 
-    const text = this._elRef.nativeElement.textContent;
+    const text = this._element.nativeElement.textContent;
     if (text) {
       return text;
     }
@@ -103,7 +102,7 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
   }
 
   private _updateIconClasses() {
-    const elem = this._elRef.nativeElement;
+    const elem = this._element.nativeElement;
     const fontSetClass = this.fontSet;
 
     this._renderer.addClass(elem, fontSetClass);
