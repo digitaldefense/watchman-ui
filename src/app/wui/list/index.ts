@@ -1,27 +1,27 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import {
-    WuiListComponent,
-    WuiListItemComponent,
-    WuiListItemBodyDirective,
-    WuiListItemRightDirective,
-    WuiListDenseDirective
+    FlListComponent,
+    FlListItemComponent,
+    FlListItemBodyDirective,
+    FlListItemRightDirective,
+    FlListDenseDirective
 } from './list';
 
 @NgModule({
     exports: [
-        WuiListComponent,
-        WuiListItemComponent,
-        WuiListItemBodyDirective,
-        WuiListItemRightDirective,
-        WuiListDenseDirective
+        FlListComponent,
+        FlListItemComponent,
+        FlListItemBodyDirective,
+        FlListItemRightDirective,
+        FlListDenseDirective
     ],
     declarations: [
-        WuiListComponent,
-        WuiListItemComponent,
-        WuiListItemBodyDirective,
-        WuiListItemRightDirective,
-        WuiListDenseDirective
+        FlListComponent,
+        FlListItemComponent,
+        FlListItemBodyDirective,
+        FlListItemRightDirective,
+        FlListDenseDirective
     ]
 })
-export class WuiListModule {}
+export class FlListModule {}

@@ -17,7 +17,7 @@ import { FlThemeService } from '../theme2/theme.service';
     '[class.fl-list-item-body]': 'true'
   }
 })
-export class WuiListItemBodyDirective {}
+export class FlListItemBodyDirective {}
 
 @Directive({
   selector: '[list-right]',
@@ -25,7 +25,7 @@ export class WuiListItemBodyDirective {}
     '[class.fl-list-item-secondary]': 'true'
   }
 })
-export class WuiListItemRightDirective {}
+export class FlListItemRightDirective {}
 
 @Directive({
   selector: 'fl-list[dense]',
@@ -33,7 +33,7 @@ export class WuiListItemRightDirective {}
     '[class.dense]': 'true'
   }
 })
-export class WuiListDenseDirective {}
+export class FlListDenseDirective {}
 
 @Component({
   selector: 'fl-li',
@@ -43,7 +43,7 @@ export class WuiListDenseDirective {}
     'role': 'listitem'
   }
 })
-export class WuiListItemComponent implements OnInit {
+export class FlListItemComponent implements OnInit {
   private _isLink = false;
   private _isButton = false;
 
@@ -70,7 +70,7 @@ export class WuiListItemComponent implements OnInit {
   },
   encapsulation: ViewEncapsulation.None
 })
-export class WuiListComponent implements OnInit {
+export class FlListComponent implements OnInit {
   hasFocus = false;
 
   constructor() { }
