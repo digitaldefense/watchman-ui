@@ -1,36 +1,48 @@
-import { Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+import { Component, Directive, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+
+import { FlThemeService } from '../theme2/theme.service';
+
+@Directive({
+  selector: 'fl-card-header'
+})
+export class FlCardHeaderDirective {}
+
+@Directive({
+  selector: 'fl-card-action-row'
+})
+export class FlCardActionsDirective {}
+
+@Directive({
+  selector: 'fl-card-divider'
+})
+export class FlCardDividerDirective {}
 
 @Component({
   selector: 'fl-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  host: {
-    '[class.fl-card]': 'true'
-  },
   encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit {
-  @Input() padding: string;
   @Input() shadow: number;
+  @Input() color: string;
 
-  constructor(private _element: ElementRef, private _renderer: Renderer2) { }
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) { }
 
   ngOnInit() {
-    console.log(this.padding, this.shadow);
-    
     const elem = this._element.nativeElement;
-    if (this.padding != null || this.padding !== '') {
-      this._renderer.setStyle(elem, 'padding', `0 ${this.padding}`);
-    } else {
-      this._renderer.addClass(elem, 'fl-padding');
-    }
+    const theme = this._themeSvc.theme;
 
     if (this.shadow != null) {
       this._renderer.setStyle(elem, 'box-shadow', `0 ${this.shadow}px`);
     } else {
-      console.log('add depth class');
-      
-      this._renderer.addClass(elem, 'wui-depth-4');
+      this._renderer.addClass(elem, 'fl-shadow-4');
+    }
+
+    if (this.color == null || this.color === '') {
+      this._themeSvc.applyBgColor(this._element, this._renderer, theme['card']);
+    } else {
+      this._themeSvc.applyBgColor(this._element, this._renderer, this.color);
     }
   }
 }

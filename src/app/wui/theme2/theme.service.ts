@@ -19,8 +19,6 @@ export class FlThemeService {
   ) { }
 
   set(value: any | string) {
-    console.log('svc.setTheme', value);
-
     if (typeof value === 'string') {
       this.theme = this._themes.getTheme(value);
     } else {
@@ -61,6 +59,6 @@ export class FlThemeService {
   }
 
   private _isCustomColor(color: string): boolean {
-    return (color.charAt(0) === '#');
+    return Boolean(color.charAt(0) === '#');
   }
 }

@@ -1,9 +1,25 @@
 import { NgModule } from '@angular/core';
 
-import { CardComponent } from './card.component';
+import {
+    CardComponent,
+    FlCardHeaderDirective,
+    FlCardActionsDirective,
+    FlCardDividerDirective
+} from './card.component';
+
 
 @NgModule({
-    exports: [CardComponent],
-    declarations: [CardComponent]
+    exports: [
+        CardComponent,
+        FlCardHeaderDirective,
+        FlCardActionsDirective,
+        FlCardDividerDirective
+    ],
+    declarations: [
+        CardComponent,
+        FlCardHeaderDirective,
+        FlCardActionsDirective,
+        FlCardDividerDirective
+    ]
 })
 export class FlCardModule {}

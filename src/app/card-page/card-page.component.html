@@ -7,9 +7,19 @@
     </fl-card>
   </fl-section>
   
-  <fl-section title="Card with custom padding">
-    <fl-card padding="70px">
-      The default left and right padding is 1rem. This has a custom padding of 70px.
+  <fl-section title="Card components">
+    <fl-card>
+      <fl-card-header>
+        Card title
+        <span fxFlex></span>
+        <fl-icon icon="cog"></fl-icon>
+      </fl-card-header>
+      <fl-card-action-row>
+        <button fl-button>Action 1</button>
+        <button fl-button>Action 2</button>
+      </fl-card-action-row>
+      A bunch of content stuff
+      <fl-card-divider></fl-card-divider>
     </fl-card>
   </fl-section>
 </wui-page>

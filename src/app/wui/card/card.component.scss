@@ -1,7 +1,50 @@
 @import '../scss/_variables';
+@import '../divider/divider.component';
 
-.fl-card {
+fl-card {
     display: block;
     box-sizing: border-box;
+    margin-bottom: $spacer-y;
     padding: $spacer;
+}
+
+fl-card-header {
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+
+    // Flexbox Vertical Alignment
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    margin: -$spacer;
+    margin-bottom: $spacer-y;
+    padding: 0 $spacer-x;
+    height: 48px;
+    width: vw100;
+}
+
+fl-card-action-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    white-space: nowrap;
+
+    box-sizing: border-box;
+    position: relative;
+
+    margin: -$spacer;
+    margin-top: $spacer-y;
+    padding: 0 $spacer-x;
+    height: 48px;
+    width: vw100;
+}
+
+fl-card-divider {
+    @extend hr[fl-divider];
+    margin-top: $spacer-y;
+    margin-bottom: -$spacer-y;
+    margin-left: -$spacer-x;
+    margin-right: -$spacer-x;
 }
