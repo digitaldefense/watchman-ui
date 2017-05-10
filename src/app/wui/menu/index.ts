@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { OverlayModule } from '../core';
+
 import { FlMenuComponent } from './menu.component';
 import { FlMenuItemComponent } from './menu-item.component';
+import { FlMenuTriggerDirective } from './menu-trigger.directive';
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [
+        CommonModule,
+        OverlayModule
+    ],
     exports: [
         FlMenuComponent,
-        FlMenuItemComponent
+        FlMenuItemComponent,
+        FlMenuTriggerDirective
     ],
     declarations: [
         FlMenuComponent,
-        FlMenuItemComponent
+        FlMenuItemComponent,
+        FlMenuTriggerDirective
     ]
 })
 export class FlMenuModule {}
