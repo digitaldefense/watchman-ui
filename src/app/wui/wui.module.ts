@@ -18,6 +18,7 @@ import { FlListModule } from './list';
 import { FlAvatarModule } from './avatar';
 import { FlDividerModule } from './divider';
 import { FlCardModule } from './card/index';
+import { FlMenuModule } from './menu/index';
 
 // export * from './core/color';
 
@@ -38,6 +39,7 @@ const WUI_MODULES = [
   FlInputModule,
   FlListModule,
   FlToolbarModule,
+  FlMenuModule
 ];
 
 @NgModule({

@@ -68,7 +68,8 @@
     transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
 }
 
-.wui-button {
+.wui-button,
+.fl-button {
     box-sizing: border-box;
     position: relative;
 
@@ -95,7 +96,8 @@
     // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
 }
 
-.wui-raised-button {
+.wui-raised-button,
+.fl-raised-button {
     @extend .wui-button;
     @extend .fl-shadow-4;
 

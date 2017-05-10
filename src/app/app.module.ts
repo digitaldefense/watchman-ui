@@ -37,6 +37,7 @@ import { ToolbarPageComponent } from './toolbar-page/toolbar-page.component';
 import { SectionPageComponent } from './section-page/section-page.component';
 import { IconPageComponent } from './icon-page/icon-page.component';
 import { ButtonPageComponent } from './button-page/button-page.component';
+import { MenuPageComponent } from './menu-page/menu-page.component';
 // import { FluxComponent } from './flux/flux.component';
 
 const appRoutes: Routes = [
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
   { path: 'shadow', component: ShadowPageComponent },
   { path: 'toolbar', component: ToolbarPageComponent },
   { path: 'type', component: TypePageComponent },
+  { path: 'menu', component: MenuPageComponent },
 
   // { path: 'flux', loadChildren: 'flux/flux.module#FluxComponent' }
 ];
@@ -72,6 +74,7 @@ const appRoutes: Routes = [
     SectionPageComponent,
     IconPageComponent,
     ButtonPageComponent,
+    MenuPageComponent,
     // FluxComponent,
   ],
   imports: [

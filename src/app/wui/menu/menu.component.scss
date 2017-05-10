@@ -1,0 +1,17 @@
+@import '../scss/_variables';
+
+.fl-menu-panel {
+    display: block;
+    min-width: 112px;
+    max-width: 280px;
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    text-align: left;
+    background-color: white;
+}
+
+.fl-menu-content {
+    padding: ($spacer / 2) 0;
+}
