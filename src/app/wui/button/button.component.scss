@@ -30,7 +30,7 @@
     font-weight: 500;
     text-transform: uppercase;
 
-    margin: ($spacer-y * .5) 0;
+    margin: $spacer * .25;
     min-width: 88px;
     line-height: 36px;
     padding: 0 ($btn-padding-x / 2);
@@ -42,9 +42,6 @@
     &:focus {
         background-color: rgba(black, 0.12);
         outline: 0;
-    }
-    & + * {
-        margin-left: $spacer-x / 2;
     }
 }
 

@@ -2,22 +2,27 @@ import { NgModule } from '@angular/core';
 
 import {
     CardComponent,
-    FlCardHeaderDirective,
+    FlCardToolbarComponent,
+    FlCardTitleDirective,
+    FlCardSubtitleDirective,
     FlCardActionsDirective,
     FlCardDividerDirective
 } from './card.component';
 
-
 @NgModule({
     exports: [
         CardComponent,
-        FlCardHeaderDirective,
+        FlCardTitleDirective,
+        FlCardSubtitleDirective,
+        FlCardToolbarComponent,
         FlCardActionsDirective,
         FlCardDividerDirective
     ],
     declarations: [
         CardComponent,
-        FlCardHeaderDirective,
+        FlCardToolbarComponent,
+        FlCardTitleDirective,
+        FlCardSubtitleDirective,
         FlCardActionsDirective,
         FlCardDividerDirective
     ]

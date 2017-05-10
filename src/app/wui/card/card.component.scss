@@ -1,4 +1,6 @@
 @import '../scss/_variables';
+@import '../scss/mixins';
+@import '../scss/_type';
 @import '../divider/divider.component';
 
 fl-card {
@@ -8,27 +10,29 @@ fl-card {
     padding: $spacer;
 }
 
-fl-card-header {
+fl-card-toolbar {
     display: flex;
-    box-sizing: border-box;
-    position: relative;
-
-    // Flexbox Vertical Alignment
     flex-direction: row;
     align-items: center;
     white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
     margin: -$spacer;
     margin-bottom: $spacer-y;
-    padding: 0 $spacer-x;
+    // padding: 0 $spacer-x;
     height: 48px;
     width: vw100;
+
+    .fl-card-title {
+        font-size: 1.25rem;
+        margin-left: $spacer;
+    }
 }
 
 fl-card-action-row {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
     white-space: nowrap;
 
     box-sizing: border-box;
@@ -47,4 +51,20 @@ fl-card-divider {
     margin-bottom: -$spacer-y;
     margin-left: -$spacer-x;
     margin-right: -$spacer-x;
+}
+
+.fl-card-title-group {
+    margin-top: $spacer * .5;
+    margin-bottom: $spacer;
+}
+
+.fl-card-title {
+    @extend .title;
+    margin: 0;
+}
+
+.fl-card-subtitle {
+    @extend .subtitle;
+    margin: 0;
+    margin-top: $spacer * .25;
 }

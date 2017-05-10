@@ -9,17 +9,30 @@
   
   <fl-section title="Card components">
     <fl-card>
-      <fl-card-header>
-        Card title
-        <span fxFlex></span>
-        <fl-icon icon="cog"></fl-icon>
-      </fl-card-header>
+      <fl-card-title>Title goes here</fl-card-title>
+      <fl-card-subtitle>Subtitle here</fl-card-subtitle>
       <fl-card-action-row>
         <button fl-button>Action 1</button>
         <button fl-button>Action 2</button>
       </fl-card-action-row>
       A bunch of content stuff
       <fl-card-divider></fl-card-divider>
+    </fl-card>
+  </fl-section>
+  
+  <fl-section title="Expandable Card with Toolbar">
+    <fl-card>
+      <fl-card-toolbar color="accent">
+        Toolbar title
+        <button fl-icon-button>
+          <fl-icon icon="ellipsis-v"></fl-icon>
+        </button>
+      </fl-card-toolbar>
+      <fl-card-action-row>
+        <button fl-button>Action 1</button>
+        <button fl-button>Action 2</button>
+      </fl-card-action-row>
+      A bunch of content stuff
     </fl-card>
   </fl-section>
 </wui-page>

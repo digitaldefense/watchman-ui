@@ -1,11 +1,57 @@
-import { Component, Directive, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+import { Component, Directive, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewEncapsulation } from '@angular/core';
 
 import { FlThemeService } from '../theme2/theme.service';
+import { FlIconComponent } from '../icon/index';
+
+@Component({
+  selector: 'fl-card-toolbar',
+  template: `
+    <h1 class="fl-card-title">
+      <ng-content></ng-content>
+    </h1>
+    <span class="fl-fill"></span>
+    <ng-content select="button, fl-icon"></ng-content>
+  `
+})
+export class FlCardToolbarComponent implements OnInit {
+  private _color: string;
+
+  isExpandable: boolean;
+
+  @Input()
+  get color() { return this._color; }
+  set color(value: string) { this._color = value; }
+
+  @Output()
+  click: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) { }
+
+  ngOnInit() {
+    const theme = this._themeSvc.theme;
+    if (this.color != null && this.color !== '') {
+      this._themeSvc.applyBgColor(this._element, this._renderer, this.color);
+    } else {
+      this._themeSvc.applyBgColor(this._element, this._renderer, theme['toolbar']);
+    }
+  }
+}
 
 @Directive({
-  selector: 'fl-card-header'
+  selector: 'fl-card-title',
+  host: {
+    '[class.fl-card-title]': 'true'
+  }
 })
-export class FlCardHeaderDirective {}
+export class FlCardTitleDirective {}
+
+@Directive({
+  selector: 'fl-card-subtitle',
+  host: {
+    '[class.fl-card-subtitle]': 'true'
+  }
+})
+export class FlCardSubtitleDirective {}
 
 @Directive({
   selector: 'fl-card-action-row'

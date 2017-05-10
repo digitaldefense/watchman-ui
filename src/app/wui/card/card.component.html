@@ -1,5 +1,9 @@
 <div>
-    <ng-content select="fl-card-header"></ng-content>
+    <ng-content select="fl-card-toolbar"></ng-content>
+    <div class="fl-card-title-group">
+        <ng-content select="fl-card-title"></ng-content>
+        <ng-content select="fl-card-subtitle"></ng-content>
+    </div>
     <ng-content></ng-content>
     <ng-content select="fl-card-action-row"></ng-content>
 </div>
