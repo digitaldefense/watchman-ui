@@ -1,9 +1,13 @@
 <div>
     <ng-content select="fl-card-toolbar"></ng-content>
-    <div class="fl-card-title-group">
+    <div class="fl-card-title-group" *ngIf="_hasTitleElements">
+        <h1 class="fl-card-title" *ngIf="title">{{title}}</h1>
         <ng-content select="fl-card-title"></ng-content>
         <ng-content select="fl-card-subtitle"></ng-content>
     </div>
     <ng-content></ng-content>
+    <div *ngIf="!collapsed">
+        <ng-content select="fl-card-body"></ng-content>
+    </div>
     <ng-content select="fl-card-action-row"></ng-content>
 </div>

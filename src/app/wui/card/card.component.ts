@@ -1,31 +1,104 @@
-import { Component, Directive, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  ContentChild,
+  ContentChildren,
+  Component,
+  Directive,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+  QueryList,
+  Renderer2,
+  ViewContainerRef,
+  ViewEncapsulation
+} from '@angular/core';
 
 import { FlThemeService } from '../theme2/theme.service';
 import { FlIconComponent } from '../icon/index';
 
+
+@Directive({
+  selector: '[flCardToolbar]',
+  // template: `
+  //   <h1 class="fl-card-title">
+  //     <ng-content></ng-content>
+  //   </h1>
+  //   <span class="fl-fill"></span>
+  //   <ng-content select="button, fl-icon"></ng-content>
+  // `,
+  // host: {
+  //   '[class.fl-card-toolbar]': 'true',
+  //   '(click)': 'clickFn()',
+  // }
+})
+export class FlCardToolbarDirective {
+  // private _color: string;
+
+  // isExpandable: boolean;
+
+  // @Input()
+  // get color() { return this._color; }
+  // set color(value: string) { this._color = value; }
+
+  // @Output()
+  // onClick: EventEmitter<any> = new EventEmitter<any>();
+
+  // constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) { }
+
+  // ngOnInit() {
+  //   const theme = this._themeSvc.theme;
+  //   if (this.color != null && this.color !== '') {
+  //     this._themeSvc.applyBgColor(this._element, this._renderer, this.color);
+  //   } else {
+  //     this._themeSvc.applyBgColor(this._element, this._renderer, theme['toolbar']);
+  //   }
+  // }
+
+  // clickFn() {
+  //   console.log('clickFn');
+  //   this.onClick.emit('emit clickFn');
+  // }
+}
+
 @Component({
+  // selector: '[flCardToolbar]',
   selector: 'fl-card-toolbar',
   template: `
-    <h1 class="fl-card-title">
-      <ng-content></ng-content>
-    </h1>
+    <h1 class="fl-card-title">{{title}}</h1>
     <span class="fl-fill"></span>
     <ng-content select="button, fl-icon"></ng-content>
-  `
+  `,
+  host: {
+    '[class.fl-card-toolbar]': 'true',
+    '(onClick)': 'clickFn()',
+  }
 })
 export class FlCardToolbarComponent implements OnInit {
   private _color: string;
 
   isExpandable: boolean;
 
+  @Input() title: string;
+
   @Input()
   get color() { return this._color; }
   set color(value: string) { this._color = value; }
 
   @Output()
-  click: EventEmitter<any> = new EventEmitter<any>();
+  onClick: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) { }
+
+  // @HostListener('click', ['$event'])
+  // onClick() {
+  //   console.log('clicked');
+  //   this.clicked.emit();
+  // }
 
   ngOnInit() {
     const theme = this._themeSvc.theme;
@@ -34,6 +107,11 @@ export class FlCardToolbarComponent implements OnInit {
     } else {
       this._themeSvc.applyBgColor(this._element, this._renderer, theme['toolbar']);
     }
+  }
+
+  clickFn() {
+    console.log('clickFn');
+    this.onClick.emit();
   }
 }
 
@@ -63,17 +141,103 @@ export class FlCardActionsDirective {}
 })
 export class FlCardDividerDirective {}
 
+
+@Directive({
+  selector: `[flCardBodyTrigger]`,
+  host: {
+    '(click)': 'toggleCardBody()'
+  }
+})
+export class FlCardBodyTrigger implements AfterViewInit {
+  private _collapsed: boolean = true;
+
+  @Input('flCardBodyTrigger') panel: any;
+
+  @Output() onPanelOpen = new EventEmitter<void>();
+  @Output() onPanelClose = new EventEmitter<void>();
+
+  constructor(private _element: ElementRef, private _viewRef: ViewContainerRef) { }
+
+  ngAfterViewInit() {
+    console.log(this.panel);
+    this.panel.close.subscribe(() => this.closePanel());
+  }
+
+  toggleCardBody(): void {
+    return this._collapsed ? this.openPanel() : this.closePanel();
+  }
+
+  openPanel(): void {
+    if (this._collapsed) {
+      console.log('open the panel');
+      this._setCollapsed(false);
+    }
+  }
+
+  closePanel(): void {
+    console.log('close the panel');
+    this._setCollapsed(true);
+  }
+
+  private _setCollapsed(isCollapsed: boolean): void {
+    console.log('toggle collapsed');
+    
+    this._collapsed = isCollapsed;
+    this._collapsed ? this.onPanelClose.emit() : this.onPanelOpen.emit();
+  }
+}
+
+/** Wrapper for supporting text */
+@Component({
+  selector: 'fl-card-body',
+  template: '<ng-content></ng-content>',
+  host: {
+    '[class.fl-card-support-text]': 'true'
+  }
+})
+export class FlCardBody {
+  // Need this here to allow supporting text to be selectable
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent) { event.stopImmediatePropagation(); }
+}
+
+
 @Component({
   selector: 'fl-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, AfterContentInit {
+  private _title: string;
+
+  _hasTitleElements: boolean = false;
+
   @Input() shadow: number;
   @Input() color: string;
+  @Input() collapsed: boolean;
+
+  @Input()
+  get title() { return this._title; }
+  set title(value: string) {
+    this._title = value;
+    this._hasTitleElements = true;
+  }
+
+  @ContentChildren(FlCardToolbarComponent) _toolbars: QueryList<FlCardToolbarComponent>;
+  @ContentChild(FlCardTitleDirective) _titleD: FlCardTitleDirective;
+  @ContentChild(FlCardSubtitleDirective) _subtitleD: FlCardSubtitleDirective;
+  @ContentChildren(FlCardBody) _body: QueryList<FlCardBody>;
 
   constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) { }
+
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent) {
+    const target = event.target || event.srcElement;
+    if (this.collapsed !== undefined) {
+      this.toggleCollapsed();
+    }
+  }
 
   ngOnInit() {
     const elem = this._element.nativeElement;
@@ -91,127 +255,32 @@ export class CardComponent implements OnInit {
       this._themeSvc.applyBgColor(this._element, this._renderer, this.color);
     }
   }
+
+  ngAfterContentInit() {
+    if (this.collapsed && !this._body.length) {
+      throw new Error('The collapsed property needs an fl-card-body element');
+    }
+
+    if (this._titleD || this._subtitleD) {
+      this._hasTitleElements = true;
+    }
+  }
+
+  toggleCollapsed(): void {
+    return this.collapsed ? this.openPanel() : this.closePanel();
+  }
+
+  openPanel(): void {
+    if (this.collapsed) {
+      this._setCollapsed(false);
+    }
+  }
+
+  closePanel(): void {
+    this._setCollapsed(true);
+  }
+
+  private _setCollapsed(isCollapsed: boolean): void {
+    this.collapsed = isCollapsed;
+  }
 }
-
-// ============ STUFF THAT WILL BE USEFUL LATER ============================= //
-
-// import {
-//   ContentChild,
-//   Component,
-//   Directive,
-//   ChangeDetectionStrategy,
-//   ElementRef,
-//   Input,
-//   OnInit,
-//   Renderer2,
-//   ViewEncapsulation
-// } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-
-// import { WuiThemeService } from '../theme/theme.service';
-// import { Theme } from '../theme/theme.tmpl';
-
-// @Directive({
-//   selector: 'wui-card-title',
-//   host: {
-//     '[class.wui-card-title]': 'true'
-//   }
-// })
-// export class WuiCardTitle implements OnInit {
-//   protected theme: Theme;
-
-//   constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
-//     this.theme = _themeSvc.theme;
-//   }
-
-//   ngOnInit() {
-//     const elem = this._element.nativeElement;
-//     const accent = this.theme.accent;
-//     const styleValue = `linear-gradient(to right, ${accent}, ${accent} 50px, rgba(0, 0, 0, 0) 50px)`;
-//     this._renderer.setStyle(elem, 'border-image', styleValue);
-//   }
-// }
-
-// @Directive({
-//   selector: 'wui-card-subtitle',
-//   host: {
-//     '[class.wui-card-subtitle]': 'true'
-//   }
-// })
-// export class WuiCardSubtitle {}
-
-// @Directive({
-//   selector: 'wui-card-controls',
-//   host: {
-//     '[class.wui-card-controls]': 'true'
-//   }
-// })
-// export class WuiCardControls {}
-
-// @Directive({
-//   selector: 'wui-card-body',
-//   host: {
-//     '[class.wui-card-body]': 'true'
-//   }
-// })
-// export class WuiCardBody {}
-
-// @Directive({
-//   selector: 'wui-card-footer',
-//   host: {
-//     '[class.wui-card-footer]': 'true'
-//   }
-// })
-// export class WuiCardFooter {}
-
-// @Directive({
-//   selector: 'wui-card-actions',
-//   host: {
-//     '[class.wui-card-actions]': 'true'
-//   }
-// })
-// export class WuiCardActions {}
-
-// @Component({
-//   selector: 'section[wui-card], wui-card',
-//   templateUrl: './card.component.html',
-//   styleUrls: ['./card.component.scss'],
-//   host: {
-//     '[class.wui-card]': 'true'
-//   },
-//   encapsulation: ViewEncapsulation.None
-// })
-// export class WuiCardComponent {
-//   @Input() title: string;
-// }
-
-// @Component({
-//   selector: 'wui-card-header',
-//   templateUrl: './card-header.component.html',
-//   host: {
-//     '[class.wui-card-header]': 'true'
-//   },
-//   encapsulation: ViewEncapsulation.None
-// })
-// export class WuiCardHeaderComponent implements OnInit {
-//   protected theme: Theme;
-
-//   constructor(private _themeSvc: WuiThemeService, private _element: ElementRef, private _renderer: Renderer2) {
-//     this.theme = _themeSvc.theme;
-//   }
-
-//   ngOnInit() {
-//     const elem = this._element.nativeElement;
-//     this._renderer.setStyle(elem, 'border-bottom-color', this.theme.accent);
-//   }
-// }
-
-// @Component({
-//   selector: 'wui-card-title-group',
-//   templateUrl: './card-title-group.component.html',
-//   host: {
-//     '[class.wui-card-title-group]': 'true'
-//   },
-//   encapsulation: ViewEncapsulation.None
-// })
-// export class WuiCardTitleGroupComponent {}

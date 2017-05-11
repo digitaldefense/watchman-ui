@@ -20,10 +20,9 @@
     </fl-card>
   </fl-section>
   
-  <fl-section title="Expandable Card with Toolbar">
+  <fl-section title="Card with Toolbar">
     <fl-card>
-      <fl-card-toolbar color="accent">
-        Toolbar title
+      <fl-card-toolbar color="accent" title="Toolbar title">
         <button fl-icon-button>
           <fl-icon icon="ellipsis-v"></fl-icon>
         </button>
@@ -33,6 +32,19 @@
         <button fl-button>Action 2</button>
       </fl-card-action-row>
       A bunch of content stuff
+    </fl-card>
+  </fl-section>
+  
+  <fl-section title="Collapsible Card">
+    <fl-card title="Click to toggle" [collapsed]="true">
+      <fl-card-body>A bunch of content stuff</fl-card-body>
+    </fl-card>
+  </fl-section>
+  
+  <fl-section title="Collapsible Card with icons">
+    <fl-card [collapsed]="true">
+      <fl-card-title>Click to toggle</fl-card-title>
+      <fl-card-body>A bunch of content stuff</fl-card-body>
     </fl-card>
   </fl-section>
 </wui-page>
