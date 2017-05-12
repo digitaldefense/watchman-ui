@@ -1,10 +1,10 @@
 <div class="fl-accordion-title-row" (click)="toggleCard()">
-    <fl-icon [icon]="icon" *ngIf="icon"></fl-icon>
+    <fl-icon [ngClass]="icon" *ngIf="icon"></fl-icon>
     <h1 class="fl-card-title">{{title}}</h1>
     <span class="fl-fill"></span>
     <div *ngIf="_showArrows">
-        <fl-icon icon="angle-down" *ngIf="!isOpen"></fl-icon>
-        <fl-icon icon="angle-up" *ngIf="isOpen"></fl-icon>
+        <fl-icon ngClass="fa-angle-down" *ngIf="!isOpen"></fl-icon>
+        <fl-icon ngClass="fa-angle-up" *ngIf="isOpen"></fl-icon>
     </div>
 </div>
 <div class="fl-accordion-card-body" *ngIf="isOpen">

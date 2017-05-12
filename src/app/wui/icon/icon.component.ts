@@ -1,4 +1,23 @@
-import { AfterViewChecked, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChange, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectionStrategy,
+  Component,
+  DoCheck,
+  ElementRef,
+  HostBinding,
+  Input,
+  IterableChanges,
+  IterableDiffer,
+  IterableDiffers,
+  KeyValueDiffer,
+  KeyValueDiffers,
+  OnChanges,
+  OnInit,
+  Renderer2,
+  SimpleChange,
+  ViewEncapsulation,
+  ɵisListLikeIterable as isListLikeIterable
+} from '@angular/core';
 
 import { FlThemeService } from '../theme2/theme.service';
 
@@ -19,23 +38,17 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
   private _color: string;
   private _previousIcon: string;
   private _previousAriaLabel: string;
-  private _icon: string;
 
   @Input() alt: string;
   @Input('aria-label') hostAriaLabel = '';
-  @Input() fontSet = 'fa';
 
-  @Input()
-  set icon(value: string) {
-    if (this.fontSet === 'fa') {
-      this._icon = 'fa-' + value;
-    } else {
-      this._icon = value;
-    }
-  }
-  get icon(): string {
-    return this._icon;
-  }
+  @HostBinding('class.fa') true;
+
+  constructor(
+    private _renderer: Renderer2,
+    private _element: ElementRef,
+    private _themeSvc: FlThemeService
+  ) { }
 
   @Input()
   set color(value: string) {
@@ -45,17 +58,14 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
     return this._color;
   }
 
-  constructor(private _renderer: Renderer2, private _element: ElementRef, private _themeSvc: FlThemeService) { }
+  @Input() ngClass: string[] | Set<string> | {[icn: string]: any};
 
   ngOnInit() {
     this._theme = this._themeSvc.theme;
-    this._updateIconClasses();
     this._setElementColor(this.color);
   }
 
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
-    const changedInputs = Object.keys(changes);
-    this._updateIconClasses();
     this._updateAriaLabel();
   }
 
@@ -87,7 +97,7 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
   private _geteAriaLabel() {
     const label = this.hostAriaLabel ||
       this.alt ||
-      this.icon;
+      this.ngClass;
 
     if (label) {
       return label;
@@ -100,22 +110,4 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
 
     return null;
   }
-
-  private _updateIconClasses() {
-    const elem = this._element.nativeElement;
-    const fontSetClass = this.fontSet;
-
-    this._renderer.addClass(elem, fontSetClass);
-
-    if (this.icon !== this._previousIcon) {
-      if (this._previousIcon) {
-        this._renderer.removeClass(elem, this._previousIcon);
-      }
-      if (this.icon) {
-        this._renderer.addClass(elem, this.icon);
-      }
-      this._previousIcon = this.icon;
-    }
-  }
-
 }
