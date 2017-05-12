@@ -1,5 +1,5 @@
 <wui-page title="Icon">
-  <p><kbd>fl-icon</kbd> will render font-awesome icon fonts at 24px x 24px. Color can be controlled using the flColor directive.</p>
+  <p><kbd>fl-icon</kbd> is designed specifically to work with Font Awesome 4. It will render icons at 24px x 24px. Color can be changed using the <kbd>color</kbd> property and supports both theme colors as well as hex values.</p>
 
   <fl-section title="Examples">
     <fl-icon ngClass="fa-tree" color="#33ff77"></fl-icon>
@@ -7,10 +7,11 @@
     <fl-icon ngClass="fa-user-circle"></fl-icon>
   </fl-section>
 
-  <fl-section title="Examples using an object">
+  <fl-section title="Font Awesome Features">
+    <h2 class="subtitle">Animated Icons</h2>
     <fl-icon [ngClass]="['fa-spinner', 'fa-spin', 'fa-fw']" color="#33ff77"></fl-icon>
-    <!--<fl-icon icon="fa-rocket" color="accent"></fl-icon>
-    <fl-icon icon="fa-user-circle"></fl-icon>-->
+    <fl-icon [ngClass]="['fa-spinner', 'fa-pulse', 'fa-fw']" color="primary"></fl-icon>
+    <fl-icon [ngClass]="['fa-refresh', 'fa-spin', 'fa-fw']"></fl-icon>
   </fl-section>
 
   <fl-section title="Properties">

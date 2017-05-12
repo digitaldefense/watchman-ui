@@ -81,9 +81,9 @@ h6, .h6 { font-size: $font-size-h6; }
 .subtitle {
   display: block;
   font-family: $headings-font-family;
-  font-size: .88rem;
-  font-weight: 300;
-  letter-spacing: .05em;
+  font-size: $font-size-sm;
+  font-weight: $headings-font-weight;
+  margin: $spacer 0;
 }
 
 // h1.title + .subtitle,
