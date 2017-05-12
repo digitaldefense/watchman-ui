@@ -1,0 +1,8 @@
+@import '../scss/_variables';
+
+%card-base {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: $spacer-y;
+    padding: $spacer;
+}

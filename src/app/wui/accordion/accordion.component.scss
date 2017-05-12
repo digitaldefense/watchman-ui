@@ -1,0 +1,30 @@
+@import '../scss/_variables';
+@import '../scss/mixins';
+@import '../scss/_type';
+@import '../scss/_card';
+
+.fl-accordion-card {
+    @extend %card-base;
+}
+
+.fl-accordion-title-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+    height: 48px;
+}
+
+.fl-card-title {
+    @extend .title;
+    margin: 0;
+}
+
+.fl-icon + .fl-card-title {
+    margin-left: $spacer;
+}
+
+.fl-accordion-card-body {
+    position: relative;
+}

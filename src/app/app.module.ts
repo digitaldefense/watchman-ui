@@ -38,9 +38,11 @@ import { SectionPageComponent } from './section-page/section-page.component';
 import { IconPageComponent } from './icon-page/icon-page.component';
 import { ButtonPageComponent } from './button-page/button-page.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
+import { AccordionPageComponent } from './accordion-page/accordion-page.component';
 // import { FluxComponent } from './flux/flux.component';
 
 const appRoutes: Routes = [
+  { path: 'accordion', component: AccordionPageComponent },
   { path: 'avatar', component: AvatarPageComponent },
   { path: 'button', component: ButtonPageComponent },
   { path: 'colors', component: ColorsPageComponent },
@@ -75,6 +77,7 @@ const appRoutes: Routes = [
     IconPageComponent,
     ButtonPageComponent,
     MenuPageComponent,
+    AccordionPageComponent,
     // FluxComponent,
   ],
   imports: [

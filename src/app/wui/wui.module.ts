@@ -19,6 +19,7 @@ import { FlAvatarModule } from './avatar';
 import { FlDividerModule } from './divider';
 import { FlCardModule } from './card/index';
 import { FlMenuModule } from './menu/index';
+import { FlAccordionModule } from './accordion/index';
 
 // export * from './core/color';
 
@@ -27,6 +28,7 @@ import { FlMenuModule } from './menu/index';
 const WUI_MODULES = [
   // FlexLayoutModule,
   WuiColorModule,
+  FlAccordionModule,
   FlSectionModule,
   FlShadowModule,
   FlPaddingModule,
