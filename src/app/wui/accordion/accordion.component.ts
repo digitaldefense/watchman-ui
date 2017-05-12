@@ -1,5 +1,6 @@
 import {
   AfterContentInit,
+  AfterViewInit,
   Component,
   ContentChildren,
   ElementRef,
@@ -14,6 +15,7 @@ import {
   Output,
   QueryList,
   Renderer2,
+  ViewChildren,
   ViewEncapsulation
 } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
@@ -30,10 +32,11 @@ import { FlThemeService } from '../theme2/theme.service';
   styleUrls: ['./accordion.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AccordionCardComponent implements OnInit {
+export class AccordionCardComponent implements AfterViewInit, OnInit {
   _showArrows: boolean;
 
   @Input() title: string;
+  @Input() subtitle: string;
   @Input('icon-left') icon: string;
   @Input() shadow: string;
   @Input() color: string;
@@ -44,6 +47,8 @@ export class AccordionCardComponent implements OnInit {
   @Output() onOpen: EventEmitter<void> = new EventEmitter<void>();
   @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
   @Output() onToggle: EventEmitter<void> = new EventEmitter<void>();
+
+  @ViewChildren('subt') subtitles;
 
   constructor(
     @Host() @Inject(forwardRef(() => AccordionComponent)) public accordion: AccordionComponent,
@@ -69,6 +74,17 @@ export class AccordionCardComponent implements OnInit {
     }
 
     this._showArrows = this.accordion.showArrows;
+  }
+
+  ngAfterViewInit() {
+    if (this.subtitle != null && this.subtitle !== '') {
+      const theme = this._themeSvc.theme;
+      this.subtitles.toArray().map(x => {
+        this._renderer.setStyle(x.nativeElement, 'color', theme['hintText']);
+      });
+      // this._themeSvc.applyColor(st, this._renderer, theme['secondaryText']);
+      
+    }
   }
 
   toggleCard(): void {

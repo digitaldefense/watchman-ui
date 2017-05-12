@@ -22,6 +22,8 @@ export const BaseThemes = {
         divider: black12,
         disabled: `rgba(${black}, 0.38)`,
         disabledBtnBg: black12,
+        hintText: `rgba(${black}, 0.38)`,
+        secondaryText: `rgba(${black}, 0.54)`,
     },
     dark: {
         background: '#303030',
@@ -34,6 +36,8 @@ export const BaseThemes = {
         divider: white12,
         disabled: white3,
         disabledBtnBg: white12,
+        hintText: `rgba(${white}, 0.3)`,
+        secondaryText: `rgba(${white}, 0.7)`,
     }
 };
 
