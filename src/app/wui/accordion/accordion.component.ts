@@ -95,7 +95,6 @@ export class AccordionCardComponent implements OnInit {
 
   private _setOpenState(isOpen: boolean): void {
     this.isOpen = isOpen;
-    console.log(this.isOpen);
     this.isOpen ? this.onOpen.emit() : this.onClose.emit();
   }
 }
@@ -107,7 +106,7 @@ export class AccordionCardComponent implements OnInit {
   styleUrls: ['./accordion.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
+export class AccordionComponent implements AfterContentInit, OnDestroy {
   private _subscription: Subscription;
 
   @Input() closeOthers = true;
@@ -118,13 +117,6 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  ngOnDestroy() {
-    if (this._subscription) { this._subscription.unsubscribe(); }
-  }
-
   ngAfterContentInit() {
     if (this.expandAll) {
       this.closeOthers = false;
@@ -133,6 +125,10 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
         // https://github.com/pleerock/ngx-accordion/blob/master/src/Accordion.ts
       });
     }
+  }
+
+  ngOnDestroy() {
+    if (this._subscription) { this._subscription.unsubscribe(); }
   }
 
   closeAll() {
