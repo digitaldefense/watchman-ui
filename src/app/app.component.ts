@@ -54,7 +54,7 @@ export class Hank {
 export class AppComponent implements OnInit {
 
   constructor(private _hank: Hank, private _theme2: FlThemeService) {
-    this._theme2.set('dark');
+    this._theme2.set('light');
   }
   // constructor(private _theme2: FlThemeService) { }
 

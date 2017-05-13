@@ -5,9 +5,12 @@ import { WuiThemeService, THEMES } from './theme/index';
 export { WuiThemeService, THEMES } from './theme/index';
 
 import { WuiColorModule } from './core/color';
-import { FlShadowModule } from './core/shadow';
-import { FlPaddingModule } from './core/padding';
-// import { FlContentModule } from './core/content';
+
+import {
+  FlPaddingModule,
+  FlShadowModule,
+  FlKbdModule
+} from './core';
 
 import { FlSectionModule } from './section/index';
 import { FlToolbarModule } from './toolbar/index';
@@ -32,6 +35,7 @@ const WUI_MODULES = [
   FlSectionModule,
   FlShadowModule,
   FlPaddingModule,
+  FlKbdModule,
   // FlContentModule,
   FlCardModule,
   FlButtonModule,
