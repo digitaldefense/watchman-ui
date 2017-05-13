@@ -199,6 +199,7 @@ mark,
 .text-uppercase  { text-transform: uppercase !important; }
 .text-capitalize { text-transform: capitalize !important; }
 
+code,
 kbd {
   background-color: $text-medium;
   border-radius: .25rem;

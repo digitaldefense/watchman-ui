@@ -13,12 +13,14 @@ const white3 = `rgba(${white}, 0.3)`;
 export const BaseThemes = {
     light: {
         background: PALETTE.gray['50'],
+        highlight: PALETTE.gray['300'],
         text: `rgba(${black}, 0.87)`,
         icon: `rgba(${black}, 0.64)`,
         icons: `rgba(${black}, 0.64)`,
         toolbar: PALETTE.gray['100'],
         hover: `rgba(${black}, 0.04)`,
         card: 'white',
+        dialog: 'white',
         divider: black12,
         disabled: `rgba(${black}, 0.38)`,
         disabledBtnBg: black12,
@@ -27,12 +29,14 @@ export const BaseThemes = {
     },
     dark: {
         background: '#303030',
+        highlight: PALETTE.gray['800'],
         text: 'white',
         icon: 'white',
         icons: 'white',
         toolbar: PALETTE.gray['900'],
         hover: `rgba(${white}, 0.04)`,
         card: PALETTE.gray['800'],
+        dialog: PALETTE.gray['800'],
         divider: white12,
         disabled: white3,
         disabledBtnBg: white12,
@@ -74,6 +78,10 @@ export class ThemePresets {
         link: PALETTE.blue['500']
     };
 
+    gray(value: string) {
+        return PALETTE.gray[value];
+    }
+
     getTheme(name: string) {
         if (name == null || !name.length || name === '') {
             name = this._preset;
@@ -84,4 +92,6 @@ export class ThemePresets {
         const theme = Object.assign({}, topcoat, base);
         return theme;
     }
+
+    private _buildTheme() {}
 }
