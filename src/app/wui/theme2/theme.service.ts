@@ -5,6 +5,8 @@ import { BehaviorSubject, Observable } from 'rxjs/Rx';
 import { ThemePresets } from './presets';
 // import { AppConfig2 } from '../../app-config.service';
 
+const GRAY_VARIANTS = ['darkest', 'darker', 'dark', 'medium', 'light', 'lighter', 'lighest'];
+
 @Injectable()
 export class FlThemeService {
   private _theme: any;
@@ -61,4 +63,10 @@ export class FlThemeService {
   private _isCustomColor(color: string): boolean {
     return Boolean(color.charAt(0) === '#');
   }
+
+  // private _applyThemeColor(val: string): string {
+  //   if (GRAY_VARIANTS.indexOf(val) !== -1) {
+  //     //
+  //   }
+  // }
 }
