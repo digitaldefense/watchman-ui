@@ -25,6 +25,7 @@
 .fl-card-subtitle {
     @extend .subtitle;
     margin: ($spacer * .5) 0 0;
+    padding: 0;
 }
 
 .fl-icon + .fl-card-title-group {

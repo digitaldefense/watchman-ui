@@ -83,7 +83,11 @@ h6, .h6 { font-size: $font-size-h6; }
   font-family: $headings-font-family;
   font-size: $font-size-sm;
   font-weight: $headings-font-weight;
+
   margin: $spacer 0;
+
+  // might need to revisit this in regard to the flSubtitle directive/component
+  padding: $spacer;
 }
 
 // h1.title + .subtitle,

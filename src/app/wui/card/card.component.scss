@@ -67,6 +67,7 @@ fl-card-divider {
     @extend .subtitle;
     margin: 0;
     margin-top: $spacer * .25;
+    padding: 0;
 }
 
 .fl-card-support-text {

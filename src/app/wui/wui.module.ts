@@ -9,7 +9,8 @@ import { WuiColorModule } from './core/color';
 import {
   FlPaddingModule,
   FlShadowModule,
-  FlKbdModule
+  FlSubtitleModule,
+  FlKbdModule,
 } from './core';
 
 import { FlSectionModule } from './section/index';
@@ -35,6 +36,7 @@ const WUI_MODULES = [
   FlSectionModule,
   FlShadowModule,
   FlPaddingModule,
+  FlSubtitleModule,
   FlKbdModule,
   // FlContentModule,
   FlCardModule,
