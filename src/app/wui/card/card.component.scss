@@ -53,11 +53,6 @@ fl-card-divider {
     margin-right: -$spacer-x;
 }
 
-.fl-card-title-group {
-    margin-top: $spacer * .5;
-    margin-bottom: $spacer;
-}
-
 .fl-card-title {
     @extend .title;
     margin: 0;

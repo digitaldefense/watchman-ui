@@ -1,0 +1,9 @@
+@import '../scss/_variables';
+@import '../scss/mixins';
+@import '../scss/_type';
+
+.fl-subheader {
+    @extend .subtitle;
+    margin: 0;
+    padding: $spacer;
+}

@@ -9,7 +9,6 @@ import { WuiColorModule } from './core/color';
 import {
   FlPaddingModule,
   FlShadowModule,
-  FlSubtitleModule,
   FlKbdModule,
 } from './core';
 
@@ -24,6 +23,7 @@ import { FlDividerModule } from './divider';
 import { FlCardModule } from './card/index';
 import { FlMenuModule } from './menu/index';
 import { FlAccordionModule } from './accordion/index';
+import { FlSubheaderModule } from './subheader/index';
 
 // export * from './core/color';
 
@@ -36,7 +36,7 @@ const WUI_MODULES = [
   FlSectionModule,
   FlShadowModule,
   FlPaddingModule,
-  FlSubtitleModule,
+  FlSubheaderModule,
   FlKbdModule,
   // FlContentModule,
   FlCardModule,
