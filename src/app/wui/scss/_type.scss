@@ -201,9 +201,22 @@ mark,
 
 code,
 kbd {
-  background-color: $text-medium;
   border-radius: .25rem;
   font-size: $font-size-base * .9;
   padding: 0 .25rem;
   word-break: keep-all;
+}
+
+// Theme colors
+.fl-theme-light {
+  code, kbd {
+    background-color: $secondary-text-dark;
+    color: $secondary-text-dark;
+  }
+}
+
+.fl-theme-dark {
+  code, kbd {
+    background-color: $highlight-dark;
+  }
 }

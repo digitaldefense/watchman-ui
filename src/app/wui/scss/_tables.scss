@@ -1,20 +1,29 @@
-//
 // Basic Bootstrap table
-//
 
 .table {
   width: 100%;
   max-width: 100%;
   margin-bottom: $spacer;
 
+  caption {
+    @extend .subtitle;
+    display: table-caption;
+    caption-side: top;
+    margin: 0;
+    padding: $spacer;
+  }
+
   th,
   td {
+    font-size: $font-size-sm;
     padding: $table-cell-padding;
     vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
   }
 
   thead th {
+    color: rgba(white, 0.54);
+    font-size: .75rem;
     vertical-align: bottom;
     border-bottom: (2 * $table-border-width) solid $table-border-color;
   }
@@ -25,6 +34,17 @@
 
   .table {
     background-color: $body-bg;
+  }
+}
+
+.fl-theme-light .table {
+
+}
+
+.fl-theme-dark .table {
+  caption {
+    background-color: #424242;
+    color: $secondary-text-dark;
   }
 }
 
@@ -80,7 +100,7 @@
 .table-hover {
   tbody tr {
     @include hover {
-      background-color: $table-bg-hover;
+      background-color: #eee;
     }
   }
 }

@@ -17,7 +17,7 @@ export class SubheaderComponent implements OnInit {
 
   ngOnInit() {
     const theme = this._theme.theme;
-    this._theme.applyColor(this._el, this._renderer, theme['secondaryText']);
+    this._theme.applyColor(this._el, this._renderer, theme['accent']);
     this._theme.applyBgColor(this._el, this._renderer, theme['highlight']);
   }
 }

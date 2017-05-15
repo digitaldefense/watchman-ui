@@ -7,6 +7,7 @@
 // @import "./assets/font-awesome/font-awesome";
 
 // Core variables and mixins
+@import "colors";
 @import "variables";
 @import "mixins";
 // @import "custom";
@@ -27,85 +28,6 @@
 // @import "forms";
 // @import "buttons";
 
-.section {
-    margin-bottom: $spacer-y;
-}
-
-.section-head {
-    border-bottom: 1px solid $theme-accent;
-    position: relative;
-    margin-bottom: $spacer-y;
-    .title {
-        margin: 0;
-    }
-}
-
-// colors
-// .wui-primary-bg {
-//     background-color: $brand-primary !important;
-// }
-// .wui-accent-bg {
-//     background-color: $theme-accent !important;
-// }
-// .wui-warning-bg {
-//     background-color: $brand-warning !important;
-// }
-// .wui-danger-bg {
-//     background-color: $brand-danger !important;
-// }
-// .wui-default-bg {
-//     background-color: $bg-dark;
-// }
-// .wui-primary-text {
-//     color: $brand-primary !important;
-// }
-// .wui-accent-text {
-//     color: $theme-accent !important;
-// }
-// .wui-warning-text {
-//     color: $brand-warning !important;
-// }
-// .wui-danger-text {
-//     color: $brand-danger !important;
-// }
-// .wui-default-text {
-//     color: $bg-dark;
-// }
-
-// .wui-darker-text {
-//     color: $text-darker;
-// }
-// .wui-dark-text {
-//     color: $text-dark;
-// }
-// .wui-medium-text {
-//     color: $text-medium;
-// }
-// .wui-light-text {
-//     color: $text-light;
-// }
-// .wui-lighter-text {
-//     color: $text-lighter;
-// }
-
-// .wui-darkest-bg {
-//     background-color: $bg-darkest;
-// }
-// .wui-darker-bg {
-//     background-color: $bg-darker;
-// }
-// .wui-dark-bg {
-//     background-color: $bg-dark;
-// }
-// .wui-medium-bg {
-//     background-color: $bg-medium;
-// }
-// .wui-light-bg {
-//     background-color: $bg-light;
-// }
-// .wui-lighter-bg {
-//     background-color: $bg-lighter;
-// }
 
 // structure
 .fl-padding {

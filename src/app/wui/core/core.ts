@@ -8,9 +8,6 @@ import { PortalModule } from './portal/portal-directives';
 import { OverlayModule } from './overlay/overlay-directives';
 // import { WuiRippleModule } from './ripple/index';
 
-// HTML Element modifiers
-import { FlKbdModule } from './kbd/index';
-
 // Coercion
 export {coerceBooleanProperty} from './coercion/boolean-property';
 export {coerceNumberProperty} from './coercion/number-property';
@@ -18,7 +15,6 @@ export {coerceNumberProperty} from './coercion/number-property';
 export * from './color/index';
 export * from './shadow/index';
 export * from './padding/index';
-export * from './kbd/index';
 
 // Portals
 export {
@@ -45,7 +41,6 @@ export * from './overlay/index';
         FlContentModule,
         PortalModule,
         OverlayModule,
-        FlKbdModule,
         // WuiRippleModule
     ],
     exports: [
@@ -55,7 +50,6 @@ export * from './overlay/index';
         FlContentModule,
         PortalModule,
         OverlayModule,
-        FlKbdModule,
         // WuiRippleModule
     ],
 })
