@@ -28,12 +28,12 @@ const MD_FIT_MODE = 'fit';
 
 @Component({
   moduleId: module.id,
-  selector: 'md-grid-list, mat-grid-list',
+  selector: 'fl-grid-list',
   templateUrl: 'grid-list.html',
   styleUrls: ['grid-list.scss'],
   host: {
     'role': 'list',
-    '[class.mat-grid-list]': 'true',
+    '[class.fl-grid-list]': 'true',
   },
   encapsulation: ViewEncapsulation.None,
 })
