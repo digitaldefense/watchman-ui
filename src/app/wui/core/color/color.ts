@@ -47,6 +47,11 @@ export class WuiBackgroundDirective {
         this._updateColor(color);
     }
 
+    @Input()
+    set flBgColor(color: string) {
+        this._updateColor(color);
+    }
+
     constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {}
 
     private _updateColor(newColor: string) {
