@@ -1,18 +1,5 @@
-// @import '../core/style/list-common';
 @import '../scss/variables';
 @import '../scss/colors';
-
-
-// height of tile header or footer if it has one line
-$mat-grid-list-one-line-height: 48px;
-// height of tile header or footer if it has two lines
-$mat-grid-list-two-line-height: 68px;
-// side padding for text in tile headers and footers
-$mat-grid-list-text-padding: 16px;
-
-// font styles for text in tile headers and footers
-$mat-grid-list-font-size: 16px;
-$mat-grid-list-secondary-font: 12px;
 
 .mat-grid-list {
   display: block;
@@ -41,56 +28,6 @@ $mat-grid-list-secondary-font: 12px;
     padding: 0;
     margin: 0;
   }
-
-  // Headers & footers
-  // .mat-grid-tile-header,
-  // .mat-grid-tile-footer {
-  //   // @include mat-line-base($mat-grid-list-secondary-font);
-  //   // @include mat-normalize-text();
-
-  //   display: flex;
-  //   align-items: center;
-  //   height: $mat-grid-list-one-line-height;
-  //   color: #fff;
-  //   background: rgba(0, 0, 0, 0.38);
-  //   overflow: hidden;
-  //   padding: 0 $mat-grid-list-text-padding;
-  //   // font-size: $mat-grid-list-font-size;
-
-  //   // Positioning
-  //   position: absolute;
-  //   left: 0;
-  //   right: 0;
-
-  //   &.mat-2-line {
-  //     height: $mat-grid-list-two-line-height;
-  //   }
-  // }
-
-  // .mat-grid-list-text {
-  //   // @include mat-line-wrapper-base();
-  // }
-
-  // .mat-grid-tile-header {
-  //   top: 0;
-  // }
-
-  // .mat-grid-tile-footer {
-  //   bottom: 0;
-  // }
-
-  // .mat-grid-avatar {
-  //   padding-right: $mat-grid-list-text-padding;
-
-  //   [dir='rtl'] & {
-  //     padding-right: 0;
-  //     padding-left: $mat-grid-list-text-padding;
-  //   }
-
-  //   &:empty {
-  //     display:none;
-  //   }
-  // }
 }
 
 .fl-grid-tile-overlay {
@@ -113,5 +50,13 @@ $mat-grid-list-secondary-font: 12px;
 
   &.footer {
     bottom: 0;
+  }
+
+  > button:first-child {
+    margin-left: -$spacer;
+  }
+
+  > button:last-child {
+    margin-right: -$spacer;
   }
 }
