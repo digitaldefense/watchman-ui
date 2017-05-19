@@ -2,54 +2,54 @@
   <p class="lead">Arranges list-items as cells in a grid-based layout.</p>
   <fl-section title="Simple Example">
     <md-grid-list cols="3" row-height="1:1">
-      <md-grid-tile>
+      <fl-grid-tile>
         <h1>Tile 1</h1>
-      </md-grid-tile>
-      <md-grid-tile>
+      </fl-grid-tile>
+      <fl-grid-tile>
         <h1>Tile 2</h1>
-      </md-grid-tile>
-      <md-grid-tile>
+      </fl-grid-tile>
+      <fl-grid-tile>
         <h1>Tile 3</h1>
-      </md-grid-tile>
-      <md-grid-tile>
+      </fl-grid-tile>
+      <fl-grid-tile>
         <h1>Tile 4</h1>
-      </md-grid-tile>
-      <md-grid-tile>
+      </fl-grid-tile>
+      <fl-grid-tile>
         <h1>Tile 5</h1>
-      </md-grid-tile>
-      <md-grid-tile>
+      </fl-grid-tile>
+      <fl-grid-tile>
         <h1>Tile 6</h1>
-      </md-grid-tile>
+      </fl-grid-tile>
     </md-grid-list>
   </fl-section>
   
   <fl-section title="Complex Card Example">
     <md-grid-list cols="3" row-height="1:1" gutterSize="16">
-      <md-grid-tile>
+      <fl-grid-tile>
         <fl-card fxFlexFill>
           <h1>Tile 1</h1>
           <pre class="codeblock">
 &lt;fl-grid-tile&gt;
   &lt;fl-card fxFlexFill&gt;...&lt;/fl-card&gt;</pre>
         </fl-card>
-      </md-grid-tile>
-      <md-grid-tile colspan="2">
+      </fl-grid-tile>
+      <fl-grid-tile colspan="2">
         <fl-card fxFlexFill>
           <h1>Tile 2</h1>
           <pre class="codeblock">
 &lt;fl-grid-tile colspan="2"&gt;
   &lt;fl-card fxFlexFill&gt;...&lt;/fl-card&gt;</pre>
         </fl-card>
-      </md-grid-tile>
-      <md-grid-tile rowspan="2" colspan="2">
+      </fl-grid-tile>
+      <fl-grid-tile rowspan="2" colspan="2">
         <fl-card fxFlexFill>
           <h1>Tile 3</h1>
           <pre class="codeblock">
 &lt;fl-grid-tile colspan="2" colspan="2"&gt;
   &lt;fl-card fxFlexFill&gt;...&lt;/fl-card&gt;</pre>
         </fl-card>
-      </md-grid-tile>
-      <md-grid-tile flBgColor="accent">
+      </fl-grid-tile>
+      <fl-grid-tile flBgColor="accent">
         <h1>Tile 4</h1>
         <pre class="codeblock">&lt;fl-grid-tile&gt;...</pre>
         <fl-grid-tile-overlay>
@@ -58,8 +58,8 @@
             <fl-icon ngClass="fa-star-o"></fl-icon>
           </button>
         </fl-grid-tile-overlay>
-      </md-grid-tile>
-      <md-grid-tile>
+      </fl-grid-tile>
+      <fl-grid-tile>
         <fl-card fxFlexFill>
           <h1>Tile 5</h1>
           <pre class="codeblock">
@@ -69,7 +69,7 @@
         <fl-grid-tile-overlay position="top">
           <span>Overlay header</span>
         </fl-grid-tile-overlay>
-      </md-grid-tile>
+      </fl-grid-tile>
     </md-grid-list>
   </fl-section>
 </wui-page>

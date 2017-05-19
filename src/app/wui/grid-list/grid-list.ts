@@ -10,10 +10,10 @@ import {
   ElementRef,
   Optional,
 } from '@angular/core';
-import {MdGridTile} from './grid-tile';
-import {TileCoordinator} from './tile-coordinator';
-import {TileStyler, FitTileStyler, RatioTileStyler, FixedTileStyler} from './tile-styler';
-import {Dir} from '../core';
+import { FlGridTile } from './grid-tile';
+import { TileCoordinator } from './tile-coordinator';
+import { TileStyler, FitTileStyler, RatioTileStyler, FixedTileStyler } from './tile-styler';
+import { Dir } from '../core';
 import {
   coerceToString,
   coerceToNumber,
@@ -37,7 +37,7 @@ const MD_FIT_MODE = 'fit';
   },
   encapsulation: ViewEncapsulation.None,
 })
-export class MdGridList implements OnInit, AfterContentChecked {
+export class FlGridList implements OnInit, AfterContentChecked {
   /** Number of columns being rendered. */
   private _cols: number;
 
@@ -56,7 +56,7 @@ export class MdGridList implements OnInit, AfterContentChecked {
   private _tileStyler: TileStyler;
 
   /** Query list of tiles that are being rendered. */
-  @ContentChildren(MdGridTile) _tiles: QueryList<MdGridTile>;
+  @ContentChildren(FlGridTile) _tiles: QueryList<FlGridTile>;
 
   constructor(
       private _renderer: Renderer2,

@@ -1,37 +1,24 @@
 import {NgModule} from '@angular/core';
 // import {MdLineModule, MdCommonModule} from '../core';
 import {
-  MdGridTile, FlGridTileOverlay, MdGridTileText, MdGridTileFooterCssMatStyler,
-  MdGridTileHeaderCssMatStyler, MdGridAvatarCssMatStyler
+  FlGridTile, FlGridTileOverlay
 } from './grid-tile';
-import {MdGridList} from './grid-list';
+import { FlGridList } from './grid-list';
 
 
 @NgModule({
-  // imports: [MdLineModule, MdCommonModule],
   exports: [
-    MdGridList,
-    MdGridTile,
+    FlGridList,
+    FlGridTile,
     FlGridTileOverlay,
-    MdGridTileText,
-    // MdLineModule,
-    // MdCommonModule,
-    MdGridTileHeaderCssMatStyler,
-    MdGridTileFooterCssMatStyler,
-    MdGridAvatarCssMatStyler
   ],
   declarations: [
-    MdGridList,
-    MdGridTile,
+    FlGridList,
+    FlGridTile,
     FlGridTileOverlay,
-    MdGridTileText,
-    MdGridTileHeaderCssMatStyler,
-    MdGridTileFooterCssMatStyler,
-    MdGridAvatarCssMatStyler
   ],
 })
-export class MdGridListModule {}
-
+export class FlGridListModule {}
 
 export * from './grid-list';
-export {MdGridTile} from './grid-tile';
+export { FlGridTile } from './grid-tile';
