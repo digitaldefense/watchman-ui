@@ -8,6 +8,9 @@ import { PortalModule } from './portal/portal-directives';
 import { OverlayModule } from './overlay/overlay-directives';
 // import { WuiRippleModule } from './ripple/index';
 
+// RTL
+export { Dir, LayoutDirection, RtlModule } from './rtl/dir';
+
 // Coercion
 export {coerceBooleanProperty} from './coercion/boolean-property';
 export {coerceNumberProperty} from './coercion/number-property';

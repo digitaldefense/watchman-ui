@@ -14,6 +14,7 @@ import {
 import { FlSectionModule } from './section/index';
 import { FlToolbarModule } from './toolbar/index';
 import { FlButtonModule } from './button/index';
+import { MdGridListModule } from './grid-list/index';
 import { FlIconModule } from './icon/index';
 import { FlInputModule } from './input/index';
 import { FlListModule } from './list';
@@ -30,6 +31,7 @@ const WUI_MODULES = [
   // FlexLayoutModule,
   WuiColorModule,
   FlAccordionModule,
+  MdGridListModule,
   FlSectionModule,
   FlShadowModule,
   FlPaddingModule,
