@@ -1,4 +1,6 @@
 // @import '../core/style/list-common';
+@import '../scss/variables';
+@import '../scss/colors';
 
 
 // height of tile header or footer if it has one line
@@ -17,15 +19,16 @@ $mat-grid-list-secondary-font: 12px;
   position: relative;
 }
 
-.mat-grid-tile {
+.fl-grid-tile {
   display: block;
   position: absolute;
   overflow: hidden;
 
-  .mat-figure {
+  .fl-grid-tile-content {
     display: flex;
     position: absolute;
 
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -40,52 +43,75 @@ $mat-grid-list-secondary-font: 12px;
   }
 
   // Headers & footers
-  .mat-grid-tile-header,
-  .mat-grid-tile-footer {
-    // @include mat-line-base($mat-grid-list-secondary-font);
-    // @include mat-normalize-text();
+  // .mat-grid-tile-header,
+  // .mat-grid-tile-footer {
+  //   // @include mat-line-base($mat-grid-list-secondary-font);
+  //   // @include mat-normalize-text();
 
-    display: flex;
-    align-items: center;
-    height: $mat-grid-list-one-line-height;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.38);
-    overflow: hidden;
-    padding: 0 $mat-grid-list-text-padding;
-    // font-size: $mat-grid-list-font-size;
+  //   display: flex;
+  //   align-items: center;
+  //   height: $mat-grid-list-one-line-height;
+  //   color: #fff;
+  //   background: rgba(0, 0, 0, 0.38);
+  //   overflow: hidden;
+  //   padding: 0 $mat-grid-list-text-padding;
+  //   // font-size: $mat-grid-list-font-size;
 
-    // Positioning
-    position: absolute;
-    left: 0;
-    right: 0;
+  //   // Positioning
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
 
-    &.mat-2-line {
-      height: $mat-grid-list-two-line-height;
-    }
-  }
+  //   &.mat-2-line {
+  //     height: $mat-grid-list-two-line-height;
+  //   }
+  // }
 
-  .mat-grid-list-text {
-    // @include mat-line-wrapper-base();
-  }
+  // .mat-grid-list-text {
+  //   // @include mat-line-wrapper-base();
+  // }
 
-  .mat-grid-tile-header {
+  // .mat-grid-tile-header {
+  //   top: 0;
+  // }
+
+  // .mat-grid-tile-footer {
+  //   bottom: 0;
+  // }
+
+  // .mat-grid-avatar {
+  //   padding-right: $mat-grid-list-text-padding;
+
+  //   [dir='rtl'] & {
+  //     padding-right: 0;
+  //     padding-left: $mat-grid-list-text-padding;
+  //   }
+
+  //   &:empty {
+  //     display:none;
+  //   }
+  // }
+}
+
+.fl-grid-tile-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacer;
+  overflow: hidden;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  background: rgba(0, 0, 0, 0.38);
+  color: $text-light;
+
+  &.header {
     top: 0;
   }
 
-  .mat-grid-tile-footer {
+  &.footer {
     bottom: 0;
-  }
-
-  .mat-grid-avatar {
-    padding-right: $mat-grid-list-text-padding;
-
-    [dir='rtl'] & {
-      padding-right: 0;
-      padding-left: $mat-grid-list-text-padding;
-    }
-
-    &:empty {
-      display:none;
-    }
   }
 }

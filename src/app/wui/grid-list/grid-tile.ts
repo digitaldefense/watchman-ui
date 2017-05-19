@@ -1,24 +1,27 @@
 import {
+  AfterContentInit,
   Component,
-  ViewEncapsulation,
-  Renderer2,
-  ElementRef,
-  Input,
   ContentChildren,
+  Directive,
+  ElementRef,
+  HostBinding,
+  Input,
+  OnInit,
+  Renderer2,
   QueryList,
-  AfterContentInit, Directive
+  ViewEncapsulation
 } from '@angular/core';
 // import {MdLine, MdLineSetter} from '../core';
 import {coerceToNumber} from './grid-list-measure';
 
 @Component({
-  moduleId: module.id,
-  selector: 'md-grid-tile, mat-grid-tile',
+  selector: 'md-grid-tile, mat-grid-tile, fl-grid-tile',
   host: {
     'role': 'listitem',
-    '[class.mat-grid-tile]': 'true',
+    '[class.fl-grid-tile]': 'true',
   },
   templateUrl: 'grid-tile.html',
+  // template: '<ng-content></ng-content>',
   styleUrls: ['grid-list.scss'],
   encapsulation: ViewEncapsulation.None,
 })
@@ -44,6 +47,28 @@ export class MdGridTile {
    */
   _setStyle(property: string, value: string): void {
     this._renderer.setStyle(this._element.nativeElement, property, value);
+  }
+}
+
+@Component({
+  selector: 'fl-grid-tile-overlay',
+  template: '<ng-content></ng-content>',
+  host: {
+    '[class.fl-grid-tile-overlay]': 'true'
+  }
+})
+export class FlGridTileOverlay implements OnInit {
+  @Input() position: 'top' | 'bottom' = 'bottom';
+
+  @HostBinding('class.header') top: boolean;
+  @HostBinding('class.footer') bottom: boolean;
+
+  ngOnInit() {
+    if (this.position === 'top') {
+      this.top = true;
+    } else {
+      this.bottom = true;
+    }
   }
 }
 

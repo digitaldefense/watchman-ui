@@ -200,23 +200,27 @@ mark,
 .text-capitalize { text-transform: capitalize !important; }
 
 code,
-kbd {
+kbd,
+.codeblock {
   border-radius: .25rem;
   font-size: $font-size-base * .9;
-  padding: 0 .25rem;
+  padding: .1rem .3rem;
   word-break: keep-all;
+}
+.codeblock {
+  padding: ($spacer-y * .5) $spacer;
 }
 
 // Theme colors
 .fl-theme-light {
-  code, kbd {
-    background-color: $secondary-text-dark;
+  code, kbd, .codeblock {
+    background-color: rgba(0, 0, 0, 0.1);
     color: $secondary-text-dark;
   }
 }
 
 .fl-theme-dark {
-  code, kbd {
-    background-color: $highlight-dark;
+  code, kbd, .codeblock {
+    background-color: rgba(255, 255, 255, 0.08);
   }
 }

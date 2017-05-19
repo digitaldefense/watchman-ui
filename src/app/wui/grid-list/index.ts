@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 // import {MdLineModule, MdCommonModule} from '../core';
 import {
-  MdGridTile, MdGridTileText, MdGridTileFooterCssMatStyler,
+  MdGridTile, FlGridTileOverlay, MdGridTileText, MdGridTileFooterCssMatStyler,
   MdGridTileHeaderCssMatStyler, MdGridAvatarCssMatStyler
 } from './grid-tile';
 import {MdGridList} from './grid-list';
@@ -12,6 +12,7 @@ import {MdGridList} from './grid-list';
   exports: [
     MdGridList,
     MdGridTile,
+    FlGridTileOverlay,
     MdGridTileText,
     // MdLineModule,
     // MdCommonModule,
@@ -22,6 +23,7 @@ import {MdGridList} from './grid-list';
   declarations: [
     MdGridList,
     MdGridTile,
+    FlGridTileOverlay,
     MdGridTileText,
     MdGridTileHeaderCssMatStyler,
     MdGridTileFooterCssMatStyler,

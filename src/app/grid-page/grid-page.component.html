@@ -23,22 +23,49 @@
     </md-grid-list>
   </fl-section>
   
-  <fl-section title="Complex Example">
-    <md-grid-list cols="3" row-height="1:1">
+  <fl-section title="Complex Card Example">
+    <md-grid-list cols="3" row-height="1:1" gutterSize="16">
       <md-grid-tile>
-        <h1>Tile 1</h1>
+        <fl-card fxFlexFill>
+          <h1>Tile 1</h1>
+          <pre class="codeblock">
+&lt;fl-grid-tile&gt;
+  &lt;fl-card fxFlexFill&gt;...&lt;/fl-card&gt;</pre>
+        </fl-card>
       </md-grid-tile>
       <md-grid-tile colspan="2">
-        <h1>Tile 2</h1>
+        <fl-card fxFlexFill>
+          <h1>Tile 2</h1>
+          <pre class="codeblock">
+&lt;fl-grid-tile colspan="2"&gt;
+  &lt;fl-card fxFlexFill&gt;...&lt;/fl-card&gt;</pre>
+        </fl-card>
       </md-grid-tile>
       <md-grid-tile rowspan="2" colspan="2">
-        <h1>Tile 3</h1>
+        <fl-card fxFlexFill>
+          <h1>Tile 3</h1>
+          <pre class="codeblock">
+&lt;fl-grid-tile colspan="2" colspan="2"&gt;
+  &lt;fl-card fxFlexFill&gt;...&lt;/fl-card&gt;</pre>
+        </fl-card>
       </md-grid-tile>
       <md-grid-tile>
         <h1>Tile 4</h1>
+        <pre class="codeblock">&lt;fl-grid-tile&gt;</pre>
+        <fl-grid-tile-overlay>
+          <span>Overlay footer</span>
+        </fl-grid-tile-overlay>
       </md-grid-tile>
-      <md-grid-tile>
-        <h1>Tile 5</h1>
+      <md-grid-tile flBgColor="accent">
+        <fl-card fxFlexFill>
+          <h1>Tile 5</h1>
+          <pre class="codeblock">
+&lt;fl-grid-tile&gt;
+  &lt;fl-card fxFlexFill&gt;...&lt;/fl-card&gt;</pre>
+        </fl-card>
+        <fl-grid-tile-overlay position="top">
+          <span>Overlay header</span>
+        </fl-grid-tile-overlay>
       </md-grid-tile>
     </md-grid-list>
   </fl-section>

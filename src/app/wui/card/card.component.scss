@@ -6,8 +6,19 @@
 fl-card {
     display: block;
     box-sizing: border-box;
+    // margin: ($spacer * .2) ($spacer * .1) $spacer-y;
     margin-bottom: $spacer-y;
     padding: $spacer;
+}
+
+fl-card[fxflexfill] {
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    &.fl-shadow-4 {
+        margin: ($spacer * .1) ($spacer * .2) ($spacer * .35) !important;
+        width: 99.5% !important;
+    }
 }
 
 .fl-card-toolbar {
