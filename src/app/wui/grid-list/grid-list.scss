@@ -52,11 +52,16 @@
     bottom: 0;
   }
 
+  > button {
+    margin-top: -$spacer * .75;
+    margin-bottom: -$spacer * .75;
+  }
+
   > button:first-child {
     margin-left: -$spacer;
   }
 
   > button:last-child {
-    margin-right: -$spacer;
+    margin-right: -$spacer * .75;
   }
 }
