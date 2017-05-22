@@ -41,6 +41,7 @@ import { MenuPageComponent } from './menu-page/menu-page.component';
 import { AccordionPageComponent } from './accordion-page/accordion-page.component';
 import { FormattingPageComponent } from './formatting-page/formatting-page.component';
 import { GridPageComponent } from './grid-page/grid-page.component';
+import { DrawerPageComponent } from './drawer-page/drawer-page.component';
 // import { FluxComponent } from './flux/flux.component';
 
 const appRoutes: Routes = [
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
   { path: 'avatar', component: AvatarPageComponent },
   { path: 'button', component: ButtonPageComponent },
   { path: 'colors', component: ColorsPageComponent },
+  { path: 'drawer', component: DrawerPageComponent },
   { path: 'formatting', component: FormattingPageComponent },
   { path: 'forms', component: FormsPageComponent },
   { path: 'gridlist', component: GridPageComponent },
@@ -84,6 +86,7 @@ const appRoutes: Routes = [
     AccordionPageComponent,
     FormattingPageComponent,
     GridPageComponent,
+    DrawerPageComponent,
     // FluxComponent,
   ],
   imports: [

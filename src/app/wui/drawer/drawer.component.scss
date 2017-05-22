@@ -1,0 +1,99 @@
+@import '../scss/variables';
+@import '../scss/shadows';
+
+@mixin fl-drawer-transition($open, $close) {
+    transform: translate3d($close, 0, 0);
+
+    &.fl-drawer.closed {
+        visibility: hidden;
+    }
+
+    &.fl-drawer.opening,
+    &.fl-drawer-opened {
+        transform: translate3d($open, 0, 0);
+    }
+}
+
+@mixin fl-drawer-stacking-context() {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+}
+
+.fl-drawer-transition {
+    .fl-drawer {
+        transition: transform $swift-ease-out-duration $swift-ease-out-timing-function;
+    }
+
+    .fl-drawer-content {
+        transition: {
+            duration: $swift-ease-out-duration;
+            timing-function: $swift-ease-out-timing-function;
+            property: transform, margin-left, margin-right;
+        }
+    }
+
+    .fl-drawer-backdrop.fl-drawer-shown {
+        transition: background-color $swift-ease-out-duration $swift-ease-out-timing-function;
+    }
+}
+
+.fl-drawer-container {
+    @include fl-drawer-stacking-context();
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    overflow: hidden;
+}
+
+.fl-drawer-backdrop {
+    display: block;
+    z-index: 2;
+    visibility: hidden;
+
+    &.fl-drawer-shown {
+        visibility: visible;
+    }
+}
+
+.fl-drawer-content {
+    @include fl-drawer-stacking-context();
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+.fl-drawer {
+    @include fl-drawer-stacking-context();
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    min-width: 5vw;
+    outline: 0;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+
+    @include fl-drawer-transition(0, -100%);
+
+    &.fl-drawer-side {
+        z-index: 1;
+    }
+
+    &.fl-drawer-end {
+        right: 0;
+        @include fl-drawer-transition(0, 100%);
+    }
+
+    &.fl-drawer-opening,
+    &.fl-drawer-opened {
+        &:not(.fl-drawer-side) {
+            @extend .fl-shadow-8;
+        }
+    }
+}
+
+.fl-drawer-backdrop.fl-drawer-shown {
+    background-color: red;
+}

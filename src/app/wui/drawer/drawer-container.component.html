@@ -1,0 +1,7 @@
+<div class="fl-drawer-backdrop" (click)="_onBackdropClicked()" [class.fl-drawer-shown]="_isShowingBackdrop()"></div>
+
+<ng-content select="fl-drawer"></ng-content>
+
+<div class="fl-drawer-content" [ngStyle]="_getStyles()">
+    <ng-content></ng-content>
+</div>

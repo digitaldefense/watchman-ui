@@ -24,6 +24,7 @@ import { FlCardModule } from './card/index';
 import { FlMenuModule } from './menu/index';
 import { FlAccordionModule } from './accordion/index';
 import { FlSubheaderModule } from './subheader/index';
+import { FlDrawerModule } from './drawer/index';
 
 // import 'lodash';
 
@@ -45,7 +46,8 @@ const WUI_MODULES = [
   FlInputModule,
   FlListModule,
   FlToolbarModule,
-  FlMenuModule
+  FlMenuModule,
+  FlDrawerModule
 ];
 
 @NgModule({

@@ -13,10 +13,6 @@ import { MdRippleModule } from './ripple/index';
 // RTL
 export { Dir, LayoutDirection, RtlModule } from './rtl/dir';
 
-// Coercion
-export {coerceBooleanProperty} from './coercion/boolean-property';
-export {coerceNumberProperty} from './coercion/number-property';
-
 export * from './color/index';
 export * from './shadow/index';
 export * from './padding/index';
@@ -55,6 +51,13 @@ export {
 export * from './a11y/focus-trap';
 
 export { A11yModule } from './a11y/index';
+
+// Keybindings
+export * from './keyboard/keycodes';
+
+// Coercion
+export {coerceBooleanProperty} from './coercion/boolean-property';
+export {coerceNumberProperty} from './coercion/number-property';
 
 export * from './compatibility/compatibility';
 
