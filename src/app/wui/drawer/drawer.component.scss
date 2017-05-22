@@ -93,7 +93,7 @@
     &.fl-drawer-opening,
     &.fl-drawer-opened {
         &:not(.fl-drawer-side) {
-            @extend .fl-shadow-4;
+            @extend .fl-shadow-8;
         }
     }
 }

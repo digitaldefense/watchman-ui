@@ -1,14 +1,26 @@
-<wui-page title="Drawer">
-  <p class="lead">Referred to as "side nav" in Google Material, the drawer is a common structural design element that allows content to be placed off screen and toggled into view.</p>
-  <p>Material design uses the drawer/side nav as primarily as navigation lists. The Flux spec extends the role to include further meta-data, relevent to the content of the screen.</p>
+<fl-drawer-container>
+  <fl-drawer #sidebar>
+    hubba hubba
+  </fl-drawer>
+  <fl-drawer #aside align="end">
+    hubba hubba
+  </fl-drawer>
+  <wui-page title="Drawer">
+    <p class="lead">Referred to as "side nav" in Google Material, the drawer is a common structural design element that allows content to be placed off screen and toggled into view.</p>
+    <p>Material design uses the drawer/side nav as primarily as navigation lists. The Flux spec extends the role to include further meta-data, relevent to the content of the screen.</p>
 
-  <fl-section title="Examples">
-    <!--<fl-drawer-container>
-      <fl-drawer #sidenav>
-        <h1>Something bigger</h1>
-        <p>Hello world</p>
-      </fl-drawer>
-      <button fl-button (click)="sidenav.toggle()">Toggle</button>
-    </fl-drawer-container>-->
-  </fl-section>
-</wui-page>
+    <fl-section title="Examples">
+      <fl-card>
+        <fl-card-toolbar title="Undocked example"></fl-card-toolbar>
+        <p>An undocked <code>Drawer</code>. The Drawer can be canceled by clicking the overlay or pressing the Esc key.</p>
+        <button fl-raised-button (click)="sidebar.toggle()">Toggle</button>
+      </fl-card>
+      
+      <fl-card>
+        <fl-card-toolbar title="Undocked left example"></fl-card-toolbar>
+        <p>Set <code>align="end"</code> to open the Drawer on the opposite side.</p>
+        <button fl-raised-button (click)="aside.toggle()">Toggle</button>
+      </fl-card>
+    </fl-section>
+  </wui-page>
+</fl-drawer-container>
