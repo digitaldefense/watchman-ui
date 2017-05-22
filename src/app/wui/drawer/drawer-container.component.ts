@@ -35,10 +35,15 @@ export function throwFlDuplicatedDrawerError(align: string) {
   encapsulation: ViewEncapsulation.None
 })
 export class DrawerContainerComponent implements AfterContentInit {
+  @ContentChildren(DrawerComponent) _drawers: QueryList<DrawerComponent>;
+
   private _start: DrawerComponent;
   private _end: DrawerComponent;
   private _left: DrawerComponent;
   private _right: DrawerComponent;
+
+  get start() { return this._start; }
+  get end() { return this._end; }
 
   private _enableTransitions: boolean;
 
@@ -46,12 +51,7 @@ export class DrawerContainerComponent implements AfterContentInit {
     return side != null && side.opened;
   }
 
-  get start() { return this._start; }
-  get end() { return this._end; }
-
   @Output() backdropClick = new EventEmitter<void>();
-
-  @ContentChildren(DrawerComponent) _drawers: QueryList<DrawerComponent>;
 
   constructor(@Optional() private _dir: Dir, private _elem: ElementRef, private _renderer: Renderer2, private _ngZone: NgZone) {
       if (_dir != null) {
@@ -138,13 +138,13 @@ export class DrawerContainerComponent implements AfterContentInit {
     this._right = this._left = null;
 
     // Detect if we're LTR or RTL.
-    // if (this._dir == null || this._dir.value == 'ltr') {
-    //   this._left = this._start;
-    //   this._right = this._end;
-    // } else {
-    //   this._left = this._end;
-    //   this._right = this._start;
-    // }
+    if (this._dir == null || this._dir.value === 'ltr') {
+      this._left = this._start;
+      this._right = this._end;
+    } else {
+      this._left = this._end;
+      this._right = this._start;
+    }
   }
 
   _onBackdropClicked() {

@@ -43,6 +43,7 @@
     -webkit-overflow-scrolling: touch;
     display: block;
     overflow: hidden;
+    width: 100%;
 }
 
 .fl-drawer-backdrop {
@@ -72,7 +73,7 @@
     top: 0;
     bottom: 0;
     z-index: 3;
-    min-width: 5vw;
+    min-width: 256px;
     outline: 0;
     box-sizing: border-box;
     height: 100%;
@@ -92,7 +93,7 @@
     &.fl-drawer-opening,
     &.fl-drawer-opened {
         &:not(.fl-drawer-side) {
-            @extend .fl-shadow-8;
+            @extend .fl-shadow-4;
         }
     }
 }

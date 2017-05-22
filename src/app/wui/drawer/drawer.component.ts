@@ -8,10 +8,12 @@ import {
   OnDestroy,
   Output,
   QueryList,
+  Renderer2,
   ViewEncapsulation
 } from '@angular/core';
 
 import { coerceBooleanProperty } from '../core';
+import { FlThemeService } from '../theme2/theme.service';
 
 /** Sidenav toggle promise result. */
 export class FlDrawerToggleResult {
@@ -78,7 +80,10 @@ export class DrawerComponent implements AfterContentInit, OnDestroy {
 
   @Output('align-changed') onAlignChanged = new EventEmitter<void>();
 
-  constructor(private _elem: ElementRef) {
+  constructor(private _elem: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {
+    const theme = _themeSvc.theme;
+    _themeSvc.applyBgColor(_elem, _renderer, 'card');
+
     this.onOpen.subscribe(() => {
       this._focusOrigin = document.activeElement as HTMLElement;
     });

@@ -13,45 +13,28 @@
   </button>
 </fl-toolbar>
 
-<div fxLayout="row">
-  <div fxFlex="20" flShadow>
-    <fl-list>
-      <fl-li routerLink="/accordion" routerLinkActive="active">Accordion</fl-li>
-      <fl-li routerLink="/avatar" routerLinkActive="active">Avatar</fl-li>
-      <fl-li routerLink="/button" routerLinkActive="active">Button</fl-li>
-      <fl-li routerLink="/card" routerLinkActive="active">Card</fl-li>
-      <fl-li routerLink="/colors" routerLinkActive="active">Colors</fl-li>
-      <fl-li routerLink="/drawer" routerLinkActive="active">Drawer</fl-li>
-      <fl-li routerLink="/formatting" routerLinkActive="active">Formatting</fl-li>
-      <fl-li routerLink="/gridlist" routerLinkActive="active">Grid List</fl-li>
-      <fl-li routerLink="/icon" routerLinkActive="active">Icon</fl-li>
-      <fl-li routerLink="/inputs" routerLinkActive="active">Inputs</fl-li>
-      <fl-li routerLink="/lists" routerLinkActive="active">List</fl-li>
-      <fl-li routerLink="/menu" routerLinkActive="active">Menu</fl-li>
-      <fl-li routerLink="/section" routerLinkActive="active">Section</fl-li>
-      <fl-li routerLink="/shadow" routerLinkActive="active">Shadow</fl-li>
-      <fl-li routerLink="/toolbar" routerLinkActive="active">Toolbar</fl-li>
-      <fl-li routerLink="/type" routerLinkActive="active">Typography</fl-li>
-    </fl-list>
-  </div>
-  <div fxFlex="80">
-    <!--<ngx-datatable class="fixed-height" [rows]="dataset" columnMode="flex" [footerHeight]="50" [scrollbarV]="true">
-      <ngx-datatable-column name="Name" [flexGrow]="3">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          {{value}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Gender" [flexGrow]="1">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          {{value}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Age" [flexGrow]="1">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          {{value}}
-        </ng-template>
-      </ngx-datatable-column>
-    </ngx-datatable>-->
+<div id="app-content">
+  <fl-drawer-container>
+    <fl-drawer mode="side" opened="true">
+      <fl-list>
+        <fl-li routerLink="/accordion" routerLinkActive="active">Accordion</fl-li>
+        <fl-li routerLink="/avatar" routerLinkActive="active">Avatar</fl-li>
+        <fl-li routerLink="/button" routerLinkActive="active">Button</fl-li>
+        <fl-li routerLink="/card" routerLinkActive="active">Card</fl-li>
+        <fl-li routerLink="/colors" routerLinkActive="active">Colors</fl-li>
+        <fl-li routerLink="/drawer" routerLinkActive="active">Drawer</fl-li>
+        <fl-li routerLink="/formatting" routerLinkActive="active">Formatting</fl-li>
+        <fl-li routerLink="/gridlist" routerLinkActive="active">Grid List</fl-li>
+        <fl-li routerLink="/icon" routerLinkActive="active">Icon</fl-li>
+        <fl-li routerLink="/inputs" routerLinkActive="active">Inputs</fl-li>
+        <fl-li routerLink="/lists" routerLinkActive="active">List</fl-li>
+        <fl-li routerLink="/menu" routerLinkActive="active">Menu</fl-li>
+        <fl-li routerLink="/section" routerLinkActive="active">Section</fl-li>
+        <fl-li routerLink="/shadow" routerLinkActive="active">Shadow</fl-li>
+        <fl-li routerLink="/toolbar" routerLinkActive="active">Toolbar</fl-li>
+        <fl-li routerLink="/type" routerLinkActive="active">Typography</fl-li>
+      </fl-list>
+    </fl-drawer>
     <router-outlet></router-outlet>
-  </div>
+  </fl-drawer-container>
 </div>
