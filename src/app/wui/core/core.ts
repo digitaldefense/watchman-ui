@@ -6,7 +6,8 @@ import { FlPaddingModule } from './padding/index';
 import { FlContentModule } from './content/index';
 import { PortalModule } from './portal/portal-directives';
 import { OverlayModule } from './overlay/overlay-directives';
-// import { WuiRippleModule } from './ripple/index';
+
+import { MdRippleModule } from './ripple/index';
 
 // RTL
 export { Dir, LayoutDirection, RtlModule } from './rtl/dir';
@@ -33,8 +34,19 @@ export {
     PortalModule
 } from './portal/portal-directives';
 
+// Platform
+export * from './platform/index';
+
 // Overlay
 export * from './overlay/index';
+
+// Ripple
+export * from './ripple/index';
+
+export * from './compatibility/compatibility';
+
+// Compatibility
+export {CompatibilityModule, NoConflictStyleCompatibilityMode} from './compatibility/compatibility';
 
 @NgModule({
     imports: [

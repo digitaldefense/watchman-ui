@@ -1,4 +1,4 @@
-import {MdGridTile} from './grid-tile';
+import {FlGridTile} from './grid-tile';
 import {TileCoordinator} from './tile-coordinator';
 
 /**
@@ -77,7 +77,7 @@ export class TileStyler {
    * @param rowIndex Index of the tile's row.
    * @param colIndex Index of the tile's column.
    */
-  setStyle(tile: MdGridTile, rowIndex: number, colIndex: number): void {
+  setStyle(tile: FlGridTile, rowIndex: number, colIndex: number): void {
     // Percent of the available horizontal space that one column takes up.
     let percentWidthPerTile = 100 / this._cols;
 
@@ -90,7 +90,7 @@ export class TileStyler {
   }
 
   /** Sets the horizontal placement of the tile in the list. */
-  setColStyles(tile: MdGridTile, colIndex: number, percentWidth: number,
+  setColStyles(tile: FlGridTile, colIndex: number, percentWidth: number,
                gutterWidth: number) {
     // Base horizontal size of a column.
     let baseTileWidth = this.getBaseTileSize(percentWidth, gutterWidth);
@@ -122,7 +122,7 @@ export class TileStyler {
    * This method will be implemented by each type of TileStyler.
    * @docs-private
    */
-  setRowStyles(tile: MdGridTile, rowIndex: number, percentWidth: number, gutterWidth: number) {}
+  setRowStyles(tile: FlGridTile, rowIndex: number, percentWidth: number, gutterWidth: number) {}
 
   /**
    * Calculates the computed height and returns the correct style property to set.
@@ -147,7 +147,7 @@ export class FixedTileStyler extends TileStyler {
     this.fixedRowHeight = normalizeUnits(this.fixedRowHeight);
   }
 
-  setRowStyles(tile: MdGridTile, rowIndex: number, percentWidth: number,
+  setRowStyles(tile: FlGridTile, rowIndex: number, percentWidth: number,
                gutterWidth: number): void {
     tile._setStyle('top', this.getTilePosition(this.fixedRowHeight, rowIndex));
     tile._setStyle('height', calc(this.getTileSize(this.fixedRowHeight, tile.rowspan)));
@@ -177,7 +177,7 @@ export class RatioTileStyler extends TileStyler {
     this._parseRatio(value);
   }
 
-  setRowStyles(tile: MdGridTile, rowIndex: number, percentWidth: number,
+  setRowStyles(tile: FlGridTile, rowIndex: number, percentWidth: number,
                gutterWidth: number): void {
     let percentHeightPerTile = percentWidth / this.rowHeightRatio;
     this.baseTileHeight = this.getBaseTileSize(percentHeightPerTile, gutterWidth);
@@ -215,7 +215,7 @@ export class RatioTileStyler extends TileStyler {
  */
 export class FitTileStyler extends TileStyler {
 
-  setRowStyles(tile: MdGridTile, rowIndex: number, percentWidth: number,
+  setRowStyles(tile: FlGridTile, rowIndex: number, percentWidth: number,
                gutterWidth: number): void {
     // Percent of the available vertical space that one row takes up.
     let percentHeightPerTile = 100 / this._rowspan;

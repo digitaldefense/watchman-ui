@@ -1,5 +1,5 @@
 import {PositionStrategy} from './position/position-strategy';
-// import {LayoutDirection} from '../rtl/dir';
+import {LayoutDirection} from '../rtl/dir';
 import {ScrollStrategy} from './scroll/scroll-strategy';
 import {NoopScrollStrategy} from './scroll/noop-scroll-strategy';
 
@@ -34,8 +34,7 @@ export class OverlayState {
   minHeight: number | string;
 
   /** The direction of the text in the overlay panel. */
-  // direction: LayoutDirection = 'ltr';
-  direction = 'ltr';
+  direction: LayoutDirection = 'ltr';
 
   // TODO(jelbourn): configuration still to add
   // - focus trap
