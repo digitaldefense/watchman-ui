@@ -2,6 +2,6 @@
 
 <ng-content select="fl-drawer"></ng-content>
 
-<div class="fl-drawer-content" [ngStyle]="_getStyles()">
+<div class="fl-drawer-content" [ngStyle]="_getStyles()" cdk-scrollable>
     <ng-content></ng-content>
 </div>

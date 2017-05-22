@@ -46,6 +46,9 @@
 }
 
 .fl-drawer-backdrop {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
     display: block;
     z-index: 2;
     visibility: hidden;
@@ -95,5 +98,5 @@
 }
 
 .fl-drawer-backdrop.fl-drawer-shown {
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.5);
 }
