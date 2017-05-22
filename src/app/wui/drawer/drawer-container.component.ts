@@ -105,8 +105,6 @@ export class DrawerContainerComponent implements AfterContentInit {
 
   /** Toggles the 'fl-drawer-opened' class on the main 'fl-drawer-container' element. */
   private _setContainerClass(isAdd: boolean): void {
-      console.log('setContainerClass');
-      
     if (isAdd) {
       this._renderer.addClass(this._elem.nativeElement, 'fl-drawer-opened');
     } else {

@@ -62,6 +62,11 @@ export class DrawerComponent implements AfterContentInit, OnDestroy {
   @Input() mode: 'over' | 'push' | 'side' = 'over';
 
   @Input()
+  set width(val: string) {
+    this._renderer.setStyle(this._elem.nativeElement, 'width', val);
+  }
+
+  @Input()
   get opened(): boolean { return this._opened; }
   set opened(v: boolean) {
     this.toggle(coerceBooleanProperty(v));

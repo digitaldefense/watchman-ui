@@ -2,9 +2,17 @@
   <fl-drawer #sidebar>
     hubba hubba
   </fl-drawer>
-  <fl-drawer #aside align="end">
-    hubba hubba
+
+  <fl-drawer #aside align="end" width="50vw">
+    <fl-toolbar color="accent">
+      <h1 class="fl-toolbar-title">Drawer Title</h1>
+      <span fxFlex></span>
+      <button fl-icon-button (click)="aside.close()">
+        <fl-icon ngClass="fa-window-close"></fl-icon>
+      </button>
+    </fl-toolbar>
   </fl-drawer>
+
   <wui-page title="Drawer">
     <p class="lead">Referred to as "side nav" in Google Material, the drawer is a common structural design element that allows content to be placed off screen and toggled into view.</p>
     <p>Material design uses the drawer/side nav as primarily as navigation lists. The Flux spec extends the role to include further meta-data, relevent to the content of the screen.</p>
