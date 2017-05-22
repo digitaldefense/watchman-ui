@@ -7,6 +7,7 @@ import { FlContentModule } from './content/index';
 import { PortalModule } from './portal/portal-directives';
 import { OverlayModule } from './overlay/overlay-directives';
 
+import { A11yModule } from './a11y/index';
 import { MdRippleModule } from './ripple/index';
 
 // RTL
@@ -43,10 +44,25 @@ export * from './overlay/index';
 // Ripple
 export * from './ripple/index';
 
+// a11y
+export {
+  AriaLivePoliteness,
+  LiveAnnouncer,
+  LIVE_ANNOUNCER_ELEMENT_TOKEN,
+  LIVE_ANNOUNCER_PROVIDER,
+} from './a11y/live-announcer';
+
+export * from './a11y/focus-trap';
+
+export { A11yModule } from './a11y/index';
+
 export * from './compatibility/compatibility';
 
 // Compatibility
 export {CompatibilityModule, NoConflictStyleCompatibilityMode} from './compatibility/compatibility';
+
+// Common material module
+export {MdCommonModule} from './common-behaviors/common-module';
 
 @NgModule({
     imports: [
