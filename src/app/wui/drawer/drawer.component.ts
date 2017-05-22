@@ -143,8 +143,6 @@ export class DrawerComponent implements AfterContentInit, OnDestroy {
    * Android so we use any.
    */
   _onTransitionEnd(transitionEvent: TransitionEvent) {
-    console.log('onTransitionEnd');
-    
     if (transitionEvent.target === this._elem.nativeElement
         // Simpler version to check for prefixes.
         && transitionEvent.propertyName.endsWith('transform')) {

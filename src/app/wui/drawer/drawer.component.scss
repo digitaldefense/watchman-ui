@@ -4,11 +4,11 @@
 @mixin fl-drawer-transition($open, $close) {
     transform: translate3d($close, 0, 0);
 
-    &.fl-drawer.closed {
+    &.fl-drawer-closed {
         visibility: hidden;
     }
 
-    &.fl-drawer.opening,
+    &.fl-drawer-opening,
     &.fl-drawer-opened {
         transform: translate3d($open, 0, 0);
     }
