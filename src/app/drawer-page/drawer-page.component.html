@@ -16,19 +16,86 @@
   <wui-page title="Drawer">
     <p class="lead">Referred to as "side nav" in Google Material, the drawer is a common structural design element that allows content to be placed off screen and toggled into view.</p>
     <p>Material design uses the drawer/side nav as primarily as navigation lists. The Flux spec extends the role to include further meta-data, relevent to the content of the screen.</p>
+    <br>
 
     <fl-section title="Examples">
       <fl-card>
-        <fl-card-toolbar title="Undocked example"></fl-card-toolbar>
+        <fl-card-toolbar title="Undocked example">
+          <button fl-icon-button>
+            <fl-icon ngClass="fa-code"></fl-icon>
+          </button>
+        </fl-card-toolbar>
         <p>An undocked <code>Drawer</code>. The Drawer can be canceled by clicking the overlay or pressing the Esc key.</p>
         <button fl-raised-button (click)="sidebar.toggle()">Toggle</button>
       </fl-card>
       
       <fl-card>
-        <fl-card-toolbar title="Undocked left example"></fl-card-toolbar>
+        <fl-card-toolbar title="Undocked left example">
+          <button fl-icon-button>
+            <fl-icon ngClass="fa-code"></fl-icon>
+          </button>
+        </fl-card-toolbar>
         <p>Set <code>align="end"</code> to open the Drawer on the opposite side.</p>
         <button fl-raised-button (click)="aside.toggle()">Toggle</button>
       </fl-card>
+    </fl-section>
+    <br>
+
+    <fl-section title="Properties">
+      <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>align</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code" flColor="secondaryText">start</td>
+          <td>Aligns the drawer with the start of the Drawer Container (the left side).</td>
+        </tr>
+        <tr>
+          <td>disableClose</td>
+          <td class="code" flColor="accent">boolean</td>
+          <td class="code" flColor="secondaryText">false</td>
+          <td>Disables closing the Drawer with the Esc key.</td>
+        </tr>
+        <tr>
+          <td>mode</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code" flColor="secondaryText">over</td>
+          <td>Sets the behavior of the Drawer. <code>over</code> causes the Drawer to appear above the primary content. <code>push</code> causes the primary content to be pushed off screen. <code>side</code> will reduce the space of the primary content to allow the Drawer to float beside it.</td>
+        </tr>
+        <tr>
+          <td>opened</td>
+          <td class="code" flColor="accent">boolean</td>
+          <td class="code" flColor="secondaryText">false</td>
+          <td>Whether the Drawer is open.</td>
+        </tr>
+        <tr>
+          <td>open</td>
+          <td class="code" flColor="accent">function</td>
+          <td class="code" flColor="secondaryText"></td>
+          <td>Event emitted when the Drawer is fully opened.</td>
+        </tr>
+        <tr>
+          <td>open-start</td>
+          <td class="code" flColor="accent">function</td>
+          <td class="code" flColor="secondaryText"></td>
+          <td>Event emitted when the Drawer is being opened.</td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code"></td>
+          <td>Give the Drawer a custom width when expanded.</td>
+        </tr>
+      </tbody>
+    </table>
     </fl-section>
   </wui-page>
 </fl-drawer-container>

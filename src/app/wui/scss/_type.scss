@@ -213,6 +213,11 @@ kbd,
   padding: ($spacer-y * .5) $spacer;
 }
 
+td.code {
+  font-family: $font-family-monospace;
+  font-size: $font-size-base * .825;
+}
+
 // Theme colors
 .fl-theme-light {
   code, kbd, .codeblock {
