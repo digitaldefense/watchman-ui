@@ -12,40 +12,6 @@
       </fl-card-text>
     </fl-card>
 
-    <!--<fl-card>
-      <fl-card-title>Title goes here</fl-card-title>
-      <fl-card-subtitle>Subtitle here</fl-card-subtitle>
-      <fl-card-action-row>
-        <button fl-button>Action 1</button>
-        <button fl-button>Action 2</button>
-      </fl-card-action-row>
-      A bunch of content stuff
-      <fl-card-divider></fl-card-divider>
-    </fl-card>
-
-    <fl-card>
-      <fl-card-toolbar color="accent" title="Toolbar title">
-        <button fl-icon-button>
-          <fl-icon ngClass="fa-ellipsis-v"></fl-icon>
-        </button>
-      </fl-card-toolbar>
-      <fl-card-action-row>
-        <button fl-button>Action 1</button>
-        <button fl-button>Action 2</button>
-      </fl-card-action-row>
-      A bunch of content stuff
-    </fl-card>
-
-    <fl-card>
-      <fl-card-toolbar title="Expandable">
-        <button fl-icon-button flCardToggle>
-          <fl-icon ngClass="fa-code"></fl-icon>
-        </button>
-      </fl-card-toolbar>
-      <fl-card-body collapsed="true">This should be hidden until the Toggle button is pressed.</fl-card-body>
-      <fl-card-body>A bunch of content stuff</fl-card-body>
-    </fl-card>-->
-
     <fl-card>
       <fl-card-header title="Card Title" subtitle="Subtitle here"></fl-card-header>
       <fl-card-text>
@@ -89,34 +55,6 @@
   </fl-section>
   <br>
 
-  <!--<fl-section title="Card Properties">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>color</td>
-          <td class="code" flColor="accent">string</td>
-          <td class="code"></td>
-          <td>Override the default color with a theme color or custom hex value.</td>
-        </tr>
-        <tr>
-          <td>color</td>
-          <td class="code" flColor="accent">string</td>
-          <td class="code" flColor="secondaryText"></td>
-          <td>Aligns the drawer with the start of the Drawer Container (the left side).</td>
-        </tr>
-      </tbody>
-    </table>
-  </fl-section>
-  <br>-->
-
   <fl-section title="Card Header Properties">
     <table class="table">
       <thead>
@@ -129,32 +67,32 @@
       </thead>
       <tbody>
         <tr>
-          <td>title</td>
-          <td class="code" flColor="accent">string</td>
+          <td flColor="accentDark">title</td>
+          <td class="code" flColor="primary">@Input</td>
           <td class="code"></td>
           <td>The text to display as the Card title.</td>
         </tr>
         <tr>
-          <td>subtitle</td>
-          <td class="code" flColor="accent">string</td>
+          <td flColor="accentDark">subtitle</td>
+          <td class="code" flColor="primary">@Input</td>
           <td class="code"></td>
           <td>The text to display as the Card subtitle.</td>
         </tr>
         <tr>
-          <td>collapse</td>
-          <td class="code" flColor="accent">string</td>
+          <td flColor="accentDark">collapse</td>
+          <td class="code" flColor="primary">@Input</td>
           <td class="code"></td>
           <td>Reference to the <code>fl-card-text</code> element that can be expanded/collapsed.</td>
         </tr>
         <tr>
-          <td>expandIcon</td>
-          <td class="code" flColor="accent">string</td>
+          <td flColor="accentDark">expandIcon</td>
+          <td class="code" flColor="primary">@Input</td>
           <td class="code" flColor="secondaryText">fa-angle-down</td>
           <td>Override the default expand icon.</td>
         </tr>
         <tr>
-          <td>collapseIcon</td>
-          <td class="code" flColor="accent">string</td>
+          <td flColor="accentDark">collapseIcon</td>
+          <td class="code" flColor="primary">@Input</td>
           <td class="code" flColor="secondaryText">fa-angle-up</td>
           <td>Override the default collapse icon.</td>
         </tr>
@@ -175,14 +113,14 @@
       </thead>
       <tbody>
         <tr>
-          <td>title</td>
-          <td class="code" flColor="accent">string</td>
+          <td flColor="accentDark">title</td>
+          <td class="code" flColor="primary">@Input</td>
           <td class="code"></td>
           <td>The text to display as the Toolbar title.</td>
         </tr>
         <tr>
-          <td>color</td>
-          <td class="code" flColor="accent">string</td>
+          <td flColor="accentDark">color</td>
+          <td class="code" flColor="primary">@Input</td>
           <td class="code"></td>
           <td>Override the default color with a theme color or custom hex value.</td>
         </tr>

@@ -5,5 +5,4 @@ export interface THEME {
   accent: string;
   accentLight: string;
   accentDark: string;
-  link: string;
 }

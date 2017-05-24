@@ -56,7 +56,7 @@ export class FlListItemComponent implements OnInit {
 
   ngOnInit() {
     if (this._isLink) {
-      this._renderer.setStyle(this._element.nativeElement, 'color', this._themeSvc.theme['link']);
+      this._renderer.setStyle(this._element.nativeElement, 'color', this._themeSvc.theme['accent']);
     }
   }
 }

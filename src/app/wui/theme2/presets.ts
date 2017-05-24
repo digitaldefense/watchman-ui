@@ -62,7 +62,7 @@ export class ThemePresets {
         accent: PALETTE.pink['A200'],
         accentLight: PALETTE.pink['A100'],
         accentDark: PALETTE.pink['A400'],
-        link: PALETTE.blue['500']
+        // link: PALETTE.blue['500']
     };
     dark: THEME = {
         name: 'dark',
@@ -71,7 +71,7 @@ export class ThemePresets {
         accent: PALETTE.pink['A200'],
         accentLight: PALETTE.pink['A100'],
         accentDark: PALETTE.pink['A400'],
-        link: PALETTE.blue['500']
+        // link: PALETTE.blue['500']
     };
 
     gray(value: string) {
@@ -94,7 +94,7 @@ export class ThemePresets {
                 'accent': PALETTE[accent]['A200'],
                 'accentLight': PALETTE[accent]['A100'],
                 'accentDark': PALETTE[accent]['A400'],
-                'link': PALETTE[primary]['500'],
+                // 'link': PALETTE[accent]['500'],
             };
             base = BaseThemes[basePart] || BaseThemes['light'];
         }

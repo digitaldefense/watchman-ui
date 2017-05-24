@@ -11,8 +11,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WuiThemeService } from '../theme/theme.service';
-import { Theme } from '../theme/theme.tmpl';
+import { FlThemeService } from '../theme2/theme.service';
 
 @Directive({
   selector: 'fl-section-title',
@@ -21,16 +20,16 @@ import { Theme } from '../theme/theme.tmpl';
   }
 })
 export class FlSectionTitle implements OnInit {
-  protected theme: Theme;
+  protected theme: any;
 
-  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {
     this.theme = _themeSvc.theme;
   }
 
   ngOnInit() {
     const elem = this._element.nativeElement;
-    const accent = this.theme.accent;
-    const styleValue = `linear-gradient(to right, ${accent}, ${accent} 50px, rgba(0, 0, 0, 0) 50px)`;
+    const color = this.theme['primary'];
+    const styleValue = `linear-gradient(to right, ${color}, ${color} 50px, rgba(0, 0, 0, 0) 50px)`;
     this._renderer.setStyle(elem, 'border-image', styleValue);
   }
 }
@@ -43,6 +42,7 @@ export class FlSectionTitle implements OnInit {
 })
 export class FlSectionSubtitle {}
 
+
 @Directive({
   selector: 'fl-section-controls',
   host: {
@@ -50,6 +50,7 @@ export class FlSectionSubtitle {}
   }
 })
 export class FlSectionControls {}
+
 
 @Directive({
   selector: 'fl-section-body',
@@ -59,21 +60,6 @@ export class FlSectionControls {}
 })
 export class FlSectionBody {}
 
-// @Directive({
-//   selector: 'wui-card-footer',
-//   host: {
-//     '[class.fl-section-footer]': 'true'
-//   }
-// })
-// export class WuiCardFooter {}
-
-// @Directive({
-//   selector: 'wui-card-actions',
-//   host: {
-//     '[class.fl-section-actions]': 'true'
-//   }
-// })
-// export class WuiCardActions {}
 
 @Component({
   selector: 'section[fl-section], fl-section',
@@ -88,6 +74,7 @@ export class FlSectionComponent {
   @Input() title: string;
 }
 
+
 @Component({
   selector: 'fl-section-header',
   templateUrl: './section-header.component.html',
@@ -97,15 +84,15 @@ export class FlSectionComponent {
   encapsulation: ViewEncapsulation.None
 })
 export class FlSectionHeaderComponent implements OnInit {
-  protected theme: Theme;
+  protected theme: any;
 
-  constructor(private _themeSvc: WuiThemeService, private _element: ElementRef, private _renderer: Renderer2) {
+  constructor(private _themeSvc: FlThemeService, private _element: ElementRef, private _renderer: Renderer2) {
     this.theme = _themeSvc.theme;
   }
 
   ngOnInit() {
     const elem = this._element.nativeElement;
-    this._renderer.setStyle(elem, 'border-bottom-color', this.theme.accent);
+    this._renderer.setStyle(elem, 'border-bottom-color', this.theme['primary']);
   }
 }
 
