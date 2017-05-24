@@ -28,8 +28,8 @@ export class FlSectionTitle implements OnInit {
 
   ngOnInit() {
     const elem = this._element.nativeElement;
-    const accent = this.theme['accent'];
-    const styleValue = `linear-gradient(to right, ${accent}, ${accent} 50px, rgba(0, 0, 0, 0) 50px)`;
+    const color = this.theme['primary'];
+    const styleValue = `linear-gradient(to right, ${color}, ${color} 50px, rgba(0, 0, 0, 0) 50px)`;
     this._renderer.setStyle(elem, 'border-image', styleValue);
   }
 }
@@ -92,7 +92,7 @@ export class FlSectionHeaderComponent implements OnInit {
 
   ngOnInit() {
     const elem = this._element.nativeElement;
-    this._renderer.setStyle(elem, 'border-bottom-color', this.theme.accent);
+    this._renderer.setStyle(elem, 'border-bottom-color', this.theme['primary']);
   }
 }
 

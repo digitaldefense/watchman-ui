@@ -73,6 +73,6 @@ export class WuiLinkColorDirective implements OnInit {
 
     ngOnInit() {
         const theme = this._themeSvc.theme;
-        this._renderer.setStyle(this._element.nativeElement, 'color', theme['link']);
+        this._renderer.setStyle(this._element.nativeElement, 'color', theme['accent']);
     }
 }

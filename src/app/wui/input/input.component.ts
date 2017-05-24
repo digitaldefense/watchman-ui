@@ -55,7 +55,7 @@ export class FlInputBorderDirective implements OnInit {
 
   ngOnInit() {
     const elem = this._element.nativeElement;
-    this._renderer.setStyle(elem, 'border-color', this._themeSvc.theme['primary']);
+    this._renderer.setStyle(elem, 'border-color', this._themeSvc.theme['accent']);
   }
 }
 
@@ -77,11 +77,11 @@ export class FlInputLabelDirective {
     private _renderer: Renderer2,
     private _themeSvc: FlThemeService
   ) {
-    this._themeSvc.applyColor(this._element, this._renderer, 'primary');
+    this._themeSvc.applyColor(this._element, this._renderer, 'accent');
   }
 
   focus() {
-    this._themeSvc.applyColor(this._element, this._renderer, 'primary');
+    this._themeSvc.applyColor(this._element, this._renderer, 'accent');
   }
 }
 
