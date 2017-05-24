@@ -1,0 +1,9 @@
+<div class="fl-card-title-group">
+    <h1 class="fl-card-title" *ngIf="title && title.length">{{title}}</h1>
+    <h2 class="fl-card-subtitle" flColor="secondaryText" *ngIf="subtitle && subtitle.length">{{subtitle}}</h2>
+</div>
+<div *ngIf="collapse">
+    <button fl-icon-button (click)="toggleCollapsed()">
+        <fl-icon [ngClass]="expandIcon"></fl-icon>
+    </button>
+</div>

@@ -8,7 +8,6 @@ fl-card {
     box-sizing: border-box;
     // margin: ($spacer * .2) ($spacer * .1) $spacer-y;
     margin-bottom: $spacer-y;
-    padding: $spacer;
 }
 
 fl-card[fxflexfill] {
@@ -28,15 +27,57 @@ fl-card[fxflexfill] {
     white-space: nowrap;
     box-sizing: border-box;
     position: relative;
-    margin: -$spacer;
-    margin-bottom: $spacer-y;
+    margin-bottom: $spacer;
     // padding: 0 $spacer-x;
     height: 48px;
-    width: vw100;
+    width: 100%;
 
     .fl-card-title {
         font-size: 1.25rem;
         margin-left: $spacer;
+    }
+}
+
+.fl-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    position: relative;
+    padding: $spacer $spacer 0;
+    margin-bottom: $spacer;
+
+    .fl-icon-button {
+        margin-right: -$spacer * .5;
+    }
+}
+
+.fl-card-text {
+    display: block;
+    position: relative;
+    margin: $spacer;
+    
+    &:first-child {
+        padding-top: $spacer;
+    }
+    
+    &:last-child {
+        padding-bottom: $spacer;
+    }
+}
+
+.fl-card-actions {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+    // margin-top: $spacer;
+    margin: $spacer * .5;
+    padding-bottom: $spacer * .5;
+
+    > button + button {
+        margin-left: $spacer * .5;
     }
 }
 

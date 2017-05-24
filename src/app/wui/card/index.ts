@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FlToolbarModule } from '../toolbar/index';
+import { FlIconModule } from '../icon/index';
+import { FlButtonModule } from '../button/index';
+import { WuiColorModule } from '../core/color/index';
 
 import {
     CardComponent,
@@ -14,11 +17,15 @@ import {
     FlCardCollapsed,
     FlCardToggle,
     FlCardActionsDirective,
-    FlCardDividerDirective
+    FlCardDividerDirective,
+
+    FlCardActions,
+    FlCardHeader,
+    FlCardText
 } from './card.component';
 
 @NgModule({
-    imports: [CommonModule, FlToolbarModule],
+    imports: [CommonModule, FlToolbarModule, FlButtonModule, FlIconModule, WuiColorModule],
     exports: [
         CardComponent,
         FlCardTitleDirective,
@@ -30,7 +37,11 @@ import {
         FlCardCollapsed,
         FlCardToggle,
         FlCardActionsDirective,
-        FlCardDividerDirective
+        FlCardDividerDirective,
+
+        FlCardActions,
+        FlCardHeader,
+        FlCardText
     ],
     declarations: [
         CardComponent,
@@ -43,7 +54,11 @@ import {
         FlCardCollapsed,
         FlCardToggle,
         FlCardActionsDirective,
-        FlCardDividerDirective
+        FlCardDividerDirective,
+
+        FlCardActions,
+        FlCardHeader,
+        FlCardText
     ]
 })
 export class FlCardModule {}

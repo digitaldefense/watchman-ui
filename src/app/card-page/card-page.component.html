@@ -1,12 +1,18 @@
 <wui-page title="Card">
-  <p>A Card is used to creates panels with box-shadow and padding automatically applied.</p>
+  <p>A Card is used to creates panels with box-shadow. Additional components further a Card's functionality/appearance.</p>
 
   <fl-section title="Examples">
     <fl-card>
-      You can put anything in a Card.
+      <p>The most basic form of a Card will simply render whatever it contains with no inherent padding.</p>
+    </fl-card>
+    
+    <fl-card>
+      <fl-card-text>
+        Including <code>fl-card-text</code> will provide padding to the main text element.
+      </fl-card-text>
     </fl-card>
 
-    <fl-card>
+    <!--<fl-card>
       <fl-card-title>Title goes here</fl-card-title>
       <fl-card-subtitle>Subtitle here</fl-card-subtitle>
       <fl-card-action-row>
@@ -30,16 +36,6 @@
       A bunch of content stuff
     </fl-card>
 
-    <!--<fl-card>
-      <fl-card-toolbar title="Expandable">
-        <button fl-icon-button flCardToggle (click)="collapsed.toggle()">
-          <fl-icon ngClass="fa-code"></fl-icon>
-        </button>
-      </fl-card-toolbar>
-      <fl-card-body #collapsed>This should be hidden until the Toggle button is pressed.</fl-card-body>
-      <fl-card-body>A bunch of content stuff</fl-card-body>
-    </fl-card>-->
-    
     <fl-card>
       <fl-card-toolbar title="Expandable">
         <button fl-icon-button flCardToggle>
@@ -48,6 +44,149 @@
       </fl-card-toolbar>
       <fl-card-body collapsed="true">This should be hidden until the Toggle button is pressed.</fl-card-body>
       <fl-card-body>A bunch of content stuff</fl-card-body>
+    </fl-card>-->
+
+    <fl-card>
+      <fl-card-header title="Card Title" subtitle="Subtitle here"></fl-card-header>
+      <fl-card-text>
+        Do you really want him calling, Newo?<br>
+        Do you really think he’s coming back to you?<br>
+        Oh, once the world stops spinning, read that writing on the wall.
+      </fl-card-text>
+      <fl-card-actions>
+        <button fl-button>Action 1</button>
+        <button fl-button>Action 2</button>
+      </fl-card-actions>
     </fl-card>
+
+    <fl-card>
+      <fl-card-toolbar title="Card with Toolbar" color="accent">
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-ellipsis-v"></fl-icon>
+        </button>
+      </fl-card-toolbar>
+      <fl-card-text>
+        <p>We're throwing all caution to the wind<br>
+        It's better to think about what's ahead, then behind them.<br>
+        Only I have got a better chance at failure.<br>
+        But my mind has a clever way of turning all the worst to right, I've found.<br>
+        Oh, no. So tell them like you did it. No maybes.</p>
+      </fl-card-text>
+    </fl-card>
+    
+    <fl-card>
+      <fl-card-header title="Expandable Header" subtitle="Subtitle here" [collapse]="collapseDemo"></fl-card-header>
+      <fl-card-text #collapseDemo>
+        Do you really want him calling, Newo?<br>
+        Do you really think he’s coming back to you?<br>
+        Oh, once the world stops spinning, read that writing on the wall.
+      </fl-card-text>
+      <fl-card-actions>
+        <button fl-button>Action 1</button>
+        <button fl-button>Action 2</button>
+      </fl-card-actions>
+    </fl-card>
+  </fl-section>
+  <br>
+
+  <!--<fl-section title="Card Properties">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>color</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code"></td>
+          <td>Override the default color with a theme color or custom hex value.</td>
+        </tr>
+        <tr>
+          <td>color</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code" flColor="secondaryText"></td>
+          <td>Aligns the drawer with the start of the Drawer Container (the left side).</td>
+        </tr>
+      </tbody>
+    </table>
+  </fl-section>
+  <br>-->
+
+  <fl-section title="Card Header Properties">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code"></td>
+          <td>The text to display as the Card title.</td>
+        </tr>
+        <tr>
+          <td>subtitle</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code"></td>
+          <td>The text to display as the Card subtitle.</td>
+        </tr>
+        <tr>
+          <td>collapse</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code"></td>
+          <td>Reference to the <code>fl-card-text</code> element that can be expanded/collapsed.</td>
+        </tr>
+        <tr>
+          <td>expandIcon</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code" flColor="secondaryText">fa-angle-down</td>
+          <td>Override the default expand icon.</td>
+        </tr>
+        <tr>
+          <td>collapseIcon</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code" flColor="secondaryText">fa-angle-up</td>
+          <td>Override the default collapse icon.</td>
+        </tr>
+      </tbody>
+    </table>
+  </fl-section>
+  <br>
+
+  <fl-section title="Card Toolbar Properties">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code"></td>
+          <td>The text to display as the Toolbar title.</td>
+        </tr>
+        <tr>
+          <td>color</td>
+          <td class="code" flColor="accent">string</td>
+          <td class="code"></td>
+          <td>Override the default color with a theme color or custom hex value.</td>
+        </tr>
+      </tbody>
+    </table>
   </fl-section>
 </wui-page>

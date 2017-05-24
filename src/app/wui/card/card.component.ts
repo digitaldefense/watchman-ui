@@ -20,8 +20,6 @@ import {
 } from '@angular/core';
 
 import { FlThemeService } from '../theme2/theme.service';
-import { FlIconComponent } from '../icon/index';
-
 
 @Directive({
   selector: '[flCardToolbar]',
@@ -69,11 +67,7 @@ export class FlCardToolbarDirective {
 @Component({
   // selector: '[flCardToolbar]',
   selector: 'fl-card-toolbar',
-  template: `
-    <h1 class="fl-card-title">{{title}}</h1>
-    <span class="fl-fill"></span>
-    <ng-content select="button, fl-icon"></ng-content>
-  `,
+  templateUrl: 'card-toolbar.component.html',
   host: {
     '[class.fl-card-toolbar]': 'true',
   }
@@ -232,6 +226,71 @@ export class FlCardToggle {
     this.toggle.emit();
   }
 }
+
+
+@Component({
+  selector: 'fl-card-header',
+  templateUrl: 'card-header.component.html',
+  host: {
+    '[class.fl-card-header]': 'true'
+  }
+})
+export class FlCardHeader implements OnInit {
+  isCollapsed = true;
+
+  @Input() title: string;
+  @Input() subtitle: string;
+
+  @Input() collapse: FlCardText;
+  @Input() expandIcon: string = 'fa-angle-down';
+  // @Input() showExpandableButton = false;
+
+  @Output() onCollapse = new EventEmitter<void>();
+  @Output() onExpand = new EventEmitter<void>();
+
+  ngOnInit() {
+    console.log(this.collapse);
+    
+  }
+
+  toggleCollapsed() {
+    return this.isCollapsed ? this._expand() : this._collapse();
+  }
+
+  private _collapse() {}
+  
+  private _expand() {
+    if (this.isCollapsed) {
+      this._setIsCollapsed(false);
+    }
+  }
+
+  // set state rather than toggle to support triggers sharing a menu
+  private _setIsCollapsed(isCollapsed: boolean): void {
+    this.isCollapsed = isCollapsed;
+    this.isCollapsed ? this.onCollapse.emit() : this.onExpand.emit();
+  }
+}
+
+
+@Component({
+  selector: 'fl-card-text',
+  template: '<ng-content></ng-content>',
+  host: {
+    '[class.fl-card-text]': 'true'
+  }
+})
+export class FlCardText {}
+
+
+@Component({
+  selector: 'fl-card-actions',
+  template: '<ng-content></ng-content>',
+  host: {
+    '[class.fl-card-actions]': 'true'
+  }
+})
+export class FlCardActions {}
 
 
 @Component({
