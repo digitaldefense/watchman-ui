@@ -1,4 +1,10 @@
-<fl-section-header *ngIf="title != null">
+<fl-section-header *ngIf="title">
     <fl-section-title>{{title}}</fl-section-title>
 </fl-section-header>
 <ng-content></ng-content>
+
+<!--<div class="fl-section-header" *ngIf="title">
+    <h1 class="fl-section-title">{{title}}</h1>
+</div>
+<ng-content select="fl-section-header"></ng-content>
+<ng-content></ng-content>-->
