@@ -13,6 +13,6 @@ import { FlThemeService } from './wui/theme2/theme.service';
 export class AppComponent {
 
   constructor(private _theme2: FlThemeService) {
-    this._theme2.set('deepPurple-amber');
+    this._theme2.set('teal-lightBlue');
   }
 }
