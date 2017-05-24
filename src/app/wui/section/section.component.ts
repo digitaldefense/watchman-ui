@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WuiThemeService } from '../theme/theme.service';
+import { FlThemeService } from '../theme2/theme.service';
 import { Theme } from '../theme/theme.tmpl';
 
 @Directive({
@@ -23,13 +23,13 @@ import { Theme } from '../theme/theme.tmpl';
 export class FlSectionTitle implements OnInit {
   protected theme: Theme;
 
-  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: WuiThemeService) {
+  constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) {
     this.theme = _themeSvc.theme;
   }
 
   ngOnInit() {
     const elem = this._element.nativeElement;
-    const accent = this.theme.accent;
+    const accent = this.theme['accent'];
     const styleValue = `linear-gradient(to right, ${accent}, ${accent} 50px, rgba(0, 0, 0, 0) 50px)`;
     this._renderer.setStyle(elem, 'border-image', styleValue);
   }
@@ -99,7 +99,7 @@ export class FlSectionComponent {
 export class FlSectionHeaderComponent implements OnInit {
   protected theme: Theme;
 
-  constructor(private _themeSvc: WuiThemeService, private _element: ElementRef, private _renderer: Renderer2) {
+  constructor(private _themeSvc: FlThemeService, private _element: ElementRef, private _renderer: Renderer2) {
     this.theme = _themeSvc.theme;
   }
 
