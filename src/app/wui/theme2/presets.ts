@@ -15,6 +15,9 @@ export const BaseThemes = {
         background: PALETTE.gray['50'],
         highlight: PALETTE.gray['300'],
         text: `rgba(${black}, 0.87)`,
+        success: PALETTE.green['500'],
+        warning: PALETTE.amber['500'],
+        danger: PALETTE.red['500'],
         icon: `rgba(${black}, 0.64)`,
         icons: `rgba(${black}, 0.64)`,
         toolbar: PALETTE.gray['100'],
@@ -31,6 +34,9 @@ export const BaseThemes = {
         background: '#303030',
         highlight: PALETTE.gray['800'],
         text: 'white',
+        success: PALETTE.green['500'],
+        warning: PALETTE.amber['500'],
+        danger: PALETTE.red['500'],
         icon: 'white',
         icons: 'white',
         toolbar: PALETTE.gray['900'],
@@ -41,7 +47,7 @@ export const BaseThemes = {
         disabled: white3,
         disabledBtnBg: white12,
         hintText: `rgba(${white}, 0.3)`,
-        secondaryText: `rgba(${white}, 0.7)`,
+        secondaryText: `rgba(${white}, 0.6)`,
     }
 };
 
@@ -56,9 +62,9 @@ export class ThemePresets {
         accent: PALETTE.pink['A200'],
         accentLight: PALETTE.pink['A100'],
         accentDark: PALETTE.pink['A400'],
-        success: PALETTE.green['500'],
-        warning: PALETTE.amber['500'],
-        danger: PALETTE.red['500'],
+        // success: PALETTE.green['500'],
+        // warning: PALETTE.amber['500'],
+        // danger: PALETTE.red['500'],
         // background: BaseThemes.light.background,
         // foreground: 'black',
         link: PALETTE.blue['500']
@@ -70,9 +76,9 @@ export class ThemePresets {
         accent: PALETTE.pink['A200'],
         accentLight: PALETTE.pink['A100'],
         accentDark: PALETTE.pink['A400'],
-        success: PALETTE.green['500'],
-        warning: PALETTE.amber['500'],
-        danger: PALETTE.red['500'],
+        // success: PALETTE.green['500'],
+        // warning: PALETTE.amber['500'],
+        // danger: PALETTE.red['500'],
         // background: BaseThemes.dark.background,
         // foreground: BaseThemes.dark.text,
         link: PALETTE.blue['500']
@@ -83,15 +89,42 @@ export class ThemePresets {
     }
 
     getTheme(name: string) {
-        if (name == null || !name.length || name === '') {
+        // load a default theme if none is specified
+        if (name == null || !name.length) {
             name = this._preset;
         }
 
-        const topcoat = this[name];
-        const base = BaseThemes[topcoat.base];
-        const theme = Object.assign({}, topcoat, base);
-        return theme;
+        return this._buildTheme(name);
+
+        // const topcoat = this[name];
+        // const base = BaseThemes[topcoat.base];
+        // const theme = Object.assign({}, topcoat, base);
+        // return theme;
+
     }
 
-    private _buildTheme() {}
+    private _buildTheme(val: string) {
+        let topcoat, base, theme;
+        if (val === 'light' || val === 'dark') {
+            topcoat = this[val];
+            base = BaseThemes[topcoat.base];
+        } else {
+            const parts: string[] = val.split('-');
+            const primary = parts[0];
+            const accent = parts[1];
+            const basePart = parts[2];
+            topcoat = {
+                'base': basePart || 'light',
+                'primary': PALETTE[primary]['500'],
+                'accent': PALETTE[accent]['A200'],
+                'accentLight': PALETTE[accent]['A100'],
+                'accentDark': PALETTE[accent]['A400'],
+                'link': PALETTE[primary]['500'],
+            };
+            base = BaseThemes[basePart] || BaseThemes['light'];
+        }
+
+        theme = Object.assign({}, topcoat, base);
+        return theme;
+    }
 }
