@@ -12,7 +12,10 @@ export class FlThemeService {
   private _theme: any;
 
   set theme(value: any) { this._theme = value; }
-  get theme() { return this._theme; }
+  get theme() {
+    if (this._theme == null) { this.set('light'); }
+    return this._theme;
+  }
 
   constructor(
     protected _themes: ThemePresets,

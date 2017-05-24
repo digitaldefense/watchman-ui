@@ -62,11 +62,6 @@ export class ThemePresets {
         accent: PALETTE.pink['A200'],
         accentLight: PALETTE.pink['A100'],
         accentDark: PALETTE.pink['A400'],
-        // success: PALETTE.green['500'],
-        // warning: PALETTE.amber['500'],
-        // danger: PALETTE.red['500'],
-        // background: BaseThemes.light.background,
-        // foreground: 'black',
         link: PALETTE.blue['500']
     };
     dark: THEME = {
@@ -76,11 +71,6 @@ export class ThemePresets {
         accent: PALETTE.pink['A200'],
         accentLight: PALETTE.pink['A100'],
         accentDark: PALETTE.pink['A400'],
-        // success: PALETTE.green['500'],
-        // warning: PALETTE.amber['500'],
-        // danger: PALETTE.red['500'],
-        // background: BaseThemes.dark.background,
-        // foreground: BaseThemes.dark.text,
         link: PALETTE.blue['500']
     };
 
@@ -89,27 +79,12 @@ export class ThemePresets {
     }
 
     getTheme(name: string) {
-        // load a default theme if none is specified
-        if (name == null || !name.length) {
-            name = this._preset;
-        }
-
-        return this._buildTheme(name);
-
-        // const topcoat = this[name];
-        // const base = BaseThemes[topcoat.base];
-        // const theme = Object.assign({}, topcoat, base);
-        // return theme;
-
-    }
-
-    private _buildTheme(val: string) {
         let topcoat, base, theme;
-        if (val === 'light' || val === 'dark') {
-            topcoat = this[val];
+        if (name === 'light' || name === 'dark') {
+            topcoat = this[name];
             base = BaseThemes[topcoat.base];
         } else {
-            const parts: string[] = val.split('-');
+            const parts: string[] = name.split('-');
             const primary = parts[0];
             const accent = parts[1];
             const basePart = parts[2];
