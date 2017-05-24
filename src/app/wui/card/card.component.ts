@@ -7,12 +7,14 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
+  HostBinding,
   HostListener,
   Input,
   OnInit,
   Output,
   QueryList,
   Renderer2,
+  ViewChild,
   ViewContainerRef,
   ViewEncapsulation
 } from '@angular/core';
@@ -74,13 +76,10 @@ export class FlCardToolbarDirective {
   `,
   host: {
     '[class.fl-card-toolbar]': 'true',
-    '(onClick)': 'clickFn()',
   }
 })
 export class FlCardToolbarComponent implements OnInit {
   private _color: string;
-
-  isExpandable: boolean;
 
   @Input() title: string;
 
@@ -88,17 +87,7 @@ export class FlCardToolbarComponent implements OnInit {
   get color() { return this._color; }
   set color(value: string) { this._color = value; }
 
-  @Output()
-  onClick: EventEmitter<any> = new EventEmitter<any>();
-
-
   constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) { }
-
-  // @HostListener('click', ['$event'])
-  // onClick() {
-  //   console.log('clicked');
-  //   this.clicked.emit();
-  // }
 
   ngOnInit() {
     const theme = this._themeSvc.theme;
@@ -107,11 +96,6 @@ export class FlCardToolbarComponent implements OnInit {
     } else {
       this._themeSvc.applyBgColor(this._element, this._renderer, theme['toolbar']);
     }
-  }
-
-  clickFn() {
-    console.log('clickFn');
-    this.onClick.emit();
   }
 }
 
@@ -195,10 +179,58 @@ export class FlCardBodyTrigger implements AfterViewInit {
     '[class.fl-card-support-text]': 'true'
   }
 })
-export class FlCardBody {
+export class FlCardBody implements OnInit {
+  _collapsed = false;
+
+  @Input() collapsed: string;
+
+  @HostBinding('class.collapsed') isCollapsed: boolean;
+
+  ngOnInit() {
+    if (this.collapsed != null && this.collapsed.length) {
+      this.isCollapsed = true;
+    }
+  }
+
+  toggle() {
+    this.isCollapsed = !this.isCollapsed;
+    console.log(this.isCollapsed);
+  }
+  // Need this here to allow supporting text to be selectable
+  // @HostListener('click', ['$event'])
+  // onClick(event: MouseEvent) { event.stopImmediatePropagation(); }
+}
+
+/** Wrapper for collapsed supporting text */
+@Component({
+  selector: 'fl-card-collapsed',
+  template: '<ng-content></ng-content>',
+  host: {
+    '[class.fl-card-support-text]': 'true'
+  }
+})
+export class FlCardCollapsed {
   // Need this here to allow supporting text to be selectable
   @HostListener('click', ['$event'])
   onClick(event: MouseEvent) { event.stopImmediatePropagation(); }
+}
+
+
+@Directive({
+  selector: '[flCardToggle]',
+  host: {
+    '(click)': 'toggleCollapsed()'
+  }
+})
+export class FlCardToggle {
+  // @Input('fl-card-toggle') hasToggle: boolean = false;
+
+  @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
+
+  toggleCollapsed() {
+    console.log('click');
+    this.toggle.emit();
+  }
 }
 
 
@@ -206,6 +238,10 @@ export class FlCardBody {
   selector: 'fl-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
+  host: {
+    '[class.fl-card]': 'true',
+    '(toggle)': 'toggleCollapsed()'
+  },
   encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit, AfterContentInit {
@@ -230,14 +266,6 @@ export class CardComponent implements OnInit, AfterContentInit {
   @ContentChildren(FlCardBody) _body: QueryList<FlCardBody>;
 
   constructor(private _element: ElementRef, private _renderer: Renderer2, private _themeSvc: FlThemeService) { }
-
-  @HostListener('click', ['$event'])
-  onClick(event: MouseEvent) {
-    const target = event.target || event.srcElement;
-    if (this.collapsed !== undefined) {
-      this.toggleCollapsed();
-    }
-  }
 
   ngOnInit() {
     const elem = this._element.nativeElement;
@@ -266,8 +294,9 @@ export class CardComponent implements OnInit, AfterContentInit {
     }
   }
 
-  toggleCollapsed(): void {
-    return this.collapsed ? this.openPanel() : this.closePanel();
+  onToggleCollapsed() {
+    console.log('onToggleCollapsed');
+    //   return this.collapsed ? this.openPanel() : this.closePanel();
   }
 
   openPanel(): void {

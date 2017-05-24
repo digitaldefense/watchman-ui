@@ -1,13 +1,11 @@
 <wui-page title="Card">
   <p>A Card is used to creates panels with box-shadow and padding automatically applied.</p>
 
-  <fl-section title="Basic Card example">
+  <fl-section title="Examples">
     <fl-card>
       You can put anything in a Card.
     </fl-card>
-  </fl-section>
-  
-  <fl-section title="Card components">
+
     <fl-card>
       <fl-card-title>Title goes here</fl-card-title>
       <fl-card-subtitle>Subtitle here</fl-card-subtitle>
@@ -18,9 +16,7 @@
       A bunch of content stuff
       <fl-card-divider></fl-card-divider>
     </fl-card>
-  </fl-section>
-  
-  <fl-section title="Card with Toolbar">
+
     <fl-card>
       <fl-card-toolbar color="accent" title="Toolbar title">
         <button fl-icon-button>
@@ -33,17 +29,24 @@
       </fl-card-action-row>
       A bunch of content stuff
     </fl-card>
-  </fl-section>
-  
-  <fl-section title="Collapsible Card">
-    <fl-card title="Click to toggle" [collapsed]="true">
+
+    <!--<fl-card>
+      <fl-card-toolbar title="Expandable">
+        <button fl-icon-button flCardToggle (click)="collapsed.toggle()">
+          <fl-icon ngClass="fa-code"></fl-icon>
+        </button>
+      </fl-card-toolbar>
+      <fl-card-body #collapsed>This should be hidden until the Toggle button is pressed.</fl-card-body>
       <fl-card-body>A bunch of content stuff</fl-card-body>
-    </fl-card>
-  </fl-section>
-  
-  <fl-section title="Collapsible Card with icons">
-    <fl-card [collapsed]="true">
-      <fl-card-title>Click to toggle</fl-card-title>
+    </fl-card>-->
+    
+    <fl-card>
+      <fl-card-toolbar title="Expandable">
+        <button fl-icon-button flCardToggle>
+          <fl-icon ngClass="fa-code"></fl-icon>
+        </button>
+      </fl-card-toolbar>
+      <fl-card-body collapsed="true">This should be hidden until the Toggle button is pressed.</fl-card-body>
       <fl-card-body>A bunch of content stuff</fl-card-body>
     </fl-card>
   </fl-section>

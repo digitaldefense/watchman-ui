@@ -11,6 +11,8 @@ import {
     FlCardSubtitleDirective,
     FlCardBodyTrigger,
     FlCardBody,
+    FlCardCollapsed,
+    FlCardToggle,
     FlCardActionsDirective,
     FlCardDividerDirective
 } from './card.component';
@@ -25,6 +27,8 @@ import {
         FlCardToolbarComponent,
         FlCardBodyTrigger,
         FlCardBody,
+        FlCardCollapsed,
+        FlCardToggle,
         FlCardActionsDirective,
         FlCardDividerDirective
     ],
@@ -36,6 +40,8 @@ import {
         FlCardSubtitleDirective,
         FlCardBodyTrigger,
         FlCardBody,
+        FlCardCollapsed,
+        FlCardToggle,
         FlCardActionsDirective,
         FlCardDividerDirective
     ]
