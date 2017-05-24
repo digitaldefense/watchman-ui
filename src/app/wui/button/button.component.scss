@@ -25,6 +25,7 @@
     vertical-align: baseline;
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 
+    color: inherit;
     font-size: $btn-font-size;
     text-align: center;
     font-weight: 500;
@@ -37,6 +38,7 @@
     border-radius: $btn-border-radius;
 
     &[disabled] {
+        color: graytext;
         cursor: not-allowed;
     }
     &:focus {
@@ -63,75 +65,83 @@
 .fl-raised-button {
     @extend %btn-base;
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    // color: currentColor;
+    color: currentColor;
     transform: translate3d(0, 0, 0);
     transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
-}
 
-.wui-button,
-.fl-button {
-    box-sizing: border-box;
-    position: relative;
-
-    @include user-select(none);
-    outline: none;
-    border: none;
-
-    display: inline-block;
-    white-space: nowrap;
-    text-decoration: none;
-    vertical-align: baseline;
-
-    font-size: $btn-font-size;
-    text-align: center;
-    font-weight: 500;
-    text-transform: uppercase;
-
-    margin: 0;
-    min-width: 88px;
-    line-height: 36px;
-    padding: $btn-padding-y, $btn-padding-x;
-    border-radius: $btn-border-radius;
-
-    // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
-}
-
-.wui-raised-button,
-.fl-raised-button {
-    @extend .wui-button;
-    @extend .fl-shadow-4;
-
-    transform: translate3d(0, 0, 0);
-
-    &[disabled] {
-        box-shadow: none;
+    .fl-theme-light & {
+        background: #fff;
+    }
+    
+    .fl-theme-dark & {
+        background: #424242;
     }
 }
 
-.wui-button,
-.wui-raised-button,
-.fl-icon-button {
-    // color: currentColor;
-    .wui-button-wrapper > * {
-        vertical-align: middle;
-    }
+// .wui-button,
+// .fl-button {
+//     box-sizing: border-box;
+//     position: relative;
 
-    &.primary {
-        @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-    }
-    &.accent {
-        @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
-    }
-    &.info {
-        @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-    }
-    &.success {
-        @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-    }
-    &.warning {
-        @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-    }
-    &.danger {
-        @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-    }
-}
+//     @include user-select(none);
+//     outline: none;
+//     border: none;
+
+//     display: inline-block;
+//     white-space: nowrap;
+//     text-decoration: none;
+//     vertical-align: baseline;
+
+//     font-size: $btn-font-size;
+//     text-align: center;
+//     font-weight: 500;
+//     text-transform: uppercase;
+
+//     margin: 0;
+//     min-width: 88px;
+//     line-height: 36px;
+//     padding: $btn-padding-y, $btn-padding-x;
+//     border-radius: $btn-border-radius;
+
+//     // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+// }
+
+// .wui-raised-button,
+// .fl-raised-button {
+//     @extend .wui-button;
+//     @extend .fl-shadow-4;
+
+//     transform: translate3d(0, 0, 0);
+
+//     &[disabled] {
+//         box-shadow: none;
+//     }
+// }
+
+// .wui-button,
+// .wui-raised-button,
+// .fl-icon-button {
+//     // color: currentColor;
+//     .wui-button-wrapper > * {
+//         vertical-align: middle;
+//     }
+
+//     &.primary {
+//         @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+//     }
+//     &.accent {
+//         @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+//     }
+//     &.info {
+//         @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+//     }
+//     &.success {
+//         @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+//     }
+//     &.warning {
+//         @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+//     }
+//     &.danger {
+//         @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+//     }
+// }
