@@ -44,13 +44,18 @@ import { FormattingPageComponent } from './formatting-page/formatting-page.compo
 import { GridPageComponent } from './grid-page/grid-page.component';
 import { DrawerPageComponent } from './drawer-page/drawer-page.component';
 import { SnackBarPageComponent } from './snack-bar-page/snack-bar-page.component';
+import { DialogPageComponent } from './dialog-page/dialog-page.component';
 // import { FluxComponent } from './flux/flux.component';
+
+// Dialog demos
+import { SimpleDialogDemo } from './dialog-page/dialog-page.component';
 
 const appRoutes: Routes = [
   { path: 'accordion', component: AccordionPageComponent },
   { path: 'avatar', component: AvatarPageComponent },
   { path: 'button', component: ButtonPageComponent },
   { path: 'colors', component: ColorsPageComponent },
+  { path: 'dialog', component: DialogPageComponent },
   { path: 'drawer', component: DrawerPageComponent },
   { path: 'formatting', component: FormattingPageComponent },
   { path: 'forms', component: FormsPageComponent },
@@ -70,6 +75,18 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    FlThemeModule,
+    // FluxModule,
+    WuiModule,
+    NgxDatatableModule,
+    // FormsModule,
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
+  ],
   declarations: [
     AppComponent,
     TypePageComponent,
@@ -91,19 +108,13 @@ const appRoutes: Routes = [
     GridPageComponent,
     DrawerPageComponent,
     SnackBarPageComponent,
+    DialogPageComponent,
     // FluxComponent,
+
+    SimpleDialogDemo
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    FlThemeModule,
-    // FluxModule,
-    WuiModule,
-    NgxDatatableModule,
-    // FormsModule,
-    HttpModule,
-    RouterModule.forRoot(appRoutes)
+  entryComponents: [
+    SimpleDialogDemo
   ],
   providers: [
     // FlThemeService,

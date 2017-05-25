@@ -20,6 +20,8 @@ import {
 
 import { PlatformModule } from './core/platform/index';
 
+import { MdDialogModule } from './dialog/index';
+
 import { FlSectionModule } from './section/index';
 import { FlToolbarModule } from './toolbar/index';
 import { FlButtonModule } from './button/index';
@@ -59,6 +61,8 @@ const WUI_MODULES = [
   FlMenuModule,
   FlDrawerModule,
   FlSnackbarModule,
+
+  MdDialogModule,
 
   OverlayModule,
   PortalModule,
