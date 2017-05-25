@@ -24,6 +24,14 @@ $mat-dialog-max-height: 65vh !default;
   @include cdk-high-contrast {
     outline: solid 1px;
   }
+
+  .fl-theme-light & {
+    background: #fff;
+  }
+
+  .fl-theme-dark & {
+    background: #424242;
+  }
 }
 
 .mat-dialog-content {

@@ -12,10 +12,13 @@ export class DialogPageComponent {
     this.dialog.open(SimpleDialogDemo);
   }
 
+  openConfirmDialog() {
+    this.dialog.open(SimpleDialogDemo);
+  }
 }
 
 @Component({
   selector: 'simple-dialog-demo',
-  template: `<p>Basic alert.</p>`
+  template: `Basic alert dialog. Click out or press Esc to close.`
 })
 export class SimpleDialogDemo {}
