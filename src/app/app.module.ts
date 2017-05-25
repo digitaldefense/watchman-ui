@@ -42,6 +42,7 @@ import { AccordionPageComponent } from './accordion-page/accordion-page.componen
 import { FormattingPageComponent } from './formatting-page/formatting-page.component';
 import { GridPageComponent } from './grid-page/grid-page.component';
 import { DrawerPageComponent } from './drawer-page/drawer-page.component';
+import { SnackBarPageComponent } from './snack-bar-page/snack-bar-page.component';
 // import { FluxComponent } from './flux/flux.component';
 
 const appRoutes: Routes = [
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
   { path: 'card', component: CardPageComponent },
   { path: 'section', component: SectionPageComponent },
   { path: 'shadow', component: ShadowPageComponent },
+  { path: 'snackbar', component: SnackBarPageComponent },
   { path: 'toolbar', component: ToolbarPageComponent },
   { path: 'type', component: TypePageComponent },
   { path: 'menu', component: MenuPageComponent },
@@ -87,6 +89,7 @@ const appRoutes: Routes = [
     FormattingPageComponent,
     GridPageComponent,
     DrawerPageComponent,
+    SnackBarPageComponent,
     // FluxComponent,
   ],
   imports: [

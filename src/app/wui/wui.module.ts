@@ -9,7 +9,16 @@ import { WuiColorModule } from './core/color';
 import {
   FlPaddingModule,
   FlShadowModule,
+
+  MdRippleModule,
+  RtlModule,
+  PortalModule,
+  OverlayModule,
+  A11yModule,
+  MdCommonModule
 } from './core';
+
+import { PlatformModule } from './core/platform/index';
 
 import { FlSectionModule } from './section/index';
 import { FlToolbarModule } from './toolbar/index';
@@ -25,6 +34,7 @@ import { FlMenuModule } from './menu/index';
 import { FlAccordionModule } from './accordion/index';
 import { FlSubheaderModule } from './subheader/index';
 import { FlDrawerModule } from './drawer/index';
+import { FlSnackbarModule } from './snackbar/index';
 
 // import 'lodash';
 
@@ -47,7 +57,15 @@ const WUI_MODULES = [
   FlListModule,
   FlToolbarModule,
   FlMenuModule,
-  FlDrawerModule
+  FlDrawerModule,
+  FlSnackbarModule,
+
+  OverlayModule,
+  PortalModule,
+  RtlModule,
+  A11yModule,
+  PlatformModule,
+  MdCommonModule,
 ];
 
 @NgModule({

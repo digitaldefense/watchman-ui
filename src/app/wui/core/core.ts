@@ -4,9 +4,9 @@ import { WuiColorModule } from './color/index';
 import { FlShadowModule } from './shadow/index';
 import { FlPaddingModule } from './padding/index';
 import { FlContentModule } from './content/index';
+
 import { PortalModule } from './portal/portal-directives';
 import { OverlayModule } from './overlay/overlay-directives';
-
 import { A11yModule } from './a11y/index';
 import { MdRippleModule } from './ripple/index';
 
@@ -52,6 +52,9 @@ export * from './a11y/focus-trap';
 
 export { A11yModule } from './a11y/index';
 
+// Misc
+export {ComponentType} from './overlay/generic-component-type';
+
 // Keybindings
 export * from './keyboard/keycodes';
 
@@ -73,26 +76,21 @@ export {MdCommonModule} from './common-behaviors/common-module';
         FlShadowModule,
         FlPaddingModule,
         FlContentModule,
+        MdRippleModule,
         PortalModule,
         OverlayModule,
-        // WuiRippleModule
+        A11yModule
     ],
     exports: [
         WuiColorModule,
         FlShadowModule,
         FlPaddingModule,
         FlContentModule,
+        MdRippleModule,
         PortalModule,
         OverlayModule,
-        // WuiRippleModule
+        A11yModule
     ],
 })
 
-export class WuiCoreModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: WuiCoreModule,
-            providers: []
-        }
-    }
-}
+export class WuiCoreModule {}
