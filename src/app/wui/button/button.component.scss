@@ -35,7 +35,7 @@
     min-width: 88px;
     line-height: 36px;
     padding: 0 ($btn-padding-x / 2);
-    border-radius: $btn-border-radius;
+    border-radius: 2px;
 
     &[disabled] {
         color: graytext;
@@ -78,70 +78,26 @@
     }
 }
 
-// .wui-button,
-// .fl-button {
-//     box-sizing: border-box;
-//     position: relative;
+.fl-theme-light {
+    .fl-button {
+        color: rgba(black, .87);
+        &:hover {
+            background-color: rgba(#999999, 0.12);
+        }
+        &:focus {
+            background-color: #999999;
+        }
+    }
+}
 
-//     @include user-select(none);
-//     outline: none;
-//     border: none;
-
-//     display: inline-block;
-//     white-space: nowrap;
-//     text-decoration: none;
-//     vertical-align: baseline;
-
-//     font-size: $btn-font-size;
-//     text-align: center;
-//     font-weight: 500;
-//     text-transform: uppercase;
-
-//     margin: 0;
-//     min-width: 88px;
-//     line-height: 36px;
-//     padding: $btn-padding-y, $btn-padding-x;
-//     border-radius: $btn-border-radius;
-
-//     // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
-// }
-
-// .wui-raised-button,
-// .fl-raised-button {
-//     @extend .wui-button;
-//     @extend .fl-shadow-4;
-
-//     transform: translate3d(0, 0, 0);
-
-//     &[disabled] {
-//         box-shadow: none;
-//     }
-// }
-
-// .wui-button,
-// .wui-raised-button,
-// .fl-icon-button {
-//     // color: currentColor;
-//     .wui-button-wrapper > * {
-//         vertical-align: middle;
-//     }
-
-//     &.primary {
-//         @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-//     }
-//     &.accent {
-//         @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
-//     }
-//     &.info {
-//         @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-//     }
-//     &.success {
-//         @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-//     }
-//     &.warning {
-//         @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-//     }
-//     &.danger {
-//         @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-//     }
-// }
+.fl-theme-dark {
+    .fl-button {
+        color: #fff;
+        &:hover {
+            background-color: rgba(#999, 0.25);
+        }
+        &:focus {
+            background-color: #ccc;
+        }
+    }
+}

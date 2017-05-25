@@ -1,29 +1,61 @@
 <wui-page title="Button">
-  <p>Flat buttons may be text or an icon. 
-They may be used in dialogs, toolbars, or inline.
-They do not lift, but fill with color on press.</p>
+  <p>Flat buttons may be text or an icon. They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press.</p>
 
-  <fl-section title="Flat Buttons">
-    <fl-section-body>
-      <button fl-button>Default</button>
-      <button fl-button color="primary">Primary</button>
-      <button fl-button color="accent">Accent</button>
-      <button fl-button color="warning">Warning</button>
-      <button fl-button color="danger">Danger</button>
-      <button fl-button disabled>Disabled</button>
-    </fl-section-body>
+  <fl-section title="Examples">
+    <fl-card>
+      <fl-card-toolbar title="Flat Buttons (Default)"></fl-card-toolbar>
+      <fl-card-text>
+        <button fl-button>Default</button>
+        <button fl-button color="primary">Primary</button>
+        <button fl-button color="accent">Accent</button>
+        <button fl-button color="success">Success</button>
+        <button fl-button color="warning">Warning</button>
+        <button fl-button color="danger">Danger</button>
+        <button fl-button disabled>Disabled</button>
+      </fl-card-text>
+    </fl-card>
+    
+    <fl-card>
+      <fl-card-toolbar title="Raised Buttons"></fl-card-toolbar>
+      <fl-card-text>
+        <button fl-raised-button>Default</button>
+        <button fl-raised-button color="primary">Primary</button>
+        <button fl-raised-button color="accent">Accent</button>
+        <button fl-raised-button color="success">Success</button>
+        <button fl-raised-button color="warning">Warning</button>
+        <button fl-raised-button color="danger">Danger</button>
+        <button fl-raised-button disabled>Disabled</button>
+      </fl-card-text>
+    </fl-card>
+    
+    <fl-card>
+      <fl-card-toolbar title="Icon Buttons"></fl-card-toolbar>
+      <fl-card-text>
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-shield"></fl-icon>
+        </button>
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-shield" color="primary"></fl-icon>
+        </button>
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-shield" color="accent"></fl-icon>
+        </button>
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-shield" color="success"></fl-icon>
+        </button>
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-shield" color="warning"></fl-icon>
+        </button>
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-shield" color="danger"></fl-icon>
+        </button>
+        <button fl-icon-button disabled>
+          <fl-icon ngClass="fa-shield"></fl-icon>
+        </button>
+      </fl-card-text>
+    </fl-card>
   </fl-section>
-  
-  <fl-section title="Raised Buttons">
-    <fl-section-body>
-      <button fl-raised-button>Default</button>
-      <button fl-raised-button color="primary">Primary</button>
-      <button fl-raised-button color="accent">Accent</button>
-      <button fl-raised-button color="warning">Warning</button>
-      <button fl-raised-button color="danger">Danger</button>
-      <button fl-raised-button disabled>Disabled</button>
-    </fl-section-body>
-  </fl-section>
+  <br>
 
   <fl-section title="Properties">
 
