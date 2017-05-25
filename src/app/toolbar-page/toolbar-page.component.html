@@ -1,11 +1,17 @@
 <wui-page title="Toolbar">
   <fl-section title="Basic Toolbar">
     <fl-toolbar>
-      <fl-icon ngClass="fa-bars"></fl-icon>
+      <button fl-icon-button>
+        <fl-icon ngClass="fa-bars"></fl-icon>
+      </button>
       <h1 class="fl-toolbar-title">Title</h1>
       <span fxFlex></span>
-      <fl-icon ngClass="fa-rocket"></fl-icon>
-      <fl-icon ngClass="fa-book"></fl-icon>
+      <button fl-icon-button>
+        <fl-icon ngClass="fa-rocket"></fl-icon>
+      </button>
+      <button fl-icon-button>
+        <fl-icon ngClass="fa-book"></fl-icon>
+      </button>
     </fl-toolbar>
   </fl-section>
 </wui-page>
