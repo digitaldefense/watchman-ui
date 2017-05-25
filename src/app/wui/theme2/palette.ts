@@ -1,3 +1,6 @@
+const black = 'rgba(0, 0, 0, 0.87)';
+const white = '#ffffff';
+
 export const PALETTE = {
   red: {
     '50': '#ffebee',
@@ -96,7 +99,9 @@ export const PALETTE = {
     'A700': '#2962ff'
   },
   lightBlue: {
+    '300': '#4FC3F7',
     '500': '#03A9F4',
+    '800': '#0277BD',
     'A100': '#80D8FF',
     'A200': '#40C4FF',
     'A400': '#00B0FF'
