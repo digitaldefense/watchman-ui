@@ -67,7 +67,7 @@
     position: absolute;
     z-index: 1000;
 
-    //
+    // as per element style
     justify-content: center;
     align-items: flex-end;
 }
@@ -99,7 +99,7 @@
 .cdk-overlay-pane {
     box-sizing: border-box;
 
-    //
+    // as per element style
     position: static;
     margin-bottom: 0px;
     pointer-events: auto;

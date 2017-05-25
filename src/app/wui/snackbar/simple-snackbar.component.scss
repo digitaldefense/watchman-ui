@@ -1,36 +1,13 @@
-// @import '../core/style/variables';
-// @import '../core/style/button-common';
-// @import '../core/style/list-common';
+@import '../scss/variables';
 
-$mat-snack-bar-button-margin: 48px !default;
-
-.mat-simple-snackbar {
+.fl-simple-snackbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: white;
-  line-height: 20px;
-//   font: {
-//     size: $mat-body-font-size-base;
-//     family: $mat-font-family;
-//   }
-}
 
-.mat-simple-snackbar-action {
-//   @include mat-button-reset;
-
-  background: none;
-  color: inherit;
-  line-height: 1;
-  flex-shrink: 0;
-  margin-left: $mat-snack-bar-button-margin;
-  font: {
-    family: inherit;
-    size: inherit;
-    weight: 600;
-  }
-
-  [dir='rtl'] & {
-    margin-right: $mat-snack-bar-button-margin;
-    margin-left: 0;
+  .fl-button {
+    margin: -$spacer;
+    margin-left: $spacer;
   }
 }
