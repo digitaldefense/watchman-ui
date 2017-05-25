@@ -48,7 +48,10 @@ import { DialogPageComponent } from './dialog-page/dialog-page.component';
 // import { FluxComponent } from './flux/flux.component';
 
 // Dialog demos
-import { SimpleDialogDemo } from './dialog-page/dialog-page.component';
+import {
+  SimpleDialogDemo,
+  ConfirmDialogDemo
+} from './dialog-page/dialog-page.component';
 
 const appRoutes: Routes = [
   { path: 'accordion', component: AccordionPageComponent },
@@ -111,10 +114,12 @@ const appRoutes: Routes = [
     DialogPageComponent,
     // FluxComponent,
 
-    SimpleDialogDemo
+    SimpleDialogDemo,
+    ConfirmDialogDemo
   ],
   entryComponents: [
-    SimpleDialogDemo
+    SimpleDialogDemo,
+    ConfirmDialogDemo
   ],
   providers: [
     // FlThemeService,
