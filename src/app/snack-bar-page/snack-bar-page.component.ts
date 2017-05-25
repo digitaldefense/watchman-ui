@@ -10,6 +10,6 @@ export class SnackBarPageComponent {
   constructor(public snackbar: FlSnackbar) { }
 
   openSnackBar() {
-    this.snackbar.open('Event added to your calendar');
+    this.snackbar.open('Event added to your calendar', 'Dismiss', {duration: 2000});
   }
 }
