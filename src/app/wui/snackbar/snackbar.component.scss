@@ -1,14 +1,17 @@
 // @import '../core/style/elevation';
-// @import '../core/a11y/a11y';
+@import '../core/a11y/a11y';
+@import '../scss/variables';
+@import '../scss/shadows';
 
-$mat-snack-bar-padding: 14px 24px !default;
+$mat-snack-bar-padding: $spacer 24px !default;
 $mat-snack-bar-min-width: 288px !default;
 $mat-snack-bar-max-width: 568px !default;
 
 
 :host {
 //   @include mat-elevation(6);
-  background: #323232;
+  @extend .fl-shadow-8;
+  background: #212121;
   border-radius: 2px;
   box-sizing: content-box;
   display: block;
@@ -18,7 +21,7 @@ $mat-snack-bar-max-width: 568px !default;
   // Initial transformation is applied to start snack bar out of view.
   transform: translateY(100%);
 
-//   @include cdk-high-contrast {
-//     border: solid 1px;
-//   }
+  @include cdk-high-contrast {
+    border: solid 1px;
+  }
 }
