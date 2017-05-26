@@ -6,6 +6,7 @@ import {
   A11yModule,
   MdCommonModule,
 } from '../core';
+
 import {MdDialog} from './dialog';
 import {MdDialogContainer} from './dialog-container';
 import {
