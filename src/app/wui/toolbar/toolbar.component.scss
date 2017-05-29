@@ -16,7 +16,6 @@ $fl-toolbar-height-mobile-landscape: 48px !default;
 
 .fl-toolbar {
   display: flex;
-  background-color: $text-medium;
   box-sizing: border-box;
   width: 100%;
   padding: 0 $spacer-x;
@@ -31,6 +30,14 @@ $fl-toolbar-height-mobile-landscape: 48px !default;
     flex-direction: row;
     align-items: center;
     white-space: nowrap;
+  }
+
+  .fl-theme-light & {
+    background-color: #c9c9c9;
+  }
+
+  .fl-theme-dark & {
+    background-color: #212121;
   }
 }
 

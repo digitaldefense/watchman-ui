@@ -21,7 +21,7 @@ export const BaseThemes = {
         danger: PALETTE.red['500'],
         icon: `rgba(${black}, 0.64)`,
         icons: `rgba(${black}, 0.64)`,
-        toolbar: PALETTE.gray['100'],
+        toolbar: PALETTE.gray['300'],
         hover: `rgba(${black}, 0.04)`,
         card: 'white',
         dialog: 'white',
