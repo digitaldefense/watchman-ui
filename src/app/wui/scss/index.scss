@@ -113,9 +113,13 @@
     box-sizing: border-box;
 
     // as per element style
-    position: static;
-    margin-bottom: 0px;
-    pointer-events: auto;
+    // position: static;
+    // margin-bottom: 0px;
+    // pointer-events: auto;
+}
+
+.cdk-overlay-transparent-backdrop {
+    background: none;
 }
 
 .cdk-overlay-dark-backdrop {

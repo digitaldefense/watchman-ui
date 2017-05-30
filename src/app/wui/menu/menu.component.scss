@@ -1,17 +1,55 @@
 @import '../scss/_variables';
+@import '../core/style/elevation';
+@import '../core/a11y/a11y';
 
-.fl-menu-panel {
-    display: block;
+@mixin fl-menu-base() {
+    @include mat-elevation(8);
     min-width: 112px;
     max-width: 280px;
-    max-height: calc(100vh - 48px);
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
 
-    text-align: left;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; // for momentum scroll on mobile
+}
+
+@mixin fl-menu-item-base() {
+    display: block;
+
+    &[disabled] {
+        cursor: default;
+    }
+}
+
+@mixin fl-menu-positions() {
+    &.fl-menu-after.fl-menu-below {
+        transform-origin: left top;
+    }
+
+    &.fl-menu-after.fl-menu-above {
+        transform-origin: left bottom;
+    }
+    
+    &.fl-menu-before.fl-menu-below {
+        transform-origin: right top;
+    }
+
+    &.fl-menu-before.fl-menu-above {
+        transform-origin: right bottom;
+    }
+}
+
+.fl-menu-panel {
+    @include fl-menu-base();
+    @include fl-menu-positions();
+    max-height: calc(100vh - 48px);
+
+    // text-align: left;
     background-color: white;
 }
 
 .fl-menu-content {
     padding: ($spacer / 2) 0;
+}
+
+.fl-menu-item {
+    position: relative;
 }

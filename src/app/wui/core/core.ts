@@ -49,6 +49,7 @@ export {
 } from './a11y/live-announcer';
 
 export * from './a11y/focus-trap';
+export { isFakeMousedownFromScreenReader } from './a11y/fake-mousedown';
 
 export { A11yModule } from './a11y/index';
 

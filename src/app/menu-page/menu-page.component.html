@@ -12,7 +12,26 @@
         </fl-menu>
       </fl-card-text>
     </fl-card>
-    
+
+  </fl-section>
+
+  <fl-section title="Menu Trigger">
+    <fl-card>
+      <fl-card-toolbar title="Icon Menu Positioning">
+        <button fl-icon-button>
+          <fl-icon ngClass="fa-ellipsis-v"></fl-icon>
+        </button>
+      </fl-card-toolbar>
+      <fl-card-body [flMenuTrigger]="menuDemo1">
+        <button fl-button>Menu</button>
+      </fl-card-body>
+      <fl-menu #menuDemo1="flMenu">
+        <button fl-menu-item>Maps</button>
+        <button fl-menu-item>Books</button>
+        <button fl-menu-item>Flights</button>
+        <button fl-menu-item>Apps</button>
+      </fl-menu>
+    </fl-card>
   </fl-section>
 
 </wui-page>
