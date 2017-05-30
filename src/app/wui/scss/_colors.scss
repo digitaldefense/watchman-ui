@@ -41,9 +41,29 @@ $secondary-text-dark:       rgba(white, 0.7);
 
 
 
-// Google Material Design: rgba as hex
+// Google Material Design: rgba as hex (less cpu intensive over known backgrounds)
 $black-87:                  #202020;
 $black-54:                  #737373;
 $black-38:                  #9B9B9B;
+$black-26:                  #BDBDBD;
+
+$white-30:                  #7A7A7A;
 
 $gray-100:                  #F5F5F5;
+
+$hover-light:               $black-26;
+$active-light:              #D6D6D6;
+$disabled-light:            $black-26;
+
+$hover-dark:                $white-30;
+$active-dark:               #646464;
+$disabled-dark:             $white-30;
+
+// Material Design rgba values (Useful for themed colored backgrounds)
+$hover-light-alpha:         rgba(0, 0, 0, 0.26);
+$active-light-alpha:        rgba(153, 153, 153, .4);
+$disabled-light-alpha:      $hover-light-alpha;
+
+$hover-dark-alpha:          rgba(255, 255, 255, .26);
+$active-dark-alpha:         rgba(204, 204, 204, .25);
+$disabled-dark-alpha:       $hover-dark-alpha;
