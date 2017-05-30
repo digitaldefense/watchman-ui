@@ -1,4 +1,6 @@
-// Basic Bootstrap table
+// @import 'colors';
+
+// Tables
 
 $table-border-color-dark: #696969;
 
@@ -27,10 +29,8 @@ $table-border-color-dark: #696969;
   }
 
   thead th {
-    color: rgba(white, 0.54);
     font-size: .75rem;
     vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
   }
 
   tbody + tbody {
@@ -43,7 +43,14 @@ $table-border-color-dark: #696969;
 }
 
 .fl-theme-light .table {
+  td {
+    // border-top: $table-border-width solid $table-border-color-dark;
+  }
 
+  thead th {
+    color: $black-54;
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  }
 }
 
 .fl-theme-dark .table {
@@ -54,6 +61,11 @@ $table-border-color-dark: #696969;
 
   td {
     border-top: $table-border-width solid $table-border-color-dark;
+  }
+
+  thead th {
+    color: rgba(white, 0.54);
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
   }
 }
 
