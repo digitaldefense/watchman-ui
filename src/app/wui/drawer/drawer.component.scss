@@ -1,5 +1,6 @@
 @import '../scss/variables';
-@import '../scss/shadows';
+@import '../core/style/elevation';
+@import '../core/a11y/a11y';
 
 @mixin fl-drawer-transition($open, $close) {
     transform: translate3d($close, 0, 0);
@@ -57,6 +58,10 @@
     &.fl-drawer-shown {
         visibility: visible;
     }
+
+    @include cdk-high-contrast {
+        opacity: 0.5;
+    }
 }
 
 .fl-drawer-content {
@@ -76,6 +81,7 @@
     min-width: 256px;
     outline: 0;
     box-sizing: border-box;
+    margin-right: $spacer;
     height: 100%;
     overflow-y: auto;
 
@@ -93,7 +99,7 @@
     &.fl-drawer-opening,
     &.fl-drawer-opened {
         &:not(.fl-drawer-side) {
-            @extend .fl-shadow-8;
+            @include mat-elevation(8)
         }
     }
 }
