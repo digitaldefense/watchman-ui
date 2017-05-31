@@ -19,6 +19,7 @@ import {
 } from './core';
 
 import { PlatformModule } from './core/platform/index';
+import { StyleModule } from './core/style/index';
 
 import { MdDialogModule } from './dialog/index';
 
@@ -37,6 +38,7 @@ import { FlAccordionModule } from './accordion/index';
 import { FlSubheaderModule } from './subheader/index';
 import { FlDrawerModule } from './drawer/index';
 import { FlSnackbarModule } from './snackbar/index';
+import { FlSliderModule } from './slider/index';
 
 // import 'lodash';
 
@@ -60,6 +62,7 @@ const WUI_MODULES = [
   FlToolbarModule,
   FlMenuModule,
   FlDrawerModule,
+  FlSliderModule,
   FlSnackbarModule,
 
   MdDialogModule,
@@ -67,6 +70,7 @@ const WUI_MODULES = [
   OverlayModule,
   PortalModule,
   RtlModule,
+  StyleModule,
   A11yModule,
   PlatformModule,
   MdCommonModule,

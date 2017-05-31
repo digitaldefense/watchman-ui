@@ -5,17 +5,22 @@ import { FlShadowModule } from './shadow/index';
 import { FlPaddingModule } from './padding/index';
 import { FlContentModule } from './content/index';
 
-import { PortalModule } from './portal/portal-directives';
+import { ObserveContentModule } from './observe-content/observe-content';
 import { OverlayModule } from './overlay/overlay-directives';
+import { PortalModule } from './portal/portal-directives';
 import { A11yModule } from './a11y/index';
 import { MdRippleModule } from './ripple/index';
 
-// RTL
-export { Dir, LayoutDirection, RtlModule } from './rtl/dir';
 
 export * from './color/index';
 export * from './shadow/index';
 export * from './padding/index';
+
+// RTL
+export { Dir, LayoutDirection, RtlModule } from './rtl/dir';
+
+// Mutation Observer
+export {ObserveContentModule, ObserveContent} from './observe-content/observe-content';
 
 // Portals
 export {
@@ -37,6 +42,10 @@ export * from './platform/index';
 // Overlay
 export * from './overlay/index';
 
+// Gestures
+export { GestureConfig } from './gestures/gesture-config';
+export { HammerInput, HammerManager } from './gestures/gesture-annotations';
+
 // Ripple
 export * from './ripple/index';
 
@@ -52,6 +61,9 @@ export * from './a11y/focus-trap';
 export { isFakeMousedownFromScreenReader } from './a11y/fake-mousedown';
 
 export { A11yModule } from './a11y/index';
+
+// Style
+export * from './style/index';
 
 // Misc
 export {ComponentType} from './overlay/generic-component-type';
@@ -78,8 +90,9 @@ export {MdCommonModule} from './common-behaviors/common-module';
         FlPaddingModule,
         FlContentModule,
         MdRippleModule,
-        PortalModule,
+        ObserveContentModule,
         OverlayModule,
+        PortalModule,
         A11yModule
     ],
     exports: [
@@ -88,6 +101,7 @@ export {MdCommonModule} from './common-behaviors/common-module';
         FlPaddingModule,
         FlContentModule,
         MdRippleModule,
+        ObserveContentModule,
         PortalModule,
         OverlayModule,
         A11yModule

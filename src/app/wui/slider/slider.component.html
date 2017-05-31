@@ -1,0 +1,16 @@
+<div class="fl-slider-wrapper">
+  <div class="fl-slider-track-wrapper">
+    <div class="fl-slider-track-background" [ngStyle]="_trackBackgroundStyles"></div>
+    <div class="fl-slider-track-fill" [ngStyle]="_trackFillStyles"></div>
+  </div>
+  <div class="fl-slider-ticks-container" [ngStyle]="_ticksContainerStyles">
+    <div class="fl-slider-ticks" [ngStyle]="_ticksStyles"></div>
+  </div>
+  <div class="fl-slider-thumb-container" [ngStyle]="_thumbContainerStyles">
+    <div class="fl-slider-focus-ring"></div>
+    <div class="fl-slider-thumb"></div>
+    <div class="fl-slider-thumb-label">
+      <span class="fl-slider-thumb-label-text">{{displayValue}}</span>
+    </div>
+  </div>
+</div>

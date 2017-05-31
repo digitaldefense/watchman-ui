@@ -1,0 +1,20 @@
+<wui-page title="Slider">
+  <p class="lead">Sliders let users select from a range of values by moving the slider thumb.</p>
+  <fl-section title="Examples">
+    <fl-card>
+      <fl-card-toolbar title="Continuous Slider"></fl-card-toolbar>
+      <fl-card-text>
+        <p>Use continuous sliders for subjective settings that do not require a specific value for the user to make meaningful adjustments.</p>
+        <fl-slider></fl-slider>
+      </fl-card-text>
+    </fl-card>
+    
+    <fl-card>
+      <fl-card-toolbar title="Discrete Slider with Label"></fl-card-toolbar>
+      <fl-card-text>
+        <p>The discrete slider thumb snaps to evenly spaced tick marks along the slider rail. Use for objective settings that require specific values for the user to make meaningful adjustments. Each tick mark should change the setting to a level that’s discernible to the user. The values are predetermined and aren’t user-editable.</p>
+        <fl-slider [thumb-label]="true" min="10" max="35"></fl-slider>
+      </fl-card-text>
+    </fl-card>
+  </fl-section>
+</wui-page>
