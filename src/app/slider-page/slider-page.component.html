@@ -19,7 +19,7 @@
     <fl-card>
       <fl-card-toolbar title="Continuous Slider with Value"></fl-card-toolbar>
       <fl-card-text>
-        <p>The discrete slider thumb snaps to evenly spaced tick marks along the slider rail. Use for objective settings that require specific values for the user to make meaningful adjustments. Each tick mark should change the setting to a level that’s discernible to the user. The values are predetermined and aren’t user-editable.</p>
+        <p>Using a combination of the <code>fl-slider-group</code> element and the <code>(change)</code> property, Sliders can have labels and visible, editable values.</p>
         <fl-slider-group>
           <label class="control-label">Normal</label>
           <fl-slider (change)="updateSliderValue($event)" [value]="sliderDemoValue"></fl-slider>
