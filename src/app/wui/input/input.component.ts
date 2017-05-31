@@ -89,6 +89,8 @@ export class FlInputLabelDirective {
   selector: `input[flInput]`,
   host: {
     '[class.fl-input]': 'true',
+    // Native input properties that are overwritten by Angular inputs need to be synced with
+    // the native input element. Otherwise property bindings for those don't work.
     '[id]': 'id',
     // '[placeholder]': 'placeholder',
     '[disabled]': 'disabled',

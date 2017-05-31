@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider-page.component.scss']
 })
 export class SliderPageComponent implements OnInit {
+  sliderDemoValue: number = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  updateSliderValue(event: Event) {
+    this.sliderDemoValue = event['value'];
+  }
 }

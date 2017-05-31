@@ -5,26 +5,28 @@
       <fl-card-toolbar title="Continuous Slider"></fl-card-toolbar>
       <fl-card-text>
         <p>Use continuous sliders for subjective settings that do not require a specific value for the user to make meaningful adjustments.</p>
-        <table class="table table-sm">
-          <tbody>
-            <tr>
-              <th>Normal</th>
-              <td>
-                <fl-slider></fl-slider>
-              </td>
-            </tr>
-            <tr>
-              <th>Disabled</th>
-              <td>
-                <fl-slider [disabled]="true"></fl-slider>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <!--<fl-slider-group>
+        <fl-slider-group>
           <label class="control-label">Normal</label>
-        </fl-slider-group>-->
+          <fl-slider></fl-slider>
+        </fl-slider-group>
+        <fl-slider-group>
+          <label class="control-label">Disabled</label>
+          <fl-slider [disabled]="true"></fl-slider>
+        </fl-slider-group>
+      </fl-card-text>
+    </fl-card>
+    
+    <fl-card>
+      <fl-card-toolbar title="Continuous Slider with Value"></fl-card-toolbar>
+      <fl-card-text>
+        <p>The discrete slider thumb snaps to evenly spaced tick marks along the slider rail. Use for objective settings that require specific values for the user to make meaningful adjustments. Each tick mark should change the setting to a level that’s discernible to the user. The values are predetermined and aren’t user-editable.</p>
+        <fl-slider-group>
+          <label class="control-label">Normal</label>
+          <fl-slider (change)="updateSliderValue($event)" [value]="sliderDemoValue"></fl-slider>
+          <fl-input-group>
+            <input type="text" flInput [(ngModel)]="sliderDemoValue">
+          </fl-input-group>
+        </fl-slider-group>
       </fl-card-text>
     </fl-card>
     

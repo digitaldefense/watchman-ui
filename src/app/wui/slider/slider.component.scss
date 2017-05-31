@@ -32,6 +32,37 @@ $fl-slider-focus-ring-size: 12px !default;
 $tick-size: 2px;
 
 
+.fl-slider-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .control-label {
+    flex: 0 1 13rem;
+    font-size: $font-size-sm;
+    font-weight: normal;
+  }
+
+  .fl-slider {
+    align-self: flex-start;
+  }
+
+  .fl-input-group {
+    margin-left: $spacer;
+    padding-top: 0;
+    width: 2.5rem;
+  }
+
+  .fl-input {
+    margin: 0 0 .35rem;
+    text-align: right;
+  }
+
+  .fl-input-border {
+    bottom: 0;
+  }
+}
+
 .fl-slider {
   padding: $fl-slider-padding;
   outline: none;
