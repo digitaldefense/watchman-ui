@@ -1,5 +1,6 @@
 @import '../scss/_variables';
 @import '../scss/_mixins';
+@import '../scss/colors';
 @import '../scss/shadows';
 @import '../scss/_icon';
 
@@ -79,25 +80,38 @@
 }
 
 .fl-theme-light {
-    .fl-button {
-        color: rgba(black, .87);
+    .fl-button:not([disabled]), {
+        color: $black-87;
+        &:focus,
         &:hover {
-            background-color: rgba(#999999, 0.12);
+            background-color: $hover-light-alpha;
         }
-        &:focus {
-            background-color: #999999;
+
+        &:active {
+            background-color: $active-light-alpha;
+        }
+    }
+    
+    .fl-raised-button:not([disabled]), {
+        color: $black-87;
+        &:focus,
+        &:hover {
+            background-color: $hover-light;
+        }
+
+        &:active {
+            background-color: $active-light;
         }
     }
 }
 
 .fl-theme-dark {
-    .fl-button {
+    .fl-button:not([disabled]) {
         color: #fff;
+        &:focus,
         &:hover {
-            background-color: rgba(#999, 0.25);
-        }
-        &:focus {
-            background-color: #ccc;
+            // background-color: rgba(#999, 0.25);
+            background-color: $hover-dark-alpha;
         }
     }
 }

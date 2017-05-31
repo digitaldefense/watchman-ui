@@ -1,5 +1,6 @@
 // @import '../scss/_mixins';
 @import '../scss/_variables';
+@import '../scss/colors';
 
 $fl-toolbar-height-desktop: 64px !default;
 $fl-toolbar-height-mobile-portrait: 56px !default;
@@ -45,6 +46,16 @@ $fl-toolbar-height-mobile-landscape: 48px !default;
   font-size: $font-size-lg;
   padding: 0;
   margin: 0;
+}
+
+// buttons/links
+.fl-toolbar {
+  .fl-button {
+    &:hover,
+    &:focus {
+      background-color: $hover-light-alpha !important;
+    }
+  }
 }
 
 // Set the default height for the toolbar.

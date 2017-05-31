@@ -83,7 +83,7 @@ export class FlRaisedButtonStyle implements OnInit {
         this._onColor = this._theme['accentDark'];
         break;
       default:
-        this._onColor = (this._theme.base === 'light') ? PALETTE.gray['100'] : PALETTE.gray['700'];
+        this._onColor = (this._theme.base === 'light') ? PALETTE.gray['300'] : PALETTE.gray['700'];
     }
   }
 }

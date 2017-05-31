@@ -7,7 +7,7 @@ fl-card {
     display: block;
     box-sizing: border-box;
     // margin: ($spacer * .2) ($spacer * .1) $spacer-y;
-    margin-bottom: $spacer-y;
+    margin-bottom: $spacer-y * 2;
 }
 
 fl-card[fxflexfill] {
@@ -120,6 +120,4 @@ fl-card-divider {
 .fl-card-support-text {
     display: block;
     width: 100%;
-
-    background: pink;
 }

@@ -1,8 +1,12 @@
 <wui-page title="Menu">
+  <p class="lead">Menus display a list of choices on a transient sheet of material.</p>
+  <p>Menus appear upon interaction with a button, action, or other control. They display a list of choices, with one choice per line.</p>
+  <p>Menu items may be disabled if not applicable to a certain context. Contextual menus dynamically change their available menu items based on the current state of the app.</p>
+
   <fl-section title="Examples">
     <fl-card>
       <fl-card-toolbar title="Simple examples"></fl-card-toolbar>
-      <fl-card-text>
+      <fl-card-actions>
         <p>Menu widths adjust to accommodate the content in keyline increments</p>
         <fl-menu>
           <button fl-menu-item>Maps</button>
@@ -10,28 +14,98 @@
           <button fl-menu-item>Flights</button>
           <button fl-menu-item>Apps</button>
         </fl-menu>
-      </fl-card-text>
+      </fl-card-actions>
     </fl-card>
 
-  </fl-section>
-
-  <fl-section title="Menu Trigger">
     <fl-card>
-      <fl-card-toolbar title="Icon Menu Positioning">
-        <button fl-icon-button>
-          <fl-icon ngClass="fa-ellipsis-v"></fl-icon>
-        </button>
-      </fl-card-toolbar>
-      <fl-card-body [flMenuTrigger]="menuDemo1">
-        <button fl-button>Menu</button>
-      </fl-card-body>
-      <fl-menu #menuDemo1="flMenu">
+      <fl-card-toolbar title="Menu Positioning"></fl-card-toolbar>
+      <fl-card-text>
+        <button fl-button [flMenuTrigger]="posDemoDefault">Default</button>
+        <button fl-button [flMenuTrigger]="posDemoAbove">Above</button>
+        <button fl-button [flMenuTrigger]="posDemoBeforeAbove">Before &amp; Above</button>
+        <button fl-button [flMenuTrigger]="posDemoBefore">Before</button>
+      </fl-card-text>
+      <fl-menu #posDemoDefault="flMenu">
+        <button fl-menu-item>Maps</button>
+        <button fl-menu-item>Books</button>
+        <button fl-menu-item>Flights</button>
+        <button fl-menu-item>Apps</button>
+      </fl-menu>
+      <fl-menu #posDemoAbove="flMenu" yPosition="above">
+        <button fl-menu-item>Maps</button>
+        <button fl-menu-item>Books</button>
+        <button fl-menu-item>Flights</button>
+        <button fl-menu-item>Apps</button>
+      </fl-menu>
+      <fl-menu #posDemoBeforeAbove="flMenu" xPosition="before" yPosition="above">
+        <button fl-menu-item>Maps</button>
+        <button fl-menu-item>Books</button>
+        <button fl-menu-item>Flights</button>
+        <button fl-menu-item>Apps</button>
+      </fl-menu>
+      <fl-menu #posDemoBefore="flMenu" xPosition="before">
         <button fl-menu-item>Maps</button>
         <button fl-menu-item>Books</button>
         <button fl-menu-item>Flights</button>
         <button fl-menu-item>Apps</button>
       </fl-menu>
     </fl-card>
-  </fl-section>
 
+    <fl-card>
+      <fl-card-toolbar title="Nested Icon Menu"></fl-card-toolbar>
+      <fl-card-text>
+        <p>Example of nested menus with icons.</p>
+        <div style="background: #ccc; width: 100px; height: 100px;">
+          hi
+        </div>
+      </fl-card-text>
+      <fl-card-actions>
+        <button fl-icon-button [flMenuTrigger]="nestedIconDemo">
+          <fl-icon ngClass="fa-ellipsis-v"></fl-icon>
+        </button>
+      </fl-card-actions>
+      <fl-menu #nestedIconDemo="flMenu">
+        <button fl-menu-item>Maps</button>
+        <button fl-menu-item>Books</button>
+        <button fl-menu-item>
+          <fl-icon ngClass="fa-paper-plane"></fl-icon>
+          Flights</button>
+        <button fl-menu-item>Apps</button>
+      </fl-menu>
+    </fl-card>
+  </fl-section>
+  <br>
+
+  <fl-section title="Properties">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td flColor="accentDark">xPosition</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code" flColor="secondaryText">after</td>
+          <td>Position of the menu in the X axis.</td>
+        </tr>
+        <tr>
+          <td flColor="accentDark">yPosition</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code" flColor="secondaryText">below</td>
+          <td>Position of the menu in the Y axis.</td>
+        </tr>
+        <tr>
+          <td flColor="accentDark">close</td>
+          <td class="code" flColor="primary">@Output</td>
+          <td class="code" flColor="secondaryText"></td>
+          <td>Event emitted when the menu is closed.</td>
+        </tr>
+      </tbody>
+    </table>
+  </fl-section>
 </wui-page>

@@ -1,21 +1,52 @@
 @import '../scss/_variables';
 @import '../scss/mixins';
+@import '../scss/colors';
+@import '../scss/lists';
+
+// button.fl-menu-item {
+//     box-sizing: border-box;
+//     display: block;
+//     position: relative;
+//     margin: 0;
+//     min-width: 88px;
+//     padding: 0 $btn-padding-x;
+//     line-height: 48px;
+//     height: 48px;
+//     width: 100%;
+
+//     outline: none;
+//     border: none;
+//     background-color: transparent;
+//     cursor: pointer;
+    
+//     @include user-select(none);
+//     font-family: $font-family-base;
+//     font-size: $font-size-base;
+//     text-align: left;
+//     text-decoration: none;
+//     white-space: nowrap;
+
+//     &[disabled] {
+//         cursor: default;
+//     }
+//     &:hover {
+//         background-color: rgba(black, .12);
+//     }
+//     &:focus {
+//         outline: none;
+//         background-color: rgba(black, .12);
+//     }
+// }
 
 button.fl-menu-item {
-    box-sizing: border-box;
-    display: block;
-    position: relative;
+    @include list-item-base();
     margin: 0;
     min-width: 88px;
-    padding: 0 $btn-padding-x;
-    line-height: 48px;
     height: 48px;
-    width: 100%;
 
     outline: none;
-    border: none;
+    border: 0;
     background-color: transparent;
-    cursor: pointer;
     
     @include user-select(none);
     font-family: $font-family-base;
@@ -23,15 +54,22 @@ button.fl-menu-item {
     text-align: left;
     text-decoration: none;
     white-space: nowrap;
+}
 
-    &[disabled] {
-        cursor: default;
+// Theme colors
+.fl-theme-light {
+    button.fl-menu-item {
+        &:hover,
+        &:focus {
+            background-color: $hover-light;
+        }
     }
-    &:hover {
-        background-color: rgba(black, .12);
-    }
-    &:focus {
-        outline: none;
-        background-color: rgba(black, .12);
+}
+.fl-theme-dark {
+    button.fl-menu-item {
+        &:hover,
+        &:focus {
+            background-color: $hover-dark;
+        }
     }
 }

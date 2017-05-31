@@ -1,4 +1,6 @@
 @import '../scss/_variables';
+@import '../scss/lists';
+
 @import '../core/style/elevation';
 @import '../core/a11y/a11y';
 
@@ -11,13 +13,13 @@
     -webkit-overflow-scrolling: touch; // for momentum scroll on mobile
 }
 
-@mixin fl-menu-item-base() {
-    display: block;
+// @mixin fl-menu-item-base() {
+//     display: block;
 
-    &[disabled] {
-        cursor: default;
-    }
-}
+//     &[disabled] {
+//         cursor: default;
+//     }
+// }
 
 @mixin fl-menu-positions() {
     &.fl-menu-after.fl-menu-below {
@@ -50,6 +52,24 @@
     padding: ($spacer / 2) 0;
 }
 
-.fl-menu-item {
-    position: relative;
-}
+// .fl-menu-item {
+//     @include list-item-base();
+// }
+
+// Theme colors
+// .fl-theme-light {
+//     .fl-menu-item {
+//         &:hover,
+//         &:focus {
+//             background-color: $hover-light;
+//         }
+//     }
+// }
+// .fl-theme-dark {
+//     .fl-menu-item {
+//         &:hover,
+//         &:focus {
+//             background-color: $hover-dark;
+//         }
+//     }
+// }
