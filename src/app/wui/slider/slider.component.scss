@@ -26,7 +26,7 @@ $fl-slider-thumb-label-size: 28px !default;
 
 $fl-slider-tick-size: 2px !default;
 
-$fl-slider-focus-ring-size: 30px !default;
+$fl-slider-focus-ring-size: 12px !default;
 
 
 $tick-size: 2px;
@@ -107,8 +107,6 @@ $tick-size: 2px;
               background-color $swift-ease-out-duration $swift-ease-out-timing-function,
               opacity $swift-ease-out-duration $swift-ease-out-timing-function;
 
-  background-color: rgba(255,215, 64, .2);
-
   .cdk-keyboard-focused & {
     transform: scale(1);
     opacity: 1;
@@ -117,6 +115,7 @@ $tick-size: 2px;
 
 %_fl-slider-cursor {
   .fl-slider:not(.fl-slider-disabled) & {
+    cursor: pointer;
     // @include cursor-grab;
   }
 
@@ -127,7 +126,7 @@ $tick-size: 2px;
 }
 
 .fl-slider-thumb {
-  // @extend %_fl-slider-cursor;
+  @extend %_fl-slider-cursor;
 
   position: absolute;
   right: -$fl-slider-thumb-size / 2;
@@ -334,7 +333,7 @@ $tick-size: 2px;
     width: 100%;
     transform: scaleX(1);
 
-    background-color: rgba(0,0,0,.26);
+    // background-color: rgba(0,0,0,.26);
   }
 
   .fl-slider-ticks-container {
@@ -486,13 +485,31 @@ $tick-size: 2px;
 
 // Colors
 
+$slider-off-color-light: rgba(0,0,0,.26);
+$slider-off-color-dark: rgba(200,200,200,.26);
+
 $tick-color: $black-87;
 $disabled-color: graytext;
 
 
-.fl-slider-track-background {}
+.fl-slider-track-background {
+  .fl-theme-light & {
+    background-color: $slider-off-color-light
+  }
+  .fl-theme-dark & {
+    background-color: $slider-off-color-dark
+  }
+}
 
-.fl-slider-focus-ring {}
+.fl-slider-focus-ring {
+  .fl-theme-light & {
+    background-color: rgba(255,215, 64, .2);
+  }
+  
+  .fl-theme-dark & {
+    background-color: rgba(255,215, 64, .2);
+  }
+}
 
 .fl-slider:hover,
 .cdk-focused {
@@ -503,7 +520,7 @@ $disabled-color: graytext;
   .fl-slider-track-background,
   .fl-slider-track-fill,
   .fl-slider-thumb {
-    background-color: $disabled-color;
+    background-color: $disabled-color !important;
   }
 
   &:hover {
