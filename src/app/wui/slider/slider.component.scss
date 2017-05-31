@@ -1,6 +1,7 @@
 // @import '../core/style/variables';
 // @import '../core/style/vendor-prefixes';
 @import '../scss/variables';
+@import '../scss/colors';
 
 
 // This refers to the thickness of the slider. On a horizontal slider this is the height, on a
@@ -28,18 +29,18 @@ $fl-slider-tick-size: 2px !default;
 $fl-slider-focus-ring-size: 30px !default;
 
 
+$tick-size: 2px;
+
+
 .fl-slider {
-  // display: inline-block;
-  position: relative;
-  box-sizing: border-box;
   padding: $fl-slider-padding;
   outline: none;
   vertical-align: middle;
 
-  // position: relative;
+  position: relative;
 
   display: block;
-  // box-sizing: border-box;
+  box-sizing: border-box;
   // height: 18px;
   width: 100%;
   // margin-top: 24px;
@@ -65,8 +66,6 @@ $fl-slider-focus-ring-size: 30px !default;
   transform-origin: 0 0;
   transition: transform $swift-ease-out-duration $swift-ease-out-timing-function,
               background-color $swift-ease-out-duration $swift-ease-out-timing-function;
-
-  background-color: green;
 }
 
 .fl-slider-track-background {
@@ -142,8 +141,6 @@ $fl-slider-focus-ring-size: 30px !default;
   transition: transform $swift-ease-out-duration $swift-ease-out-timing-function,
               background-color $swift-ease-out-duration $swift-ease-out-timing-function,
               border-color $swift-ease-out-duration $swift-ease-out-timing-function;
-
-  background-color: red;
 }
 
 .fl-slider-thumb-label {
@@ -159,13 +156,29 @@ $fl-slider-focus-ring-size: 30px !default;
   transition: transform $swift-ease-out-duration $swift-ease-out-timing-function,
               border-radius  $swift-ease-out-duration $swift-ease-out-timing-function,
               background-color  $swift-ease-out-duration $swift-ease-out-timing-function;
-
-  background-color: purple;
 }
 
 .fl-slider-min-value:not(.fl-slider-thumb-label-showing) .fl-slider-thumb {
   border-color: rgba(0,0,0,.26);
   background-color: transparent;
+}
+
+.fl-theme-light {
+  .fl-slider-min-value.fl-slider-thumb-label-showing {
+    .fl-slider-thumb,
+    .fl-slider-thumb-label {
+      background-color: $black-87;
+    }
+  }
+}
+
+.fl-theme-dark {
+  .fl-slider-min-value.fl-slider-thumb-label-showing {
+    .fl-slider-thumb,
+    .fl-slider-thumb-label {
+      background-color: #fff;
+    }
+  }
 }
 
 .fl-slider-thumb-label-text {
@@ -175,7 +188,7 @@ $fl-slider-focus-ring-size: 30px !default;
   opacity: 0;
   transition: opacity $swift-ease-out-duration $swift-ease-out-timing-function;
 
-  color: pink;
+  color: $black-87;
 }
 
 
@@ -467,5 +480,66 @@ $fl-slider-focus-ring-size: 30px !default;
         transform-origin: 100% 100%;
       }
     }
+  }
+}
+
+
+// Colors
+
+$tick-color: $black-87;
+$disabled-color: graytext;
+
+
+.fl-slider-track-background {}
+
+.fl-slider-focus-ring {}
+
+.fl-slider:hover,
+.cdk-focused {
+  .fl-slider-track-background {}
+}
+
+.fl-slider-disabled {
+  .fl-slider-track-background,
+  .fl-slider-track-fill,
+  .fl-slider-thumb {
+    background-color: $disabled-color;
+  }
+
+  &:hover {
+    .fl-slider-track-background {
+      background-color: $disabled-color;
+    }
+  }
+}
+
+.fl-slider-min-value {
+  .fl-slider-focus-ring {}
+
+  &.fl-slider-thumb-label-showing {
+    .fl-slider-thumb,
+    .fl-slider-thumb-label {}
+
+    &.cdk-focused {
+      .fl-slider-thumb,
+      .fl-slider-thumb-label {}
+    }
+  }
+
+  &:not(.fl-slider-thumb-label-showing) {
+    .fl-slider-thumb {
+      background-color: transparent;
+    }
+  }
+}
+
+.fl-slider-has-ticks .fl-slider-wrapper::after {
+  border-color: $tick-color;
+}
+
+.fl-slider-ticks {
+  .fl-slider-horizontal & {
+    background-image: repeating-linear-gradient(to right, $tick-color, $tick-color $tick-size, transparent 0, transparent);
+    background-image: -moz-repeating-linear-gradient(0.0001deg, $tick-color, $tick-color $tick-size, transparent 0, transparent);
   }
 }

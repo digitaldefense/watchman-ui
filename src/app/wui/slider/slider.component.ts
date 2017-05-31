@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -26,6 +27,7 @@ import {
 } from '../core/keyboard/keycodes';
 import { FocusOrigin, FocusOriginMonitor } from '../core/style/focus-origin-monitor';
 import { mixinDisabled, CanDisable } from '../core/common-behaviors/disabled';
+import { FlThemeService } from '../theme2/theme.service';
 
 
 /**
@@ -110,8 +112,9 @@ export const _MdSliderMixinBase = mixinDisabled(MdSliderBase);
   inputs: ['disabled'],
   encapsulation: ViewEncapsulation.None,
 })
-export class FlSlider extends _MdSliderMixinBase
-    implements ControlValueAccessor, OnDestroy, CanDisable {
+export class FlSlider extends _MdSliderMixinBase implements AfterViewInit, ControlValueAccessor, OnDestroy, CanDisable {
+  private _theme: any;
+
   /** Whether the slider is inverted. */
   @Input()
   get invert() { return this._invert; }
@@ -163,11 +166,6 @@ export class FlSlider extends _MdSliderMixinBase
   set thumbLabel(value) { this._thumbLabel = coerceBooleanProperty(value); }
   private _thumbLabel: boolean = false;
 
-  /** @deprecated */
-  @Input('thumb-label')
-  get _thumbLabelDeprecated(): boolean { return this._thumbLabel; }
-  set _thumbLabelDeprecated(value) { this._thumbLabel = value; }
-
   /**
    * How often to show ticks. Relative to the step so that a tick always appears on a step.
    * Ex: Tick interval of 4 with a step of 3 will draw a tick every 4 steps (every 12 values).
@@ -184,11 +182,6 @@ export class FlSlider extends _MdSliderMixinBase
     }
   }
   private _tickInterval: 'auto' | number = 0;
-
-  /** @deprecated */
-  // @Input('tick-interval')
-  // get _tickIntervalDeprecated() { return this.tickInterval; }
-  // set _tickIntervalDeprecated(v) { this.tickInterval = v; }
 
   /** Value of the slider. */
   @Input()
@@ -341,7 +334,7 @@ export class FlSlider extends _MdSliderMixinBase
     // For a horizontal slider in RTL languages we push the thumb container off the left edge
     // instead of the right edge to avoid causing a horizontal scrollbar to appear.
     let invertOffset =
-        (this._direction == 'rtl' && !this.vertical) ? !this._invertAxis : this._invertAxis;
+        (this._direction === 'rtl' && !this.vertical) ? !this._invertAxis : this._invertAxis;
     let offset = (invertOffset ? this.percent : 1 - this.percent) * 100;
     return {
       'transform': `translate${axis}(-${offset}%)`
@@ -373,20 +366,32 @@ export class FlSlider extends _MdSliderMixinBase
    * from the right or bottom edge of the slider as opposed to the top or left.
    */
   private get _invertMouseCoords() {
-    return (this._direction == 'rtl' && !this.vertical) ? !this._invertAxis : this._invertAxis;
+    return (this._direction === 'rtl' && !this.vertical) ? !this._invertAxis : this._invertAxis;
   }
 
   /** The language direction for this slider element. */
   private get _direction() {
-    return (this._dir && this._dir.value == 'rtl') ? 'rtl' : 'ltr';
+    return (this._dir && this._dir.value === 'rtl') ? 'rtl' : 'ltr';
   }
 
-  constructor(renderer: Renderer2, private _elementRef: ElementRef,
-              private _focusOriginMonitor: FocusOriginMonitor, @Optional() private _dir: Dir) {
+  constructor(
+    private renderer: Renderer2,
+    private _elementRef: ElementRef,
+    private _focusOriginMonitor: FocusOriginMonitor,
+    @Optional() private _dir: Dir,
+    private _themeSvc: FlThemeService
+  ) {
     super();
     this._focusOriginMonitor.monitor(this._elementRef.nativeElement, renderer, true)
         .subscribe((origin: FocusOrigin) => this._isActive = !!origin && origin !== 'keyboard');
     this._renderer = new SliderRenderer(this._elementRef);
+    this._theme = _themeSvc.theme;
+  }
+
+  ngAfterViewInit() {
+    if (!this._isMinValue) {
+      this._applyActiveStateColors();
+    }
   }
 
   ngOnDestroy() {
@@ -405,9 +410,7 @@ export class FlSlider extends _MdSliderMixinBase
   }
 
   _onClick(event: MouseEvent) {
-    if (this.disabled) {
-      return;
-    }
+    if (this.disabled) { return; }
 
     this._isSliding = false;
     this._renderer.addFocus();
@@ -432,9 +435,7 @@ export class FlSlider extends _MdSliderMixinBase
   }
 
   _onSlideStart(event: HammerInput) {
-    if (this.disabled) {
-      return;
-    }
+    if (this.disabled) { return; }
 
     // Simulate mouseenter in case this is a mobile device.
     this._onMouseenter();
@@ -455,9 +456,11 @@ export class FlSlider extends _MdSliderMixinBase
     // ticks and determine where on the slider click and slide events happen.
     this._sliderDimensions = this._renderer.getSliderDimensions();
     this._updateTickIntervalPercent();
+    this._applyActiveStateColors();
   }
 
   _onBlur() {
+    this._restoreDefaultColors();
     this.onTouched();
   }
 
@@ -492,7 +495,7 @@ export class FlSlider extends _MdSliderMixinBase
         break;
       case RIGHT_ARROW:
         // See comment on LEFT_ARROW about the conditions under which we flip the meaning.
-        this._increment(this._direction == 'rtl' ? -1 : 1);
+        this._increment(this._direction === 'rtl' ? -1 : 1);
         break;
       case DOWN_ARROW:
         this._increment(-1);
@@ -511,6 +514,28 @@ export class FlSlider extends _MdSliderMixinBase
     this._isSliding = false;
   }
 
+  private _applyActiveStateColors() {
+    const elThumb = this._elementRef.nativeElement.querySelector('.fl-slider-thumb');
+    const elThumbLabel = this._elementRef.nativeElement.querySelector('.fl-slider-thumb-label');
+    const elTrack = this._elementRef.nativeElement.querySelector('.fl-slider-track-fill');
+
+    this.renderer.setStyle(elThumb, 'background-color', this._theme[this.color]);
+    this.renderer.setStyle(elThumbLabel, 'background-color', this._theme[this.color]);
+    this.renderer.setStyle(elTrack, 'background-color', this._theme[this.color]);
+  }
+
+  private _restoreDefaultColors() {
+    if (this._isMinValue) {
+      const elThumb = this._elementRef.nativeElement.querySelector('.fl-slider-thumb');
+      const elThumbLabel = this._elementRef.nativeElement.querySelector('.fl-slider-thumb-label');
+      const elTrack = this._elementRef.nativeElement.querySelector('.fl-slider-track-fill');
+
+      this.renderer.removeStyle(elThumb, 'background-color');
+      this.renderer.removeStyle(elThumbLabel, 'background-color');
+      this.renderer.removeStyle(elTrack, 'background-color');
+    }
+  }
+
   /** Increments the slider by the given number of steps (negative number decrements). */
   private _increment(numSteps: number) {
     this.value = this._clamp(this.value + this.step * numSteps, this.min, this.max);
@@ -524,20 +549,20 @@ export class FlSlider extends _MdSliderMixinBase
       return;
     }
 
-    let offset = this.vertical ? this._sliderDimensions.top : this._sliderDimensions.left;
-    let size = this.vertical ? this._sliderDimensions.height : this._sliderDimensions.width;
-    let posComponent = this.vertical ? pos.y : pos.x;
+    const offset = this.vertical ? this._sliderDimensions.top : this._sliderDimensions.left;
+    const size = this.vertical ? this._sliderDimensions.height : this._sliderDimensions.width;
+    const posComponent = this.vertical ? pos.y : pos.x;
 
     // The exact value is calculated from the event and used to find the closest snap value.
     let percent = this._clamp((posComponent - offset) / size);
     if (this._invertMouseCoords) {
       percent = 1 - percent;
     }
-    let exactValue = this._calculateValue(percent);
+    const exactValue = this._calculateValue(percent);
 
     // This calculation finds the closest step by finding the closest whole number divisible by the
     // step relative to the min.
-    let closestValue = Math.round((exactValue - this.min) / this.step) * this.step + this.min;
+    const closestValue = Math.round((exactValue - this.min) / this.step) * this.step + this.min;
     // The value needs to snap to the min and max.
     this.value = this._clamp(closestValue, this.min, this.max);
   }
@@ -545,7 +570,7 @@ export class FlSlider extends _MdSliderMixinBase
   /** Emits a change event if the current value is different from the last emitted value. */
   private _emitValueIfChanged() {
     if (this.value != this._lastChangeValue) {
-      let event = this._createChangeEvent();
+      const event = this._createChangeEvent();
       this._lastChangeValue = this.value;
       this._controlValueAccessorChangeFn(this.value);
       this.change.emit(event);
@@ -555,7 +580,7 @@ export class FlSlider extends _MdSliderMixinBase
   /** Emits an input event when the current value is different from the last emitted value. */
   private _emitInputEvent() {
     if (this.value != this._lastInputValue) {
-      let event = this._createChangeEvent();
+      const event = this._createChangeEvent();
       this._lastInputValue = this.value;
       this.input.emit(event);
     }
@@ -567,11 +592,11 @@ export class FlSlider extends _MdSliderMixinBase
       return;
     }
 
-    if (this.tickInterval == 'auto') {
-      let trackSize = this.vertical ? this._sliderDimensions.height : this._sliderDimensions.width;
-      let pixelsPerStep = trackSize * this.step / (this.max - this.min);
-      let stepsPerTick = Math.ceil(MIN_AUTO_TICK_SEPARATION / pixelsPerStep);
-      let pixelsPerTick = stepsPerTick * this.step;
+    if (this.tickInterval === 'auto') {
+      const trackSize = this.vertical ? this._sliderDimensions.height : this._sliderDimensions.width;
+      const pixelsPerStep = trackSize * this.step / (this.max - this.min);
+      const stepsPerTick = Math.ceil(MIN_AUTO_TICK_SEPARATION / pixelsPerStep);
+      const pixelsPerTick = stepsPerTick * this.step;
       this._tickIntervalPercent = pixelsPerTick / trackSize;
     } else {
       this._tickIntervalPercent = this.tickInterval * this.step / (this.max - this.min);
@@ -580,7 +605,7 @@ export class FlSlider extends _MdSliderMixinBase
 
   /** Creates a slider change object from the specified value. */
   private _createChangeEvent(value = this.value): FlSliderChange {
-    let event = new FlSliderChange();
+    const event = new FlSliderChange();
 
     event.source = this;
     event.value = value;
@@ -656,7 +681,7 @@ export class SliderRenderer {
    * take up.
    */
   getSliderDimensions() {
-    let wrapperElement = this._sliderElement.querySelector('.fl-slider-wrapper');
+    const wrapperElement = this._sliderElement.querySelector('.fl-slider-wrapper');
     return wrapperElement.getBoundingClientRect();
   }
 
