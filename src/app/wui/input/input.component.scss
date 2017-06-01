@@ -37,7 +37,8 @@
 
     &:disabled {
         cursor: not-allowed;
-        color: $text-medium !important;
+        // color: $text-medium !important;
+        color: graytext !important;
     }
 }
 

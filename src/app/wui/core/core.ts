@@ -6,9 +6,11 @@ import { FlPaddingModule } from './padding/index';
 import { FlContentModule } from './content/index';
 
 import { ObserveContentModule } from './observe-content/observe-content';
+import { MdOptionModule } from './option/option';
 import { OverlayModule } from './overlay/overlay-directives';
 import { PortalModule } from './portal/portal-directives';
 import { A11yModule } from './a11y/index';
+import { MdSelectionModule } from './selection/index';
 import { MdRippleModule } from './ripple/index';
 
 
@@ -71,6 +73,10 @@ export {ComponentType} from './overlay/generic-component-type';
 // Keybindings
 export * from './keyboard/keycodes';
 
+// Selection
+export * from './selection/selection';
+// export * from './selection/index';
+
 // Coercion
 export {coerceBooleanProperty} from './coercion/boolean-property';
 export {coerceNumberProperty} from './coercion/number-property';
@@ -91,9 +97,11 @@ export {MdCommonModule} from './common-behaviors/common-module';
         FlContentModule,
         MdRippleModule,
         ObserveContentModule,
+        MdOptionModule,
         OverlayModule,
         PortalModule,
-        A11yModule
+        A11yModule,
+        MdSelectionModule
     ],
     exports: [
         WuiColorModule,
@@ -102,9 +110,11 @@ export {MdCommonModule} from './common-behaviors/common-module';
         FlContentModule,
         MdRippleModule,
         ObserveContentModule,
-        PortalModule,
+        MdOptionModule,
         OverlayModule,
-        A11yModule
+        PortalModule,
+        A11yModule,
+        MdSelectionModule
     ],
 })
 

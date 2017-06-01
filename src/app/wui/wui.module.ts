@@ -39,6 +39,7 @@ import { FlSubheaderModule } from './subheader/index';
 import { FlDrawerModule } from './drawer/index';
 import { FlSnackbarModule } from './snackbar/index';
 import { FlSliderModule } from './slider/index';
+import { FlSelectModule } from './select/index';
 
 // import 'lodash';
 
@@ -62,6 +63,7 @@ const WUI_MODULES = [
   FlToolbarModule,
   FlMenuModule,
   FlDrawerModule,
+  FlSelectModule,
   FlSliderModule,
   FlSnackbarModule,
 

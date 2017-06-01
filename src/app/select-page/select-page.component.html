@@ -1,0 +1,19 @@
+<wui-page title="Select">
+  <p class="lead">Referred to as "Dropdown buttons" in Material Design, a Select follows the traditional web paradigm allowing the user to choose one of many, predetermined, options.</p>
+
+  <fl-section title="Examples">
+    <fl-card>
+      <fl-card-toolbar title="Basic Examples"></fl-card-toolbar>
+      <fl-card-text>
+        <!--<fl-select [(ngModel)]="flSelectTest" name="flSelectTest">
+          <fl-option value="flVal1">Value 1</fl-option>
+          <fl-option value="flVal2">Value 2</fl-option>
+        </fl-select>-->
+        <select name="test" id="test" [(ngModel)]="selectTest">
+          <option value="val1">Value 1</option>
+          <option value="val2">Value 2</option>
+        </select>
+      </fl-card-text>
+    </fl-card>
+  </fl-section>
+</wui-page>

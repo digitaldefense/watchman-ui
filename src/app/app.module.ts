@@ -53,6 +53,7 @@ import {
   ConfirmDialogDemo
 } from './dialog-page/dialog-page.component';
 import { SliderPageComponent } from './slider-page/slider-page.component';
+import { SelectPageComponent } from './select-page/select-page.component';
 
 const appRoutes: Routes = [
   { path: 'accordion', component: AccordionPageComponent },
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
   { path: 'lists', component: ListPageComponent },
   { path: 'card', component: CardPageComponent },
   { path: 'section', component: SectionPageComponent },
+  { path: 'select', component: SelectPageComponent },
   { path: 'shadow', component: ShadowPageComponent },
   { path: 'slider', component: SliderPageComponent },
   { path: 'snackbar', component: SnackBarPageComponent },
@@ -118,7 +120,8 @@ const appRoutes: Routes = [
 
     SimpleDialogDemo,
     ConfirmDialogDemo,
-    SliderPageComponent
+    SliderPageComponent,
+    SelectPageComponent
   ],
   entryComponents: [
     SimpleDialogDemo,
