@@ -40,6 +40,7 @@ import { FlDrawerModule } from './drawer/index';
 import { FlSnackbarModule } from './snackbar/index';
 import { FlSliderModule } from './slider/index';
 import { FlSelectModule } from './select/index';
+import { FlRadioModule } from './radio/index';
 
 // import 'lodash';
 
@@ -66,6 +67,7 @@ const WUI_MODULES = [
   FlSelectModule,
   FlSliderModule,
   FlSnackbarModule,
+  FlRadioModule,
 
   MdDialogModule,
 

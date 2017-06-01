@@ -1,0 +1,18 @@
+@import '../scss/variables';
+@import '../scss/forms';
+
+.fl-radio-button {
+  @include form-group();
+  cursor: pointer;
+}
+
+.fl-radio-icon {
+  position: relative;
+
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: $spacer;
+  margin-left: 0;
+}

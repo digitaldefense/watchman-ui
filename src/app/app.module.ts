@@ -54,6 +54,7 @@ import {
 } from './dialog-page/dialog-page.component';
 import { SliderPageComponent } from './slider-page/slider-page.component';
 import { SelectPageComponent } from './select-page/select-page.component';
+import { RadioPageComponent } from './radio-page/radio-page.component';
 
 const appRoutes: Routes = [
   { path: 'accordion', component: AccordionPageComponent },
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
   { path: 'inputs', component: InputsPageComponent },
   { path: 'lists', component: ListPageComponent },
   { path: 'card', component: CardPageComponent },
+  { path: 'radio', component: RadioPageComponent },
   { path: 'section', component: SectionPageComponent },
   { path: 'select', component: SelectPageComponent },
   { path: 'shadow', component: ShadowPageComponent },
@@ -117,11 +119,12 @@ const appRoutes: Routes = [
     SnackBarPageComponent,
     DialogPageComponent,
     // FluxComponent,
+    SliderPageComponent,
+    SelectPageComponent,
+    RadioPageComponent,
 
     SimpleDialogDemo,
     ConfirmDialogDemo,
-    SliderPageComponent,
-    SelectPageComponent
   ],
   entryComponents: [
     SimpleDialogDemo,

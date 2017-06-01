@@ -1,6 +1,6 @@
 import { Component, ElementRef, Injectable, OnInit, Renderer2 } from '@angular/core';
 
-import { Theme } from './wui/theme/theme.tmpl';
+// import { Theme } from './wui/theme/theme.tmpl';
 // import { WuiThemeService } from './wui/theme/theme.service';
 import { FlThemeService } from './wui/theme2/theme.service';
 

@@ -64,6 +64,12 @@ export { isFakeMousedownFromScreenReader } from './a11y/fake-mousedown';
 
 export { A11yModule } from './a11y/index';
 
+export {
+  UniqueSelectionDispatcher,
+  UniqueSelectionDispatcherListener,
+  UNIQUE_SELECTION_DISPATCHER_PROVIDER,
+} from './coordination/unique-selection-dispatcher';
+
 // Style
 export * from './style/index';
 
