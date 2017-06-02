@@ -73,6 +73,11 @@ export class FlIconComponent implements AfterViewChecked, OnInit, OnChanges {
     this._updateAriaLabel();
   }
 
+  /** Mostly used by other components to restore icon colors to default */
+  resetColor() {
+    this._renderer.removeStyle(this._element.nativeElement, 'color');
+  }
+
   private _updateColor(color: string) {
     this._setElementColor(color);
     this._color = color;

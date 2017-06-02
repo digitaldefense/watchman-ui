@@ -1,22 +1,33 @@
 import {
   AfterContentInit,
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   ContentChildren,
   Directive,
+  ElementRef,
   EventEmitter,
   forwardRef,
   Input,
+  OnDestroy,
+  OnInit,
   Optional,
   Output,
   QueryList,
+  Renderer2,
+  ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 import {
   UniqueSelectionDispatcher,
+  FocusOriginMonitor,
+  FocusOrigin
 } from '../core';
+
+import { FlThemeService } from '../theme2/theme.service';
+import { FlIconComponent } from '../icon/icon.component';
 
 /**
  * Provider Expression that allows md-radio-group to register as a ControlValueAccessor. This
@@ -57,6 +68,9 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
    */
   private _value: any = null;
 
+  /** The HTML name attribute applied to radio buttons in this group. */
+  private _name: string = `md-radio-group-${_uniqueIdCounter++}`;
+
   /** The currently selected radio button. Should match value. */
   private _selected: FlRadioButton = null;
 
@@ -65,6 +79,14 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
 
   /** Whether the radio group is disabled. */
   private _disabled: boolean = false;
+
+  /** Name of the radio button group. All radio buttons inside this group will use this name. */
+  @Input()
+  get name(): string { return this._name; }
+  set name(value: string) {
+    this._name = value;
+    // this._updateRadioButtonNames();
+  }
 
   @Input()
   get value(): any { return this._value; }
@@ -171,27 +193,27 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
     }
   }
 
-  _checkSelectedRadioButton() {
-    if (this.selected && !this._selected.checked) {
-      this._selected.checked = true;
-    }
-  }
+  // _checkSelectedRadioButton() {
+  //   if (this.selected && !this._selected.checked) {
+  //     this._selected.checked = true;
+  //   }
+  // }
 
   /** Updates the `selected` radio button from the internal _value state. */
-  private _updateSelectedRadioFromValue(): void {
-    // If the value already matches the selected radio, do nothing.
-    let isAlreadySelected = this._selected != null && this._selected.value == this._value;
+  // private _updateSelectedRadioFromValue(): void {
+  //   // If the value already matches the selected radio, do nothing.
+  //   let isAlreadySelected = this._selected != null && this._selected.value == this._value;
 
-    if (this._radios != null && !isAlreadySelected) {
-      this._selected = null;
-      this._radios.forEach(radio => {
-        radio.checked = this.value == radio.value;
-        if (radio.checked) {
-          this._selected = radio;
-        }
-      });
-    }
-  }
+  //   if (this._radios != null && !isAlreadySelected) {
+  //     this._selected = null;
+  //     this._radios.forEach(radio => {
+  //       radio.checked = this.value == radio.value;
+  //       if (radio.checked) {
+  //         this._selected = radio;
+  //       }
+  //     });
+  //   }
+  // }
 }
 
 @Component({
@@ -207,7 +229,9 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
   },
   encapsulation: ViewEncapsulation.None
 })
-export class FlRadioButton {
+export class FlRadioButton implements AfterViewInit, OnDestroy, OnInit {
+  private _theme: any;
+
   /** The unique ID for the radio button. */
   @Input() id: string = `md-radio-${_uniqueIdCounter++}`;
 
@@ -246,6 +270,7 @@ export class FlRadioButton {
         }
         if (this.checked) {
           this.radioGroup.selected = this;
+          // this._icon.color = 'accent';
         }
       }
     }
@@ -258,6 +283,8 @@ export class FlRadioButton {
   }
 
   set checked(newCheckedState: boolean) {
+    console.log('set checked', newCheckedState);
+    
     if (this._checked != newCheckedState) {
       this._checked = newCheckedState;
 
@@ -272,6 +299,10 @@ export class FlRadioButton {
       if (newCheckedState) {
         // Notify all radio buttons with the same name to un-check.
         this._radioDispatcher.notify(this.id, this.name);
+        this._icon.color = 'accent';
+      } else {
+        console.log('reset color');
+        this._icon.resetColor();
       }
       this._changeDetector.markForCheck();
     }
@@ -284,10 +315,16 @@ export class FlRadioButton {
    */
   @Output() change: EventEmitter<FlRadioChange> = new EventEmitter<FlRadioChange>();
 
+  @ViewChild(FlIconComponent) _icon: FlIconComponent;
+
   constructor(
     @Optional() radioGroup: FlRadioGroup,
     private _changeDetector: ChangeDetectorRef,
-    private _radioDispatcher: UniqueSelectionDispatcher
+    private _radioDispatcher: UniqueSelectionDispatcher,
+    private _focusOriginMonitor: FocusOriginMonitor,
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _themeSvc: FlThemeService
   ) {
     this.radioGroup = radioGroup;
 
@@ -296,6 +333,32 @@ export class FlRadioButton {
         this.checked = false;
       }
     });
+
+    this._theme = _themeSvc.theme;
+  }
+
+  ngOnInit() {
+    if (this.radioGroup) {
+      // If the radio is inside a radio group, determine if it should be checked
+      this.checked = this.radioGroup.value === this._value;
+      // Copy name from parent radio group
+      this.name = this.radioGroup.name;
+    }
+  }
+
+  ngAfterViewInit() {
+    // this._focusOriginMonitor
+    //   .monitor(this._inputElement.nativeElement, this._renderer, false)
+    //   .subscribe(focusOrigin => this._onInputFocusChange(focusOrigin));
+  }
+
+  ngOnDestroy() {
+    // this._focusOriginMonitor.stopMonitoring(this._inputElement.nativeElement);
+  }
+
+  /** Focuses the radio button. */
+  focus(): void {
+    // this._focusOriginMonitor.focusVia(this._inputElement.nativeElement, this._renderer, 'keyboard');
   }
 
   /**
@@ -329,6 +392,7 @@ export class FlRadioButton {
 
     let groupValueChanged = this.radioGroup && this.value != this.radioGroup.value;
     this.checked = true;
+    // this._icon.color = 'accent';
     this._emitChangeEvent();
 
     if (this.radioGroup) {
