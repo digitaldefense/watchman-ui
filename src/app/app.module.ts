@@ -55,6 +55,7 @@ import {
 import { SliderPageComponent } from './slider-page/slider-page.component';
 import { SelectPageComponent } from './select-page/select-page.component';
 import { RadioPageComponent } from './radio-page/radio-page.component';
+import { ThemePageComponent } from './theme-page/theme-page.component';
 
 const appRoutes: Routes = [
   { path: 'accordion', component: AccordionPageComponent },
@@ -76,6 +77,7 @@ const appRoutes: Routes = [
   { path: 'shadow', component: ShadowPageComponent },
   { path: 'slider', component: SliderPageComponent },
   { path: 'snackbar', component: SnackBarPageComponent },
+  { path: 'theme', component: ThemePageComponent },
   { path: 'toolbar', component: ToolbarPageComponent },
   { path: 'type', component: TypePageComponent },
   { path: 'menu', component: MenuPageComponent },
@@ -122,6 +124,7 @@ const appRoutes: Routes = [
     SliderPageComponent,
     SelectPageComponent,
     RadioPageComponent,
+    ThemePageComponent,
 
     SimpleDialogDemo,
     ConfirmDialogDemo,
