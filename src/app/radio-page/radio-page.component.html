@@ -11,11 +11,85 @@
           <fl-radio label="Girl" value="girl"></fl-radio>
         </fl-radio-group>
         <p *ngIf="gender">You selected {{gender}}</p>
+        <br>
+        
+        <fl-radio-group [(ngModel)]="pets" value="cat" [disabled]="true">
+          <fl-radio label="Cat" value="cat"></fl-radio>
+          <fl-radio label="Dog" value="dog"></fl-radio>
+        </fl-radio-group>
       </fl-card-text>
     </fl-card>
   </fl-section>
 
-  <fl-section title="Radio Properties">
-    <table class="table"></table>
+  <fl-section title="Radio Group Properties">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td flColor="accentDark">name</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code"></td>
+          <td>Name of the Radio Group. All radio buttons within will use this name.</td>
+        </tr>
+        <tr>
+          <td flColor="accentDark">value</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code"></td>
+          <td>Value of the Radio Group. Will determine which radio button is checked upon initialization.</td>
+        </tr>
+        <tr>
+          <td flColor="accentDark">disabled</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code" flColor="secondaryText">false</td>
+          <td>Disables all radio buttons within the Radio Group.</td>
+        </tr>
+        <tr>
+          <td flColor="accentDark">change</td>
+          <td class="code" flColor="primary">@Output</td>
+          <td class="code"></td>
+          <td>Event emitted when the value of the Radio Group changes.</td>
+        </tr>
+      </tbody>
+    </table>
+  </fl-section>
+
+  <fl-section title="Radio Button Properties">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td flColor="accentDark">label</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code"></td>
+          <td>Radio button label. <span class="fl-hint fl-hint-required">Required.</span></td>
+        </tr>
+        <tr>
+          <td flColor="accentDark">align-label</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code" flColor="secondaryText">after</td>
+          <td>Whether to position the label <code>before</code> or <code>after</code> the radio icon.</td>
+        </tr>
+        <tr>
+          <td flColor="accentDark">value</td>
+          <td class="code" flColor="primary">@Input</td>
+          <td class="code"></td>
+          <td>Value of the Radio Button. <span class="fl-hint fl-hint-required">Required.</span></td>
+        </tr>
+      </tbody>
+    </table>
   </fl-section>
 </wui-page>

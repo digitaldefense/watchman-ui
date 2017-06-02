@@ -193,6 +193,19 @@ mark,
   }
 }
 
+.fl-hint {
+  font-size: $font-size-sm;
+  font-style: italic;
+
+  .fl-theme-light {
+    color: $black-54a;
+  }
+  
+  .fl-theme-dark {
+    color: $white-30a;
+  }
+}
+
 // Transformation
 
 .text-lowercase  { text-transform: lowercase !important; }

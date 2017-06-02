@@ -1,17 +1,5 @@
-<!--<input #input class="fl-radio-input cdk-visually-hidden" type="radio"
-         [id]="inputId"
-         [checked]="checked"
-         [disabled]="disabled"
-         [name]="name"
-         [attr.aria-label]="ariaLabel"
-         [attr.aria-labelledby]="ariaLabelledby"
-         (change)="_onInputChange($event)"
-         (click)="_onInputClick($event)">-->
-         
 <div class="fl-radio-icon">
   <fl-icon [ngClass]="{'fa-circle-o': !checked, 'fa-dot-circle-o': checked}"></fl-icon>
 </div>
 
-<label>
-  {{label}}
-</label>
+<label>{{label}}</label>

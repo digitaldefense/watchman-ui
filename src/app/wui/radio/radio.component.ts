@@ -2,6 +2,7 @@ import {
   AfterContentInit,
   AfterViewInit,
   ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
   ContentChildren,
   Directive,
@@ -25,6 +26,8 @@ import {
   FocusOriginMonitor,
   FocusOrigin
 } from '../core';
+import { coerceBooleanProperty } from '../core/coercion/boolean-property';
+// import { mixinDisabled, CanDisable } from '../core/common-behaviors/disabled';
 
 import { FlThemeService } from '../theme2/theme.service';
 import { FlIconComponent } from '../icon/icon.component';
@@ -113,7 +116,7 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
   get disabled() { return this._disabled; }
   set disabled(value) {
     this._disabled = value;
-    // this._markRadiosForCheck();
+    this._markRadiosForCheck();
   }
 
   /** The method to be called in order to update ngModel */
@@ -179,8 +182,22 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
     this._controlValueAccessorChangeFn = fn;
   }
 
+  /**
+   * Registers a callback to be triggered when the control is touched.
+   * Implemented as part of ControlValueAccessor.
+   * @param fn Callback to be registered.
+   */
   registerOnTouched(fn: any) {
     this.onTouched = fn;
+  }
+
+  /**
+   * Sets the disabled state of the control. Implemented as a part of ControlValueAccessor.
+   * @param isDisabled Whether the control should be disabled.
+   */
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+    this._changeDetector.markForCheck();
   }
 
   /** Dispatch change event with current selection and group value. */
@@ -192,6 +209,19 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
       this.change.emit(event);
     }
   }
+
+  _markRadiosForCheck() {
+    if (this._radios) {
+      this._radios.forEach(radio => radio._markForCheck());
+    }
+  }
+
+  /**
+   * These following functions were used by the original MdRadio component as a
+   * means of connecting to the native input element. This version does not use
+   * an input element so these functions are not necessary. Leaving them here
+   * for now in case they prove essential later.
+   */
 
   // _checkSelectedRadioButton() {
   //   if (this.selected && !this._selected.checked) {
@@ -223,17 +253,19 @@ export class FlRadioGroup implements AfterContentInit, ControlValueAccessor {
   host: {
     '[class.fl-radio-button]': 'true',
     '[class.inline]': 'true',
+    '[class.fl-radio-checked]': 'checked',
     '[class.fl-radio-disabled]': 'disabled',
     '(click)': '_onInputChange($event)',
     '[attr.id]': 'id',
   },
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FlRadioButton implements AfterViewInit, OnDestroy, OnInit {
   private _theme: any;
 
   /** The unique ID for the radio button. */
-  @Input() id: string = `md-radio-${_uniqueIdCounter++}`;
+  @Input() id: string = `fl-radio-${_uniqueIdCounter++}`;
 
   /** Analog to HTML 'name' attribute used to group radios for unique selection. */
   @Input() name: string;
@@ -270,7 +302,6 @@ export class FlRadioButton implements AfterViewInit, OnDestroy, OnInit {
         }
         if (this.checked) {
           this.radioGroup.selected = this;
-          // this._icon.color = 'accent';
         }
       }
     }
@@ -297,13 +328,21 @@ export class FlRadioButton implements AfterViewInit, OnDestroy, OnInit {
       if (newCheckedState) {
         // Notify all radio buttons with the same name to un-check.
         this._radioDispatcher.notify(this.id, this.name);
-        this._icon.color = 'accent';
+        if (!this.disabled) { this._icon.color = 'accent'; }
       } else {
-        console.log('reset color');
         this._icon.resetColor();
       }
       this._changeDetector.markForCheck();
     }
+  }
+
+  /** Whether the radio button is disabled. */
+  @Input()
+  get disabled(): boolean {
+    return this._disabled || (this.radioGroup != null && this.radioGroup.disabled);
+  }
+  set disabled(value: boolean) {
+    this._disabled = coerceBooleanProperty(value);
   }
 
   /**
@@ -341,6 +380,7 @@ export class FlRadioButton implements AfterViewInit, OnDestroy, OnInit {
       this.checked = this.radioGroup.value === this._value;
       // Copy name from parent radio group
       this.name = this.radioGroup.name;
+      this.disabled = this.radioGroup.disabled;
     }
   }
 
@@ -383,10 +423,7 @@ export class FlRadioButton implements AfterViewInit, OnDestroy, OnInit {
    * Clicking on a label element, will trigger a change event on the associated input.
    */
   _onInputChange(event: Event) {
-    // We always have to stop propagation on the change event.
-    // Otherwise the change event, from the input element, will bubble up and
-    // emit its event object to the `change` output.
-    event.stopPropagation();
+    if (this.disabled) { return; }
 
     let groupValueChanged = this.radioGroup && this.value != this.radioGroup.value;
     this.checked = true;
