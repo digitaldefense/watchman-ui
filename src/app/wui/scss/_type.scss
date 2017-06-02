@@ -1,3 +1,11 @@
+$text-color-light:                $black-87;
+$text-color-light-secondary:      $black-54;
+$text-color-light-disabled:       $black-38a;
+
+$text-color-dark:                #FFFFFF;
+$text-color-dark-secondary:      $white-70;
+$text-color-dark-disabled:       $white-50;
+
 $headline-font-size: 1.2rem !default;
 $headline-font-weight: $headings-font-weight !default;
 
@@ -197,11 +205,11 @@ mark,
   font-size: $font-size-sm;
   font-style: italic;
 
-  .fl-theme-light {
+  .fl-theme-light & {
     color: $black-54a;
   }
   
-  .fl-theme-dark {
+  .fl-theme-dark & {
     color: $white-30a;
   }
 }
