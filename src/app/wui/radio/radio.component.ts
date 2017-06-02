@@ -283,8 +283,6 @@ export class FlRadioButton implements AfterViewInit, OnDestroy, OnInit {
   }
 
   set checked(newCheckedState: boolean) {
-    console.log('set checked', newCheckedState);
-    
     if (this._checked != newCheckedState) {
       this._checked = newCheckedState;
 
