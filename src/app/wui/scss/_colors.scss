@@ -12,8 +12,61 @@ $pink:   #ff2080 !default;
 $purple: #613d7c !default;
 
 // Grayscale
+
+$gray-50:                   #FAFAFA;
+$gray-100:                  #F5F5F5;
+$gray-200:                  #EEEEEE;
+$gray-300:                  #E0E0E0;
+$gray-400:                  #BDBDBD;
+$gray-500:                  #9E9E9E;
+$gray-600:                  #757575;
+$gray-700:                  #616161;
+$gray-800:                  #424242;
+$gray-900:                  #212121;
+
+$gray:                         $gray-500;
+
+$black-87:                     #202020;
+$black-54:                     #737373;
+$black-38:                     #9B9B9B;
+// $black-26:                  #BDBDBD;
+// $black-08:                  #E6E6E6;
+
+$black-87a:                    rgba(0,0,0, .87);
+$black-54a:                    rgba(0,0,0, .54);
+$black-38a:                    rgba(0,0,0, .38);
+
+$white-70:                     #fff;
+$white-50:                     #fff;
+$white-12:                     #fff;
+
+$bg-success:                    $green;
+$bg-warning:                    $orange;
+$bg-danger:                     $red;
+
+// Light Theme Base
+
+$bg-app-light:                  $gray-50;
+$bg-paper-light:                $white;
+$bg-toolbar-light:              $gray-100;
+$bg-statusbar-light:            $gray-300;
+
+$text-color-light:              $black-87;
+$text-color-light-secondary:    $black-54;
+$text-color-light-disabled:     $black-38a;
+
+$focus-light:                   rgba(153, 153, 153, .12);
+$disabled-light:                rgba(0, 0, 0, .26);
+
+$text-color-dark:                #FFFFFF;
+$text-color-dark-secondary:      $white-70;
+$text-color-dark-disabled:       $white-50;
+
+// $hover-light:               
+
+// Grayscale
 $gray-dark:                 #292b2c !default;
-$gray:                      #464a4c !default;
+// $gray:                      #464a4c !default;
 $gray-light:                #636c72 !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
