@@ -1,5 +1,17 @@
 <wui-page title="Selection Controls">
   <p class="lead">Selection controls allow the user to select options.</p>
+  <fl-section title="Checkbox">
+    <fl-card>
+      <fl-card-toolbar title="Examples"></fl-card-toolbar>
+      <fl-card-text>
+        <fl-checkbox label="Check me out" [(ngModel)]="checkboxChecked"></fl-checkbox>
+        <br>
+        <span *ngIf="checkboxChecked">I'm checked!</span>
+      </fl-card-text>
+    </fl-card>
+  </fl-section>
+  <br>
+
   <fl-section title="Radio">
     <p>Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side.</p>
     <p>Otherwise, consider a <code>Select</code>, which uses less space than displaying all options.</p>

@@ -1,0 +1,30 @@
+@import '../scss/variables';
+@import '../scss/forms';
+
+.fl-checkbox-layout {
+  display: flex;
+  align-items: center;
+}
+
+.fl-checkbox-icon {
+  position: relative;
+
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: $spacer;
+  margin-left: 0;
+}
+
+.fl-disabled {
+  cursor: not-allowed;
+
+  .fl-theme-light & {
+    opacity: .26;
+  }
+
+  .fl-theme-dark & {
+    opacity: .3;
+  }
+}

@@ -41,6 +41,7 @@ import { FlSnackbarModule } from './snackbar/index';
 import { FlSliderModule } from './slider/index';
 import { FlSelectModule } from './select/index';
 import { FlRadioModule } from './radio/index';
+import { FlCheckboxModule } from './checkbox/index';
 
 // import 'lodash';
 
@@ -68,6 +69,7 @@ const WUI_MODULES = [
   FlSliderModule,
   FlSnackbarModule,
   FlRadioModule,
+  FlCheckboxModule,
 
   MdDialogModule,
 

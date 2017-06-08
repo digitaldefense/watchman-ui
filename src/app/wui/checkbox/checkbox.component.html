@@ -1,0 +1,17 @@
+
+<label [attr.for]="inputId" class="fl-checkbox-layout" #label>
+  <input type="checkbox" #input class="fl-checkbox-input cdk-visually-hidden"
+      [id]="inputId"
+      [required]="required"
+      [checked]="checked"
+      [value]="value"
+      [disabled]="disabled"
+      [name]="name"
+      [tabIndex]="tabIndex"
+      (change)="_onInteractionEvent($event)"
+      (click)="_onInputClick($event)">
+  <div class="fl-checkbox-icon">
+    <fl-icon [ngClass]="{'fa-square-o': !checked, 'fa-check-square': checked}"></fl-icon>
+  </div>
+  <span class="fl-checkbox-label" [ngStyle]="{'order': labelOrder}">{{labelStr}}</span>
+</label>
